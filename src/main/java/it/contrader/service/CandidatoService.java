@@ -2,14 +2,8 @@ package it.contrader.service;
 
 import java.util.List;
 
-import it.contrader.converter.ConverterCandidato;
-
 import it.contrader.dao.CandidatoDAO;
-
-import it.contrader.dto.CandidatoDTO;
-
 import it.contrader.model.Candidato;
-
 
 public class CandidatoService {
 
@@ -19,25 +13,28 @@ public class CandidatoService {
 		this.candidatoDAO = new CandidatoDAO();
 	}
 
-	public List<Candidato> getAllCandidato() {
+	public List<Candidato> getAll() {
 		return this.candidatoDAO.getAllCandidato();
 	}
 
-	public boolean insertCandidato(CandidatoDTO candidatoDTO) {
-		return this.candidatoDAO.insertCandidato(ConverterCandidato.toEntity(candidatoDTO));
+	//chiama il metodo del DAO che restituisce uno candidato in base al suo id
+	public Candidato read(int id) {
+		return this.candidatoDAO.readCandidato(id);
+	}
+
+	//chiama il metodo del DAO che cancella uno candidato in base al suo id
+	public boolean delete(int Id) {
+		return candidatoDAO.deleteCandidato(Id);
 	}
 	
-	public CandidatoDTO readCandidato(int Id) {
-		return ConverterCandidato.toDTO(this.candidatoDAO.readCandidato(Id));
+	//chiama il metodo del DAO che inserisce un oggetto Candidato
+	public boolean insert(Candidato candidato) {
+		return candidatoDAO.insertCandidato(candidato);
 	}
-	
-	public boolean updateCandidato(CandidatoDTO candidatoDTO) {
-		return this.candidatoDAO.updateCandidato(ConverterCandidato.toEntity(candidatoDTO));
+
+	//chiama il metodo del DAO che modifica un candidato
+	public boolean update(Candidato candidato) {
+		return candidatoDAO.updateCandidato(candidato);
 	}
-	
-	public boolean deleteCandidato(int Id) {
-		return this.candidatoDAO.deleteCandidato(Id);
-	}
-	
 	
 }
