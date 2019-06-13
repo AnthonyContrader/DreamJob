@@ -1,69 +1,52 @@
 package it.contrader.view.user;
 
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Scanner;
-
 import it.contrader.controller.Request;
-import it.contrader.controller.UserController;
-import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.User;
-import it.contrader.view.View;
+import it.contrader.view.AbstractView;
 
-public class UserReadView implements View {
+public class UserReadView extends AbstractView {
 
-	private UserController usersController;
+	private int id;
 	private Request request;
+	private final String mode = "READ";
 
 	public UserReadView() {
-		this.usersController = new UserController();
 	}
 
-	@Override
+	/**
+	 * Se la request è null (ovvero quando arriva dal controller con mode GETCHOICE e choice L 
+	 * il metodo è vuoto.
+	 * 
+	 * Altrimenti se arriva con uno user nella request (ovvero quando arriva
+	 * dal controller con mode READ) mostra lo user. In questo caso torna alla UserView senza eseguire
+	 * gli altri due metodi
+	 */
+	
 	public void showResults(Request request) {
-	}
-
-	@Override
-	public void showOptions() {
-		int userIdToRead;
-
-		System.out.println("Inserisci l'ID dell'utente:");
-
-		try {
-			userIdToRead = Integer.parseInt(getInput());
-			UserDTO userDB = usersController.readUser(userIdToRead);
-
-			System.out.println("Id: " + userDB.getId());
-			System.out.println("Username: " + userDB.getUsername());
-			System.out.println("User password: " + userDB.getPassword());
-			System.out.println("User type: " + userDB.getUsertype());
-			
-			//Wait user to show
-			System.out.println("Premi un tasto per continuare");
-			try {
-				getInput();
-			} catch (Exception e) {
-				
-			}
-
-		} catch (Exception e) {
-			System.out.println("Valore inserito errato.");
+		if (request != null) {
+			User user = (User) request.get("user");
+			System.out.println(user);
+			MainDispatcher.getInstance().callView("User", null);
 		}
-
 	}
 
-	@Override
-	public String getInput() {
-		Scanner scanner = new Scanner(System.in);
-		return scanner.nextLine().trim();
+	
+	/**
+	 * chiede all'utente di inserire l'id dell'utente da leggere
+	 */
+	public void showOptions() {
+		System.out.println("Inserisci l'ID dell'utente:");
+		id = Integer.parseInt(getInput());
 	}
 
-	@Override
+	/**
+	 * impacchetta una request con l'id dell'utente da leggere e la manda al controller tramite il Dispatcher
+	 */
 	public void submit() {
 		request = new Request();
-		request.put("mode", "menu");
-		request.put("choice", "");
+		request.put("id", id);
+		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("User", "doControl", request);
 	}
 

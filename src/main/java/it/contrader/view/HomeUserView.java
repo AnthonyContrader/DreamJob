@@ -1,49 +1,37 @@
-/**
- * Manage a Business Owner view
- */
-
 package it.contrader.view;
 
-import java.util.Scanner;
 
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 
-public class HomeUserView implements View {
+public class HomeUserView extends AbstractView{
 
-    private String choice;
+	String choice;
 
-    public void showResults(Request request) {
-    	System.out.println("Benvenuto in dreamjob "+request.get("nomeUtente").toString());
-    }
+	public void showResults(Request request) {
+		System.out.println("/n-----Purtroppo in questo sample l'utente non puà fare nulla, ci scusiamo per il disagio.-----");
 
+	}
 
-    public void showOptions() {
-        System.out.println("-------MENU-------\n");
-        System.out.println("Seleziona cosa vuoi gestire:");
-        System.out.println("[U]tenti [E]sci");
-        this.choice = this.getInput();
-    }
+	public void showOptions() {
+		System.out.println("-------------MENU------------\n");
+		System.out.println("[U]tenti  [E]sci");
+		System.out.println("/n Esatto, puoi solo uscire...");
+		choice = this.getInput();
 
-    public void submit() {
-        if (choice.equalsIgnoreCase("U")) {
-        	MainDispatcher.getInstance().callView("User", null);
-        }
-        
-        if (choice.equalsIgnoreCase("L"))
-            MainDispatcher.getInstance().callAction("Login", "doControl", null);
-        else {
-            Request request = new Request();
-            request.put("choice", choice);
-            MainDispatcher.getInstance().callAction("Login", "doControl", request);
-        }
-    }
+	}
 
+	public void submit() {
 
-    public String getInput() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
-    }
+		switch (choice) {
 
+		case "e":
+			MainDispatcher.getInstance().callAction("Login", "doControl", null);
+			break;
+
+		default:
+			MainDispatcher.getInstance().callAction("Login", "doControl", null);
+		}
+	}
 
 }

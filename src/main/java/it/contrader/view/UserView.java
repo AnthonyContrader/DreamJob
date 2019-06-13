@@ -1,62 +1,59 @@
 package it.contrader.view;
 
 import java.util.List;
-import java.util.Scanner;
-
 import it.contrader.controller.Request;
-import it.contrader.controller.UserController;
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.User;
 
-public class UserView implements View {
+public class UserView extends AbstractView {
 
-	private UserController usersController;
 	private Request request;
 	private String choice;
-	
+
 	public UserView() {
-		this.usersController = new UserController();
+		
 	}
 
-	@Override
+	/**
+	 * Mostra la lista utenti
+	 */
 	public void showResults(Request request) {
+		if (request != null) {
+			System.out.println("\n------------------- Gestione utenti ----------------\n");
+			System.out.println("ID\tUsername\tPassword\tTipo Utente");
+			System.out.println("----------------------------------------------------\n");
+			
+			@SuppressWarnings("unchecked")
+			List<User> users = (List<User>) request.get("users");
+			for (User u: users)
+				System.out.println(u);
+			System.out.println();
+		}
 	}
 
-	@Override
+	/**
+	 * Chiede all'utente un input (lettera da tastiera) per la choice (vedi UserController). 
+	 * Mette la modalità GETCHOICE nella mode.
+	 */
 	public void showOptions() {
+		System.out.println("          Scegli l'operazione da effettuare:");
+		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
+
 		
-		System.out.println("\n------ Gestione utenti -------\n");
+
 		
-		System.out.println("ID\tUsername\tpassword\tTipoUtente");
-		System.out.print("------------------------------------------------------");
-		List<User> user = usersController.getAllUser();
-		System.out.println();
-		for (User u: user)
-			System.out.println(u);
-		System.out.println();
-		System.out.println();
-		
-		System.out.println("Scegli l'operazione da effettuare:");
-		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [E]sci");
-		try {
-			this.choice = getInput();
-		} catch(Exception e) {
-			this.choice = "";
-		}
+	}
+	
+
+
+	/**
+	 * Impacchetta la request e la manda allo UserController.
+	 */
+	public void submit() {
 		request = new Request();
 		request.put("choice", choice);
-		request.put("mode", "");
-	}
-
-	@Override
-	public String getInput() {
-		Scanner scanner = new Scanner(System.in);
-		return scanner.nextLine();
-	}
-
-	@Override
-	public void submit() {
-		    MainDispatcher.getInstance().callAction("User", "doControl", this.request);
+		request.put("mode", "GETCHOICE");
+		MainDispatcher.getInstance().callAction("User", "doControl", this.request);
 	}
 
 }

@@ -1,62 +1,47 @@
 package it.contrader.view.user;
 
-import java.util.List;
-import java.util.Scanner;
-
-import com.mysql.cj.util.StringUtils;
-
 import it.contrader.controller.Request;
-import it.contrader.controller.UserController;
 import it.contrader.main.MainDispatcher;
-import it.contrader.model.User;
-import it.contrader.view.View;
+import it.contrader.view.AbstractView;
 
-public class UserDeleteView implements View {
-
-	private UserController userController;
+public class UserDeleteView extends AbstractView {
 	private Request request;
 
+	private int id;
+	private final String mode = "DELETE";
+
 	public UserDeleteView() {
-		this.userController = new UserController();
 	}
 
-	@Override
+	/**
+	 * Se la request non è nulla (ovvero se si arriva dalla mode DELETE del controller) mostra
+	 * l'esito dell'operazione
+	 */
 	public void showResults(Request request) {
-	}
-
-	@Override
-	public void showOptions() {
-		//List<User> users;
-		//String usersId;
-
-		//users = userController.getAllUser();
-		System.out.println("Seleziona l'ID dell'utente da cancellare: ");
-		//System.out.println();
-		//user.forEach(user -> System.out.println(user));
-		//System.out.println();
-		//System.out.println("Digita l'ID:");
-		String id = getInput();
-
-		if (id != null && StringUtils.isStrictlyNumeric(id)) {
-			userController.deleteUser(Integer.parseInt(id));
-			
-		} else {
-			System.out.println("Valore inserito errato");
+		if (request!=null) {
+			System.out.println("Cancellazione andata a buon fine.\n");
+			MainDispatcher.getInstance().callView("User", null);
 		}
 	}
 
-	@Override
-	public String getInput() {
-		Scanner scanner = new Scanner(System.in);
-		return scanner.nextLine();
+	/**
+	 * Chiede all'utente di inserire l'id dell'utente da cancellare
+	 */
+	public void showOptions() {
+			System.out.println("Inserisci id dell'utente:");
+			id = Integer.parseInt(getInput());
+
 	}
 
-	@Override
+	/**
+	 * impacchetta la request con l'id dell'utente da cancellare
+	 */
 	public void submit() {
 		request = new Request();
-		request.put("mode", "menu");
-		request.put("choice", "");
+		request.put("id", id);
+		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("User", "doControl", request);
 	}
+
 
 }

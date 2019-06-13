@@ -1,77 +1,54 @@
 package it.contrader.view.user;
 
-import java.util.Scanner;
-
 import it.contrader.controller.Request;
-import it.contrader.controller.UserController;
-import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
-import it.contrader.view.View;
+import it.contrader.view.AbstractView;
 
-
-
-public class UserInsertView implements View {
-
-	private UserController usersController;
+public class UserInsertView extends AbstractView{
 	private Request request;
-	private String username ;
-	private String password ;
-	private String usertype ;
 
-	
+	private String username;
+	private String password;
+	private String usertype;
+	private final String mode = "INSERT";
+
 	public UserInsertView() {
-		this.usersController = new UserController();
 	}
-
-	@Override
+	
+	/**
+	 * Se la request non è nulla (ovvero se si arriva dalla mode INSERT del controller) mostra
+	 * l'esito dell'operazione
+	 */
 	public void showResults(Request request) {
-	}
-
-	
-	
-	
-	@Override
-	public void showOptions() {
-		try {
-			
-		System.out.println("Inserisci i campi dell'utente:");
-		System.out.println("Insersci l'username:");
-		username = getInput();
-		System.out.println("Digita la nuova password:");
-		password = getInput();
-		System.out.println("Digita la nuova usertype:");
-		usertype = getInput();
-		
-
-		} catch (Exception e) {
-			System.out.println("Hai inserito un valore errato");
+		if (request!=null) {
+			System.out.println("Inserimento andato a buon fine.\n");
+			MainDispatcher.getInstance().callView("User", null);
 		}
-		
 	}
 
-	@Override
-	public String getInput() {
-		Scanner scanner = new Scanner(System.in);
-		return scanner.nextLine().trim();
+	/**
+	 * Chiede all'utente di inserire gli attributi dell'utente da inserire
+	 */
+	public void showOptions() {
+			System.out.println("Inserisci username dell'utente:");
+			username = getInput();
+			System.out.println("Inserisci password dell'utente:");
+			password = getInput();
+			System.out.println("Inserisci tipo dell'utente:");
+			usertype = getInput();
 	}
 
-	public int getInt() {
-		Scanner scanner = new Scanner(System.in);
-		return scanner.nextInt();
-	}
-	
-	
-
-	
-	@Override
+	/**
+	 * Impacchetta la request con i dati inseriti nel metodo showOption()
+	 */
 	public void submit() {
 		request = new Request();
 		request.put("username", username);
 		request.put("password", password);
 		request.put("usertype", usertype);
-		request.put("mode", "INSERT");
-		request.put("choice", "");
+		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("User", "doControl", request);
 	}
+
 
 }
