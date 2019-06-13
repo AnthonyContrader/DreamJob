@@ -5,9 +5,7 @@ import java.util.List;
 
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.Company;
-import it.contrader.model.User;
 import it.contrader.service.CompanyService;
-import it.contrader.service.UserService;
 
 public class CompanyController implements Controller {
 
