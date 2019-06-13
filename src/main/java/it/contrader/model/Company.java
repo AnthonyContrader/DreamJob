@@ -2,19 +2,19 @@ package it.contrader.model;
 
 public class Company {
 	private int id;
-	private String username;
-	private String password;
-	private String usertype;
+	private String name;
+	private String info;
+	private String openjob;
 
 
 	public Company() {}
 	//costruttore vuoto, stringa inizializzata vuota
 	
-	public Company(String username, String password, String usertype) {
+	public Company(String name, String info, String openjob) {
 		super();
-		this.username = username;
-		this.password = password;
-		this.usertype = usertype;
+		this.name = name;
+		this.info = info;
+		this.openjob = openjob;
 	}
 
 	
@@ -26,33 +26,33 @@ public class Company {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getName() {
+		return name;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getInfo() {
+		return info;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setInfo(String info) {
+		this.info = info;
 	}
 
-	public String getUsertype() {
-		return usertype;
+	public String getOpenjob() {
+		return openjob;
 	}
 
-	public void setUsertype(String usertype) {
-		this.usertype = usertype;
+	public void setOpenjob(String openjob) {
+		this.openjob = openjob;
 	}
 
 	public String toString() {
-		return this.getId() + "\t" + this.getUsername() + "\t" +  this.getPassword() + "\t" + 
-				this.getUsertype();
+		return this.getId() + "\t" + this.getInfo() + "\t" + 
+				this.getOpenjob();
 	}
 
 	
