@@ -23,16 +23,16 @@ public class UserService {
 		return this.userDAO.insertUser(ConverterUser.toEntity(userDTO));
 	}
 	
-	public UserDTO readUser(int userId) {
-		return ConverterUser.toDTO(this.userDAO.readUser(userId));
+	public UserDTO readUser(int Id) {
+		return ConverterUser.toDTO(this.userDAO.readUser(Id));
 	}
 	
 	public boolean updateUser(UserDTO userDTO) {
 		return this.userDAO.updateUser(ConverterUser.toEntity(userDTO));
 	}
 	
-	public boolean deleteUser(int userId) {
-		return this.userDAO.deleteUser(userId);
+	public boolean deleteUser(int Id) {
+		return this.userDAO.deleteUser(Id);
 	}
 	
 	
