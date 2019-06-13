@@ -2,7 +2,7 @@ package it.contrader.controller;
 
 import java.util.List;
 
-import it.contrader.dto.UserDTO;
+
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.User;
 import it.contrader.service.UserService;
@@ -42,7 +42,7 @@ public class UserController implements Controller {
 
 		//Definisce i campi della classe (serviranno sempre, tanto vale definirli una sola volta)
 		int id;
-		String username ;
+		String username;
 		String password;
 		String usertype;
 
@@ -51,8 +51,8 @@ public class UserController implements Controller {
 		// Arriva qui dalla UserReadView. Invoca il Service con il parametro id e invia alla UserReadView uno user da mostrare 
 		case "READ":
 			id = Integer.parseInt(request.get("id").toString());
-			UserDTO user = userService.readUser(id);
-			request.put("user", id);
+			User user = userService.read(id);
+			request.put("user", user);
 			MainDispatcher.getInstance().callView(sub_package + "UserRead", request);
 			break;
 		
@@ -65,7 +65,7 @@ public class UserController implements Controller {
 			//costruisce l'oggetto user da inserire
 			User usertoinsert = new User(username, password, usertype);
 			//invoca il service
-			userService.insertUser(id);
+			userService.insert(usertoinsert);
 			request = new Request();
 			request.put("mode", "mode");
 			//Rimanda alla view con la risposta
@@ -76,7 +76,7 @@ public class UserController implements Controller {
 		case "DELETE":
 			id = Integer.parseInt(request.get("id").toString());
 			//Qui chiama il service
-			userService.deleteUser(id);
+			userService.delete(id);
 			request = new Request();
 			request.put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "UserDelete", request);
@@ -90,7 +90,7 @@ public class UserController implements Controller {
 			usertype = request.get("usertype").toString();
 			User usertoupdate = new User(username, password, usertype);
 			usertoupdate.setId(id);
-			userService.updateUser(user);
+			userService.update(usertoupdate);
 			request = new Request();
 			request.put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "UserUpdate", request);
@@ -98,7 +98,7 @@ public class UserController implements Controller {
 			
 		//Arriva qui dalla UserView Invoca il Service e invia alla UserView il risultato da mostrare 
 		case "USERLIST":
-			List<User> users = userService.getAllUser();
+			List<User> users = userService.getAll();
 			//Impacchetta la request con la lista degi user
 			request.put("users", users);
 			MainDispatcher.getInstance().callView("User", request);

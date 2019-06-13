@@ -2,38 +2,43 @@ package it.contrader.service;
 
 import java.util.List;
 
-import it.contrader.converter.ConverterUser;
 import it.contrader.dao.UserDAO;
-import it.contrader.dto.UserDTO;
 import it.contrader.model.User;
 
 public class UserService {
 
 	private UserDAO userDAO;
-
+	/**
+	 * Costruisce un oggetto di tipo UserDAO per poterne usare i metodi
+	 */
 	public UserService() {
 		this.userDAO = new UserDAO();
 	}
 
-	public List<User> getAllUser() {
+	//chiama il metodo del DAO che ottiene una lista di tutti gli user
+	public List<User> getAll() {
 		return this.userDAO.getAllUser();
 	}
+	
+	//chiama il metodo del DAO che restituisce uno user in base al suo id
+	public User read(int id) {
+		return this.userDAO.readUser(id);
+	}
 
-	public boolean insertUser(UserDTO userDTO) {
-		return this.userDAO.insertUser(ConverterUser.toEntity(userDTO));
+	//chiama il metodo del DAO che cancella uno user in base al suo id
+	public boolean delete(int Id) {
+		return userDAO.deleteUser(Id);
 	}
 	
-	public UserDTO readUser(int Id) {
-		return ConverterUser.toDTO(this.userDAO.readUser(Id));
+	//chiama il metodo del DAO che inserisce un oggetto User
+	public boolean insert(User user) {
+		return userDAO.insertUser(user);
 	}
-	
-	public boolean updateUser(UserDTO userDTO) {
-		return this.userDAO.updateUser(ConverterUser.toEntity(userDTO));
+
+	//chiama il metodo del DAO che modifica un utente
+	public boolean update(User user) {
+		return userDAO.updateUser(user);
 	}
-	
-	public boolean deleteUser(int Id) {
-		return this.userDAO.deleteUser(Id);
-	}
-	
-	
+
+
 }
