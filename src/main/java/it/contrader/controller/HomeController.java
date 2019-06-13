@@ -14,12 +14,12 @@ public class HomeController implements Controller {
 
     public void doControl(Request request) {
         if (request != null) {
-            String nomeUtente = request.get("nomeUtente").toString();
+            String username = request.get("username").toString();
             String password = request.get("password").toString();
             //prende i dati nel pacchetto request e li fa ritornare singoli
             
             //Change view according userType
-            String userType= loginService.login(nomeUtente, password);
+            String userType= loginService.login(username, password);
             //serve per ottenere un utente dal db
             System.out.println(userType);
             if(userType==null)

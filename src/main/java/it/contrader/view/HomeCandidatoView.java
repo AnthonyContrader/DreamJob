@@ -20,7 +20,7 @@ public class HomeCandidatoView implements View {
 
     public void showOptions() {
         System.out.println("-------MENU-------\n");
-        System.out.println("Seleziona cosa vuoi gestire:");
+        System.out.println("Completa profilo :");
         System.out.println("[U]tenti [E]sci");
         this.choice = this.getInput();
     }

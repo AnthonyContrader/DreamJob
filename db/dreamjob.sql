@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `DreamJob` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
-USE `DreamJob`;
+CREATE DATABASE  IF NOT EXISTS `dreamjob` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+USE `dreamjob`;
 -- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
 -- Host: localhost    Database: contraderjava
@@ -21,50 +21,48 @@ USE `DreamJob`;
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `login`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `usertype` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+	`password` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Insert all users';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+DROP TABLE IF EXISTS `company`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+
+CREATE TABLE `company` (
+  `companyid` int(11) NOT NULL AUTO_INCREMENT,
+  `companyname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `companyinfo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+     `companylanguage` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+      `companyskills` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+	`companystatus` bool,
+  PRIMARY KEY (`companyid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Insert all companyinfo';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
+
 CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `user_type` bool,
-	`user_pass` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Insert all users';
+  `userid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `surname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `age` int(2) COLLATE utf8_unicode_ci NOT NULL,
+  `userinfo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+   `userlanguage` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+    `usereducation` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+     `userexperience` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+      `userskills` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+	`userstatus` bool,
+  PRIMARY KEY (`userid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Insert all userinfo';
 /*!40101 SET character_set_client = @saved_cs_client */;
-CREATE TABLE `company` (
-  `company_id` int(11) NOT NULL AUTO_INCREMENT,
-  `company_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `company_info` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-	`company_status` bool,
-  PRIMARY KEY (`company_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Insert all companies';
-/*!40101 SET character_set_client = @saved_cs_client */;
-CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `user_info` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-	`user_status` bool,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Insert all users';
-/*!40101 SET character_set_client = @saved_cs_client */;
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','admin'),(2,'user','user');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2019-03-19 11:25:37
