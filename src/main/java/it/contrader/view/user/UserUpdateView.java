@@ -11,11 +11,11 @@ import it.contrader.view.View;
 
 public class UserUpdateView implements View {
 
-	private UserController usersController;
+	private UserController userController;
 	private Request request;
 
 	public UserUpdateView() {
-		this.usersController = new UserController();
+		this.userController = new UserController();
 	}
 
 	@Override
@@ -24,8 +24,8 @@ public class UserUpdateView implements View {
 
 	@Override
 	public void showOptions() {
-		int userIdToUpdate;
-		String username, usertype;
+		int idToUpdate;
+		String username, password, usertype;
 
 		/*
 		 * List<User> users; Integer usersId; String password; users =
@@ -39,16 +39,24 @@ public class UserUpdateView implements View {
 
 		System.out.println("Digita l'Id dell'utente da modificare:");
 		try {
-			userIdToUpdate = Integer.parseInt(getInput());
-			if (userIdToUpdate != 0) {
-				userDTO.setUserId(userIdToUpdate);
+			idToUpdate = Integer.parseInt(getInput());
+			if (idToUpdate != 0) {
+				userDTO.setId(idToUpdate);
 
 				System.out.println("Digita la nuova username:");
 				username = getInput();
 				if (!username.equals(""))
 					userDTO.setUsername(username);
-
-				usersController.updateUser(userDTO);
+				System.out.println("Digita la nuova password:");
+				password = getInput();
+				if (!password.equals(""))
+					userDTO.setPassword(password);
+				System.out.println("Digita la nuova usertype:");
+				usertype = getInput();
+				if (!usertype.equals(""))
+					userDTO.setUsertype(usertype);
+				
+				userController.updateUser(userDTO);
 
 			}
 		} catch (Exception e) {
@@ -63,6 +71,10 @@ public class UserUpdateView implements View {
 		return scanner.nextLine().trim();
 	}
 
+	public int getInt() {
+		Scanner scanner = new Scanner(System.in);
+		return scanner.nextInt();
+	}
 	@Override
 	public void submit() {
 		request = new Request();

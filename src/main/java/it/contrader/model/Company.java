@@ -1,16 +1,16 @@
 package it.contrader.model;
 
-public class User {
+public class Company {
 	private int id;
 	private String username;
 	private String password;
 	private String usertype;
 
 
-	public User() {}
+	public Company() {}
 	//costruttore vuoto, stringa inizializzata vuota
 	
-	public User(String username, String password, String usertype) {
+	public Company(String username, String password, String usertype) {
 		super();
 		this.username = username;
 		this.password = password;

@@ -34,8 +34,9 @@ public class UserReadView implements View {
 			userIdToRead = Integer.parseInt(getInput());
 			UserDTO userDB = usersController.readUser(userIdToRead);
 
-			System.out.println("Id: " + userDB.getUserId());
+			System.out.println("Id: " + userDB.getId());
 			System.out.println("Username: " + userDB.getUsername());
+			System.out.println("User password: " + userDB.getPassword());
 			System.out.println("User type: " + userDB.getUsertype());
 			
 			//Wait user to show

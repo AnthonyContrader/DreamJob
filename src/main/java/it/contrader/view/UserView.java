@@ -27,11 +27,13 @@ public class UserView implements View {
 		
 		System.out.println("\n------ Gestione utenti -------\n");
 		
-		System.out.println("ID\tUsername\tTipoUtente");
+		System.out.println("ID\tUsername\tpassword\tTipoUtente");
 		System.out.print("------------------------------------------------------");
-		List<User> users = usersController.getAllUser();
+		List<User> user = usersController.getAllUser();
 		System.out.println();
-		users.forEach(user -> System.out.println(user.toString()));
+		for (User u: user)
+			System.out.println(u);
+		System.out.println();
 		System.out.println();
 		
 		System.out.println("Scegli l'operazione da effettuare:");
