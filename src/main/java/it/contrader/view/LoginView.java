@@ -27,9 +27,9 @@ public class LoginView implements View {
 		//inizializzo array request che è indicizzato a stringhe
 		Request request = new Request();
 		//inserisco nell'array request nome utente e password
-		request.put("nomeUtente", nomeUtente);
+		request.put("username", nomeUtente);
 		request.put("password", password);
-		System.out.print("arrivatoooo");
+		
 		//chiama il Controller e gli passa l'array request cioè nomeutente e pass
 		MainDispatcher.getInstance().callAction("Home", "doControl", request);
 		

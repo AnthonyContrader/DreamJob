@@ -43,7 +43,7 @@ public class LoginDAO {
             return usertype;
         }
         catch (SQLException e) {
-            GestoreEccezioni.getInstance().gestisciEccezione(e);
+            
             return null;
         }
     }

@@ -22,15 +22,17 @@ public class HomeController implements Controller {
             String userType= loginService.login(username, password);
             //serve per ottenere un utente dal db
             System.out.println(userType);
+           
+            
             if(userType==null)
+            	
                 MainDispatcher.getInstance().callAction("Login", "doControl", request);
+            	
             
             if (userType.equals("admin"))
+            	System.out.println(userType);
                 MainDispatcher.getInstance().callView("HomeAdmin", request);
-            
-            if (userType.equals("user"))
-                MainDispatcher.getInstance().callView("HomeUser", request);
-            
+            	
             if (userType.equals("candidato"))
             	MainDispatcher.getInstance().callView("HomeCandidato", request);
            
