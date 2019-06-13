@@ -20,6 +20,7 @@ public class ConnectionSingleton {
 
 
     public static Connection getInstance() {
+    	//prepara dei dati per connettersi al db
         if (connection == null) {
             try {
                 Properties properties = new Properties();
@@ -39,6 +40,8 @@ public class ConnectionSingleton {
     			Class c = Class.forName(driver);
     			System.out.println("Ho caricato: " + c.getName());
                 String url = "jdbc:" + vendor + "://" + host + ":" + port + "/" + dbName+"?"+jdbcAdditionalParams;
+                System.out.println(url);
+
     			connection = (Connection) DriverManager.getConnection(url, username, password);
 
                 //DriverManagerDataSource dataSource = new DriverManagerDataSource(myUrl, username, password);

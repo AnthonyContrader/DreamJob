@@ -30,15 +30,15 @@ public class UserDeleteView implements View {
 		//String usersId;
 
 		//users = userController.getAllUser();
-		System.out.println("Seleziona l'utente da cancellare: ");
+		System.out.println("Seleziona l'ID dell'utente da cancellare: ");
 		//System.out.println();
 		//user.forEach(user -> System.out.println(user));
 		//System.out.println();
 		//System.out.println("Digita l'ID:");
-		String usersId = getInput();
+		String id = getInput();
 
-		if (usersId != null && StringUtils.isStrictlyNumeric(usersId)) {
-			userController.deleteUser(Integer.parseInt(usersId));
+		if (id != null && StringUtils.isStrictlyNumeric(id)) {
+			userController.deleteUser(Integer.parseInt(id));
 			
 		} else {
 			System.out.println("Valore inserito errato");

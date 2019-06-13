@@ -9,7 +9,7 @@ import java.util.Scanner;
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 
-public class HomeAdminView implements View {
+public class HomeCompanyView implements View {
 
     private String choice;
 
