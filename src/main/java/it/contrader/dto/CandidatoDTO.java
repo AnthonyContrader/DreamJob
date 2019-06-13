@@ -56,7 +56,7 @@ public class CandidatoDTO {
 		this.education = education;
 	}
 
-	public String getEperience() {
+	public String getExperience() {
 		return experience;
 	}
 

@@ -7,7 +7,7 @@ import it.contrader.model.Candidato;
 
 public class ConverterCandidato {
 
-	public static CandidatoDTO toDTO(candidato candidato) {
+	public static CandidatoDTO toDTO(Candidato candidato) {
 		CandidatoDTO candidatoDTO = null;
 		if (candidato != null) {
 			//collega model e DTO
@@ -19,7 +19,7 @@ public class ConverterCandidato {
 			candidatoDTO.setExperience(candidato.getExperience());
 			
 		}
-		return CandidatoDTO;
+		return candidatoDTO;
 	}
 
 	public static Candidato toEntity(CandidatoDTO candidatoDTO) {
