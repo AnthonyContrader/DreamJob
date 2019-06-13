@@ -22,7 +22,7 @@ public class LoginDAO {
 
         Connection connection = ConnectionSingleton.getInstance();
         //connette al db
-        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+       
         try {
             PreparedStatement statement = connection.prepareStatement(QUERY_LOGIN);
             //prepara la richiesta al db
