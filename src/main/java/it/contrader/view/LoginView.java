@@ -36,11 +36,11 @@ public class LoginView implements View {
 	}
 
 	public String getInput() {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		return scanner.nextLine();
 	}
 
-	protected void send() {
-	}
+	protected void send() {}
 
 }
