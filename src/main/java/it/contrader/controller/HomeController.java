@@ -25,20 +25,20 @@ public class HomeController implements Controller {
            
             
             if(userType==null)
-            	
                 MainDispatcher.getInstance().callAction("Login", "doControl", request);
             	
-            
             if (userType.equals("admin"))
-            	System.out.println(userType);
                 MainDispatcher.getInstance().callView("HomeAdmin", request);
-            	
-            if (userType.equals("candidato"))
+            
+            if (userType.equals("candidato")) 
             	MainDispatcher.getInstance().callView("HomeCandidato", request);
            
-            if (userType.equals("company"))
+            if (userType.equals("company")) {
+            	
+            	// aggiungere info
             	MainDispatcher.getInstance().callView("HomeCompany", request);
-        }
+            }
+           }
         else MainDispatcher.getInstance().callView("Login", null);
 
     }

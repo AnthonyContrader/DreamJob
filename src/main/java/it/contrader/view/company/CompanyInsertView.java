@@ -3,8 +3,9 @@ package it.contrader.view.company;
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.view.AbstractView;
+import it.contrader.view.View;
 
-public class CompanyInsertView extends AbstractView {
+public class CompanyInsertView extends AbstractView implements View  {
 	private Request request;
 	
 

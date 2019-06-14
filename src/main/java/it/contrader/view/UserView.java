@@ -1,11 +1,13 @@
 package it.contrader.view;
 
 import java.util.List;
+import java.util.Scanner;
+
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.User;
 
-public class UserView extends AbstractView {
+public class UserView extends AbstractView implements View{
 
 	private Request request;
 	private String choice;
@@ -40,11 +42,14 @@ public class UserView extends AbstractView {
 		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
 
 		
-
+		choice = getInput();
 		
 	}
 	
-
+	public String getInput() {
+		Scanner scanner = new Scanner(System.in);
+		return scanner.nextLine();
+	}
 
 	/**
 	 * Impacchetta la request e la manda allo UserController.

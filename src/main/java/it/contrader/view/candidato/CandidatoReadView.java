@@ -4,8 +4,9 @@ import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.Candidato;
 import it.contrader.view.AbstractView;
+import it.contrader.view.View;
 
-public class CandidatoReadView extends AbstractView {
+public class CandidatoReadView extends AbstractView implements View {
 
 	private int id;
 	private Request request;

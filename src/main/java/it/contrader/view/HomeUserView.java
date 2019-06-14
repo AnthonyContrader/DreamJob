@@ -4,7 +4,7 @@ package it.contrader.view;
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 
-public class HomeUserView extends AbstractView{
+public class HomeUserView extends AbstractView implements View{
 
 	String choice;
 

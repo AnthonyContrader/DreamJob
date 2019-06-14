@@ -3,8 +3,9 @@ package it.contrader.view.user;
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.view.AbstractView;
+import it.contrader.view.View;
 
-public class UserInsertView extends AbstractView{
+public class UserInsertView extends AbstractView implements View {
 	private Request request;
 
 	private String username;
@@ -36,6 +37,7 @@ public class UserInsertView extends AbstractView{
 			password = getInput();
 			System.out.println("Inserisci tipo dell'utente:");
 			usertype = getInput();
+			
 	}
 
 	/**

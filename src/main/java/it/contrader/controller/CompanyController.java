@@ -2,7 +2,6 @@ package it.contrader.controller;
 
 import java.util.List;
 
-
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.Company;
 import it.contrader.service.CompanyService;
