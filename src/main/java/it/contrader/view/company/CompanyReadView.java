@@ -4,8 +4,9 @@ import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.model.Company;
 import it.contrader.view.AbstractView;
+import it.contrader.view.View;
 
-public class CompanyReadView extends AbstractView {
+public class CompanyReadView extends AbstractView implements View {
 
 private int id;
 private Request request;

@@ -34,6 +34,13 @@ public class MainDispatcher {
 	}
 
 	public void callView(String view, Request request) {
+		System.out.println("la string view " + view);
+		System.out.println("la request " + request);
+		/**
+		 * l'errore era nel cast in tipo view, le classi che stavamo chiamando non implementavano
+		 * l'interfaccia View che si trova nel package .view, quindi in fase di compilazione
+		 * la JVM non riesce a tradurre.
+		 */
 		View oggettoView = (View) ReflectionUtils.instantiateClass("it.contrader.view." + view + "View");
 		oggettoView.showResults(request);
 		oggettoView.showOptions();

@@ -3,8 +3,9 @@ package it.contrader.view.candidato;
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.view.AbstractView;
+import it.contrader.view.View;
 
-public class CandidatoDeleteView extends AbstractView {
+public class CandidatoDeleteView extends AbstractView implements View {
 
 	private Request request;
 
