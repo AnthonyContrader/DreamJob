@@ -13,6 +13,8 @@ public class CompanyInsertView extends AbstractView implements View  {
 	private String info;
 	private String openjob;
 	private final String mode = "INSERT";
+	private String password;
+	private String username;
 
 	public CompanyInsertView() {
 	}
@@ -20,7 +22,7 @@ public class CompanyInsertView extends AbstractView implements View  {
 	public void showResults(Request request) {
 	if (request!=null) {
 		System.out.println("Inserimento andato a buon fine.\n");
-		MainDispatcher.getInstance().callView("Company", null);
+		MainDispatcher.getInstance().callView("HomeAdmin", null);
 	}
 }
 
@@ -34,6 +36,10 @@ public void showOptions() {
 		info = getInput();
 		System.out.println("Inserisci le posizioni aperte dell'azienda:");
 		openjob = getInput();
+		System.out.println("Inserisci password della comapny:");
+		password = getInput();
+		System.out.println("Inserisci username del company:");
+		username = getInput();
 }
 
 /**
@@ -44,7 +50,9 @@ public void submit() {
 	request.put("name", name);
 	request.put("info", info);
 	request.put("openjob", openjob);
-	request.put("mode", mode);
+	request.put("mode", "INSERT");
+	request.put("password", password);
+	request.put("username", username);
 	MainDispatcher.getInstance().callAction("Company", "doControl", request);
 }
 

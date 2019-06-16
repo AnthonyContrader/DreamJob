@@ -15,6 +15,8 @@ public class CandidatoUpdateView extends AbstractView implements View {
 	private int age;
 	private String education;
 	private String experience;
+	private String password;
+	private String username;
 	private final String mode = "UPDATE";
 	
 	public CandidatoUpdateView() {
@@ -22,8 +24,8 @@ public class CandidatoUpdateView extends AbstractView implements View {
 	
 	public void showResults(Request request) {
 		if (request!=null) {
-			System.out.println("Modifica andata a buon fine.\n");
-			MainDispatcher.getInstance().callView("Candidato", null);
+			System.out.println("Modifica  del candidato andata a buon fine.\n");
+			MainDispatcher.getInstance().callView("HomeAdmin", null);
 		}
 	}
 	
@@ -31,16 +33,20 @@ public class CandidatoUpdateView extends AbstractView implements View {
 		try {
 			System.out.println("Inserisci id del candidato:");
 			id = Integer.parseInt(getInput());
-			System.out.println("Inserisci name del candidato:");
+			System.out.println("Modifica name del candidato:");
 			name = getInput();
-			System.out.println("Inserisci surname del candidato:");
+			System.out.println("Modifica surname del candidato:");
 			surname = getInput();
-			System.out.println("Inserisci l'eta del candidato:");
+			System.out.println("Modifica l'eta del candidato:");
 			age = Integer.parseInt(getInput());
-			System.out.println("Inserisci istruzione del candidato:");
+			System.out.println("Modifica istruzione del candidato:");
 			education = getInput();
-			System.out.println("Inserisci esperienze del candidato:");
+			System.out.println("Modifica esperienze del candidato:");
 			experience = getInput();
+			System.out.println("Modifica password del candidato:");
+			password = getInput();
+			System.out.println("Modifica username del candidato:");
+			username = getInput();
 		} catch (Exception e) {
 
 		}
@@ -54,6 +60,9 @@ public class CandidatoUpdateView extends AbstractView implements View {
 		request.put("age", age);
 		request.put("education", education);
 		request.put("experience", experience);
+		request.put("password", password);
+		request.put("username", username);
+		
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Candidato", "doControl", request);
 	}

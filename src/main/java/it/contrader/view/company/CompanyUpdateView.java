@@ -14,6 +14,10 @@ public class CompanyUpdateView extends AbstractView implements View  {
 	private String openjob;
 	private final String mode = "UPDATE";
 
+	private String password;
+
+	private String username;
+
 	public CompanyUpdateView() {
 	}
 
@@ -25,7 +29,7 @@ public class CompanyUpdateView extends AbstractView implements View  {
 	public void showResults(Request request) {
 		if (request!=null) {
 			System.out.println("Modifica andata a buon fine.\n");
-			MainDispatcher.getInstance().callView("Company", null);
+			MainDispatcher.getInstance().callView("HomeAdmin", null);
 		}
 	}
 
@@ -43,6 +47,10 @@ public class CompanyUpdateView extends AbstractView implements View  {
 			info = getInput();
 			System.out.println("Inserisci posizioi aperte dell'azienda:");
 			openjob = getInput();
+			System.out.println("Inserisci password della comapny:");
+			password = getInput();
+			System.out.println("Inserisci username del company:");
+			username = getInput();
 		} catch (Exception e) {
 
 		}
@@ -60,6 +68,8 @@ public class CompanyUpdateView extends AbstractView implements View  {
 		request.put("info", info);
 		request.put("openjob", openjob);
 		request.put("mode", mode);
+		request.put("password", password);
+		request.put("username", username);
 		MainDispatcher.getInstance().callAction("Company", "doControl", request);
 	}
 

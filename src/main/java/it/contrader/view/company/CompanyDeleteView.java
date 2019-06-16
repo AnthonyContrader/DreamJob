@@ -21,7 +21,7 @@ public class CompanyDeleteView extends AbstractView implements View {
 	public void showResults(Request request) {
 		if (request!=null) {
 			System.out.println("Cancellazione andata a buon fine.\n");
-			MainDispatcher.getInstance().callView("Company", null);
+			MainDispatcher.getInstance().callView("HomeAdmin", null);
 		}
 	}
 

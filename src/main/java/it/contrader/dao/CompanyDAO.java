@@ -11,10 +11,10 @@ import it.contrader.model.Company;
 public class CompanyDAO {
 	
 	private final String QUERY_ALL = "select * from company";
-	private final String QUERY_INSERT = "insert into company (name,info,openjob) values (?,?,?)";
+	private final String QUERY_INSERT = "insert into company (name,info,openjob,password,username,usertype) values (?,?,?,?,?,?)";
 	private final String QUERY_READ = "select * from company where id=?";
 
-	private final String QUERY_UPDATE = "UPDATE company SET name=?,info=?,openjob=? WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE company SET name=?,info=?,openjob=, password=?,username=? WHERE id=?";
 	private final String QUERY_DELETE = "delete from company where id=?";
 
 	public CompanyDAO() {
@@ -33,8 +33,11 @@ public class CompanyDAO {
 				String name = resultSet.getString("name");
 				String info = resultSet.getString("info");
 				String openjob = resultSet.getString("openjob");
+				String username = resultSet.getString("username");
+				String password = resultSet.getString("password");
+				String usertype = resultSet.getString("usertype");
 				
-				company = new Company(name,info,openjob);
+				company = new Company(name,info,openjob, openjob, openjob, openjob);
 				company.setId(id);
 				CompanysList.add(company);
 			}
@@ -51,6 +54,10 @@ public class CompanyDAO {
 			preparedStatement.setString(1, company.getName());
 			preparedStatement.setString(2, company.getInfo());
 			preparedStatement.setString(3, company.getOpenjob());
+			preparedStatement.setString(4, company.getPassword());
+			preparedStatement.setString(5, company.getUsername());
+			preparedStatement.setString(6, company.getUsertype());
+			
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -72,8 +79,10 @@ public class CompanyDAO {
 			name = resultSet.getString("name");
 			info = resultSet.getString("info");
 			openjob = resultSet.getString("openjob");
-			 
-			 Company company = new Company (name,info,openjob);
+			String username = resultSet.getString("username");
+			String password = resultSet.getString("password");
+			String usertype = resultSet.getString("usertype");
+			 Company company = new Company (name,info,openjob, password,username,usertype);
 			 
 
 			return company;
@@ -106,19 +115,32 @@ public class CompanyDAO {
 				if (companyToUpdate.getOpenjob() == null || companyToUpdate.getOpenjob().equals("")) {
 					companyToUpdate.setOpenjob(companyRead.getOpenjob());
 				}
+					if (companyToUpdate.getPassword() == null || companyToUpdate.getPassword().equals("")) {
+						companyToUpdate.setPassword(companyRead.getPassword());
+						
+					}
+					if (companyToUpdate.getUsername() == null || companyToUpdate.getUsername().equals("")) {
+						companyToUpdate.setUsername(companyRead.getUsername());
+						
+					
+				}
 
 				// Update the user
-				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-				preparedStatement.setInt(1, companyToUpdate.getId());
-				preparedStatement.setString(2, companyToUpdate.getName());
-				preparedStatement.setString(3, companyToUpdate.getInfo());
-				preparedStatement.setString(4, companyToUpdate.getOpenjob());
-				
+				PreparedStatement preparedStatement = connection.prepareStatement(QUERY_UPDATE);
+				preparedStatement.setInt(6, companyToUpdate.getId());
+				preparedStatement.setString(1, companyToUpdate.getName());
+				preparedStatement.setString(2, companyToUpdate.getInfo());
+				preparedStatement.setString(3, companyToUpdate.getOpenjob());
+				preparedStatement.setString(4, companyToUpdate.getPassword());
+				preparedStatement.setString(5, companyToUpdate.getUsername());
+				System.out.println(preparedStatement.toString());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;
 				else
-					return false;
+				{
+					System.out.println("ASFALLITo");
+					return false;}
 
 			} catch (SQLException e) {
 				return false;

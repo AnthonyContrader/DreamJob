@@ -15,6 +15,8 @@ public class CandidatoController implements Controller {
 	private static String sub_package = "user.";
 	
 	private CandidatoService candidatoService;
+
+	
 	/**
 	 * Costruisce un oggetto di tipo UserService per poterne usare i metodi
 	 */
@@ -47,7 +49,8 @@ public class CandidatoController implements Controller {
 		int age;
 		String education;
 		String experience;
-
+		String password;
+		String username;
 		switch (mode) {
 		
 		// Arriva qui dalla UserReadView. Invoca il Service con il parametro id e invia alla UserReadView uno user da mostrare 
@@ -60,6 +63,8 @@ public class CandidatoController implements Controller {
 		
 		// Arriva qui dalla cANDIDATOInsertView. Estrae i parametri da inserire e chiama il service per inserire uno user con questi parametri
 		case "INSERT":
+			password = request.get("password").toString();
+			username = request.get ("username").toString();
 			name = request.get("name").toString();
 			surname = request.get("surname").toString();
 			age = Integer.parseInt(request.get("age").toString());
@@ -68,13 +73,13 @@ public class CandidatoController implements Controller {
 
 			
 			//costruisce l'oggetto CANDIDATO da inserire
-			Candidato candidatotoinsert = new Candidato(name, surname, age, education, experience);
+			Candidato candidatotoinsert = new Candidato(name, surname, age, education, experience, username, password, "candidato");
 			//invoca il service
 			candidatoService.insert(candidatotoinsert);
 			request = new Request();
 			request.put("mode", "mode");
 			//Rimanda alla view con la risposta
-			MainDispatcher.getInstance().callView(sub_package + "UserInsert", request);
+			MainDispatcher.getInstance().callView("candidato.CandidatoInsert", request);
 			break;
 		
 		// Arriva qui dalla UserDeleteView. Estrae l'id CANDIDATO da cancellare e lo passa al Service
@@ -84,7 +89,7 @@ public class CandidatoController implements Controller {
 			candidatoService.delete(id);
 			request = new Request();
 			request.put("mode", "mode");
-			MainDispatcher.getInstance().callView(sub_package + "UserDelete", request);
+			MainDispatcher.getInstance().callView("candidato.CandidatoDelete", request);
 			break;
 		
 		// Arriva qui dalla UserUpdateView
@@ -95,12 +100,14 @@ public class CandidatoController implements Controller {
 			age = Integer.parseInt(request.get("age").toString());
 			education = request.get("education").toString();
 			experience = request.get("experience").toString();
-			Candidato candidatotoupdate = new Candidato(name, surname, age, education, experience);
+			password = request.get("password").toString();
+			username = request.get("username").toString();
+			Candidato candidatotoupdate = new Candidato(name, surname, age, education, experience,username, password, "candidato");
 			candidatotoupdate.setId(id);
 			candidatoService.update(candidatotoupdate);
 			request = new Request();
 			request.put("mode", "mode");
-			MainDispatcher.getInstance().callView(sub_package + "CandidatoUpdate", request);
+			MainDispatcher.getInstance().callView("candidato.CandidatoUpdate", request);
 			break;
 			
 		//Arriva qui dalla UserView Invoca il Service e invia alla UserView il risultato da mostrare 

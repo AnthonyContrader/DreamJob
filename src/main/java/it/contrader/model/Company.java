@@ -1,7 +1,6 @@
 package it.contrader.model;
 
-public class Company {
-	private int id;
+public class Company extends User{
 	private String name;
 	private String info;
 	private String openjob;
@@ -10,20 +9,11 @@ public class Company {
 	public Company() {}
 	//costruttore vuoto, stringa inizializzata vuota
 	
-	public Company(String name, String info, String openjob) {
-		super();
+	public Company(String name, String info, String openjob, String username, String password,String usertype) {
+		super(username,password,usertype);
 		this.name = name;
 		this.info = info;
 		this.openjob = openjob;
-	}
-
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getName() {

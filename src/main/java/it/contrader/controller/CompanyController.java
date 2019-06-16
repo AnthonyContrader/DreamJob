@@ -44,6 +44,8 @@ public class CompanyController implements Controller {
 		String name;
 		String info;
 		String openjob;
+		String password;
+		String username;
 
 		switch (mode) {
 		
@@ -60,15 +62,17 @@ public class CompanyController implements Controller {
 			name = request.get("name").toString();
 			info = request.get("info").toString();
 			openjob = request.get("openjob").toString();
+			password = request.get("password").toString();
+			username = request.get ("username").toString();
 			
 			//costruisce l'oggetto company da inserire
-			Company companytoinsert = new Company(name, info, openjob);
+			Company companytoinsert = new Company(name, info, openjob, username, password, "company");
 			//invoca il service
 			companyService.insert(companytoinsert);
 			request = new Request();
 			request.put("mode", "mode");
 			//Rimanda alla view con la risposta
-			MainDispatcher.getInstance().callView(sub_package + "companyInsert", request);
+			MainDispatcher.getInstance().callView("company.CompanyInsert", request);
 			break;
 		
 		// Arriva qui dalla UserDeleteView. Estrae l'id dell'utente da cancellare e lo passa al Service
@@ -78,7 +82,7 @@ public class CompanyController implements Controller {
 			companyService.delete(id);
 			request = new Request();
 			request.put("mode", "mode");
-			MainDispatcher.getInstance().callView(sub_package + "UserDelete", request);
+			MainDispatcher.getInstance().callView("company.CompanyDelete", request);
 			break;
 		
 		// Arriva qui dalla UserUpdateView
@@ -87,19 +91,21 @@ public class CompanyController implements Controller {
 			name = request.get("name").toString();
 			info = request.get("info").toString();
 			openjob = request.get("openjob").toString();
-			Company companytoupdate = new Company(name, info, openjob);
+			password = request.get("password").toString();
+			username = request.get ("username").toString();
+			Company companytoupdate = new Company(name, info, openjob, username, password, "company");
 			companytoupdate.setId(id);
 			companyService.update(companytoupdate);
 			request = new Request();
 			request.put("mode", "mode");
-			MainDispatcher.getInstance().callView(sub_package + "CompanyUpdate", request);
+			MainDispatcher.getInstance().callView("company.CompanyUpdate", request);
 			break;
 			
 		//Arriva qui dalla UserView Invoca il Service e invia alla UserView il risultato da mostrare 
 		case "COMPANYLIST":
 			List<Company> companys = companyService.getAll();
 			//Impacchetta la request con la lista degi company
-			request.put("company", companys);
+			request.put("companys", companys);
 			MainDispatcher.getInstance().callView("Company", request);
 			break;
 			

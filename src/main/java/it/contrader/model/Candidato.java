@@ -1,7 +1,6 @@
 package it.contrader.model;
 
-public class Candidato {
-	private int id;
+public class Candidato  extends User{
 	private String name;
 	private String surname;
 	private int age;
@@ -12,23 +11,14 @@ public class Candidato {
 	public Candidato() {}
 	//costruttore vuoto, stringa inizializzata vuota
 	
-	public Candidato(String name, String surname, int age, String education, String experience) {
-		super();
+	public Candidato(String name, String surname, int age, String education, String experience,String username, String password,String usertype) {
+		super(username,password,usertype);
 		this.name = name;
 		this.surname = surname;
 		this.age = age;
 		this.education = education;
 		this.experience = experience;
 		
-	}
-
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getName() {

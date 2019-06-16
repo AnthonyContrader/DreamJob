@@ -14,14 +14,16 @@ public class CandidatoInsertView extends AbstractView implements View {
 	private String education;
 	private String experience;
 	private final String mode = "INSERT";
-
+	private String password;
+	private String username;
+	
 	public CandidatoInsertView() {
 	}
 	
 	public void showResults(Request request) {
 		if (request!=null) {
 			System.out.println("Inserimento andato a buon fine.\n");
-			MainDispatcher.getInstance().callView("Candidato", null);
+			MainDispatcher.getInstance().callView("HomeAdmin", null);
 		}
 	}
 	
@@ -36,16 +38,22 @@ public class CandidatoInsertView extends AbstractView implements View {
 		education = getInput();
 		System.out.println("Inserisci esperienza del candidato:");
 		experience = getInput();
+		System.out.println("Inserisci password del candidato:");
+		password = getInput();
+		System.out.println("Inserisci username del candidato:");
+		username = getInput();
 	}
 	
 	public void submit() {
 		request = new Request();
 		request.put("name", name);
+		request.put("password", password);
+		request.put("username", username);
 		request.put("surname", surname);
 		request.put("age", age);
 		request.put("education", education);
 		request.put("experience", experience);
-		request.put("mode", mode);
+		request.put("mode", "INSERT");
 		MainDispatcher.getInstance().callAction("Candidato", "doControl", request);
 	}
 	
