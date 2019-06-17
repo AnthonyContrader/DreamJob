@@ -3,14 +3,13 @@ package it.contrader.dao;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
-import com.mysql.cj.xdevapi.Result;
+
 
 import it.contrader.controller.GestoreEccezioni;
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Candidato;
-import it.contrader.model.User;
+
 
 public class CandidatoDAO {
 

@@ -28,7 +28,7 @@ public void showResults(Request request) {
 	if (request != null) {
 		Company company = (Company) request.get("company");
 		System.out.println(company);
-		MainDispatcher.getInstance().callView("HomeAdmin", null);
+		MainDispatcher.getInstance().callView("Company", null);
 	}
 }
 

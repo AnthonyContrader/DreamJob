@@ -36,9 +36,9 @@ public void showOptions() {
 		info = getInput();
 		System.out.println("Inserisci le posizioni aperte dell'azienda:");
 		openjob = getInput();
-		System.out.println("Inserisci password della comapny:");
+		System.out.println("Inserisci password dell'azienda:");
 		password = getInput();
-		System.out.println("Inserisci username del company:");
+		System.out.println("Inserisci username dell'azienda:");
 		username = getInput();
 }
 
