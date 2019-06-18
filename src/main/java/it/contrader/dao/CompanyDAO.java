@@ -14,7 +14,7 @@ public class CompanyDAO {
 	private final String QUERY_INSERT = "insert into company (name,info,openjob,password,username,usertype) values (?,?,?,?,?,?)";
 	private final String QUERY_READ = "select * from company where id=?";
 
-	private final String QUERY_UPDATE = "UPDATE company SET name=?,info=?,openjob=?, password=?,username=? WHERE id=?";
+	private final String QUERY_UPDATE = "update company SET name=?,info=?,openjob=?, password=?,username=? WHERE id=?";
 	private final String QUERY_DELETE = "delete from company where id=?";
 
 	public CompanyDAO() {

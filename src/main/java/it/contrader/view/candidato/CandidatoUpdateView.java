@@ -27,6 +27,7 @@ public class CandidatoUpdateView extends AbstractView implements View {
 			System.out.println("Modifica  del candidato andata a buon fine.\n");
 			MainDispatcher.getInstance().callView("HomeAdmin", null);
 		}
+		
 	}
 	
 	public void showOptions() {
