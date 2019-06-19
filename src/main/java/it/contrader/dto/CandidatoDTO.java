@@ -25,11 +25,12 @@ public class CandidatoDTO {
 		
 	}
 
-	public CandidatoDTO (String username, String password, String name, String surname, String education, String experience) {
+	public CandidatoDTO (String username, String password, String name, String surname, int age, String education, String experience) {
 		this.username = username;
 		this.password = password;
 		this.name = name;
 		this.surname = surname;
+		this.age = age;
 		this.education = education;
 		this.experience = experience;
 	}
