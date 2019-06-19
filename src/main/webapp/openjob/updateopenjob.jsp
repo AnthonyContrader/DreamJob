@@ -11,8 +11,8 @@
 <body>
 <%@ include file="../css/header.jsp" %>
 <div class="navbar">
-  <a href="homeadmin.jsp">Home</a>
-  <a class="active" href="OpenjobServlet?mode=userlist">Open jobs</a>
+  <a href="homeopenjob.jsp">Home</a>
+  <a class="active" href="OpenjobServlet?mode=openjoblist">Open jobs</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>
@@ -25,7 +25,7 @@
 
   <div class="row">
     <div class="col-25">
-      <label for="user">Titolo</label>
+      <label for="openjob">Titolo</label>
     </div>
     <div class="col-75">
       <input type="text" id="titolo" name="titolo" value=<%=u.getTitolo()%>>
@@ -34,7 +34,7 @@
   
   <div class="row">
     <div class="col-25">
-     <label for="pass">Descrizione</label>
+     <label for="openjob">Descrizione</label>
     </div>
     <div class="col-75">
       <input type="text" id="descrizione" name="descrizione" value=<%=u.getDescrizione()%>> 
