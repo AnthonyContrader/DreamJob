@@ -1,12 +1,16 @@
-package it.contrader.model;
-/**
- * Per dettagli vedi guida sez 4 Model
- */
-public class Candidato {
+package it.contrader.dto;
 
-	/**
-	 * Qui sotto definisco gli attributi di User. 
-	 */
+/**
+ * 
+ * @author Vittorio
+ *
+ *Il DTO è simile al Model ma può contenere meno attributi (ad esempio d dati sensibili
+ *che non devono arrivare alla View). GLi oggetti vengono trasformati da oggetti del Model
+ *a oggetti del DTO tramite i Converter (chiamati dai Service). 
+ *Per la descrizione della classe far riferimento al Model "User".
+ */
+public class CandidatoDTO {
+	
 	private int id;
 	private String username;
 	private String password;
@@ -16,37 +20,31 @@ public class Candidato {
 	private String education;
 	private String experience;
 
-	/**
-	 * Definisco i due costruttori, uno vuoto e uno con tre parametri per costrire oggetti di tipo User
-	 */
-	public Candidato() {
+	
+	public CandidatoDTO() {
 		
 	}
 
-	public Candidato (String username, String password, String name, String surname, int age, String education, String experience) {
+	public CandidatoDTO (String username, String password, String name, String surname, String education, String experience) {
 		this.username = username;
 		this.password = password;
 		this.name = name;
 		this.surname = surname;
-		this.age = age;
 		this.education = education;
 		this.experience = experience;
 	}
 
-	public Candidato (int id, String username, String password, String name, int age, String surname, String education, String experience) {
+	public CandidatoDTO (int id, String username, String password, int age, String name, String surname, String education, String experience) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.age = age;
 		this.name = name;
 		this.surname = surname;
-		this.age = age;
 		this.education = education;
 		this.experience = experience;
 	}
 
-	/**
-	 * Getter e Setter: servono alle altre classi a recuperare e modificare gli attributi di User
-	 */
 	public int getId() {
 		return this.id;
 	}
@@ -54,63 +52,63 @@ public class Candidato {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+	
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	public String getSurname() {
-		return surname;
+		return this.surname;
 	}
 
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-
+	
 	public int getAge() {
-		return age;
+		return this.age;
 	}
-
 	public void setAge(int age) {
 		this.age = age;
-	}
-
+	}	
 	public String getEducation() {
-		return education;
+		return this.education;
 	}
 
 	public void setEducation(String education) {
 		this.education = education;
-	}
-
+	}	
 	public String getExperience() {
-		return experience;
+		return this.experience;
 	}
 
 	public void setExperience(String experience) {
 		this.experience = experience;
 	}
 
-	
-	
-	
+
+
+	@Override
+	public String toString() {
+		return  id + "\t"  + username +"\t" +   password + "\t" + name + "\t"  + surname + "\t"  + age + "\t"  + education + "\t"  + experience;
+	}
 }
