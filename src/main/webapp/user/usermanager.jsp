@@ -72,21 +72,4 @@
   </div>
   <div class="row">
     <div class="col-25">
-      <label for="type">Usertype</label>
-    </div>
-   		 <div class="col-75">
- 			<select id="type" name="usertype">
-  				<option value="ADMIN">ADMIN</option>
-  				<option value="USER">USER</option>
- 
-			</select>
-    	</div>
-  </div>
-      <button type="submit" >Insert</button>
-</form>
-
-</div>
-<br>
-<%@ include file="../css/footer.jsp" %>
-</body>
-</html>
+      <label for="type">Usertype</label>i
