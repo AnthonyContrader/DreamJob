@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.model.Openjob;
-import it.contrader.model.User;
 import it.contrader.utils.ConnectionSingleton;
 
 public class OpenjobDAO implements DAO<Openjob>{
