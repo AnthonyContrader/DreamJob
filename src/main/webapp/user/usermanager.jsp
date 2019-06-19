@@ -67,7 +67,7 @@
      <label for="pass">Password</label>
     </div>
     <div class="col-75">
-      <input type="text" id="pass" name="password" placeholder="inserisci password"> 
+      <input type="password" id="pass" name="password" placeholder="inserisci password"> 
     </div>
   </div>
   <div class="row">
