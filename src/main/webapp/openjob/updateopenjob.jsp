@@ -25,7 +25,7 @@
 
   <div class="row">
     <div class="col-25">
-      <label for="openjob">Titolo</label>
+      <label for="titolo">Titolo</label>
     </div>
     <div class="col-75">
       <input type="text" id="titolo" name="titolo" value=<%=u.getTitolo()%>>
@@ -34,7 +34,7 @@
   
   <div class="row">
     <div class="col-25">
-     <label for="openjob">Descrizione</label>
+     <label for="descrizione">Descrizione</label>
     </div>
     <div class="col-75">
       <input type="text" id="descrizione" name="descrizione" value=<%=u.getDescrizione()%>> 
@@ -43,7 +43,7 @@
   
   <div class="row">
     <div class="col-25">
-      <label for="type">Requisiti</label>
+      <label for="requisiti">Requisiti</label>
     </div>
    		 <div class="col-75">
 		      <input type="text" id="requisiti" name="requisiti" value=<%=u.getRequisiti()%>> 

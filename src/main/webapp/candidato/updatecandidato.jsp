@@ -23,7 +23,7 @@
 <form id="floatleft" action="CandidatoServlet?mode=update&id=<%=u.getId()%>" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="candidato">Username</label>
+      <label for="username">Username</label>
     </div>
     <div class="col-75">
       <input type="text" id="candidato" name="username" value=<%=u.getUsername()%>>
@@ -32,7 +32,7 @@
   
   <div class="row">
     <div class="col-25">
-     <label for="pass">Password</label>
+     <label for="password">Password</label>
     </div>
     <div class="col-75">
       <input
@@ -42,7 +42,7 @@
   
   <div class="row">
     <div class="col-25">
-      <label for="candidato">Name</label>
+      <label for="name">Name</label>
     </div>
     <div class="col-75">
       <input type="text" id="name" name="name" value=<%=u.getName()%>>
@@ -51,7 +51,7 @@
   
   <div class="row">
     <div class="col-25">
-      <label for="candidato">Surname</label>
+      <label for="surname">Surname</label>
     </div>
     <div class="col-75">
       <input type="text" id="surname" name="surname" value=<%=u.getSurname()%>>
@@ -60,7 +60,7 @@
 
  <div class="row">
     <div class="col-25">
-      <label for="candidato">Age</label>
+      <label for="age">Age</label>
     </div>
     <div class="col-75">
       <input type="number" id="age" name="age" value=<%=u.getAge()%>>
@@ -69,7 +69,7 @@
   
   <div class="row">
     <div class="col-25">
-      <label for="candidato">Education</label>
+      <label for="education">Education</label>
     </div>
     <div class="col-75">
       <input type="text" id="education" name="education" value=<%=u.getEducation()%>>
@@ -78,7 +78,7 @@
   
   <div class="row">
     <div class="col-25">
-      <label for="candidato">Experience</label>
+      <label for="experience">Experience</label>
     </div>
     <div class="col-75">
       <input type="text" id="experience" name="experience" value=<%=u.getExperience()%>>
