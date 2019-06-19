@@ -3,9 +3,7 @@ package it.contrader.converter;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.contrader.dto.CandidatoDTO;
 import it.contrader.dto.CompanyDTO;
-import it.contrader.model.Candidato;
 import it.contrader.model.Company;
 
 

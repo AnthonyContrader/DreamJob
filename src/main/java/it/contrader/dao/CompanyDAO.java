@@ -5,9 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import it.contrader.utils.ConnectionSingleton;
-import it.contrader.model.Candidato;
 import it.contrader.model.Company;
-import it.contrader.model.User;
 
 /**
  * 
@@ -104,8 +102,8 @@ public class CompanyDAO implements DAO<Company> {
 		if (companyToUpdate.getId() == 0)
 			return false;
 
-		Company companyRead = read(companyRead.getId());
-		if (!companyRead.equals(companyRead)) {
+		Company companyRead = read(companyToUpdate.getId());
+		if (!companyRead.equals(companyToUpdate)) {
 			try {
 				// Fill the userToUpdate object
 				if (companyToUpdate.getName() == null || companyToUpdate.getName().equals("")) {
