@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="footer">
-Stuff about copyright, legal notes and other useless informations...
+Stuff about copyright, legal notes and other informations...
 </div>
 </body>
 </html>
