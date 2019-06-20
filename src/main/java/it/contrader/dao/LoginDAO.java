@@ -23,6 +23,8 @@ public class LoginDAO {
 	public User login (String username, String password) {
 
 		Connection connection = ConnectionSingleton.getInstance();
+		if (connection == null)
+			System.out.println("ciao");
 		try {
 			PreparedStatement statement = connection.prepareStatement(QUERY_LOGIN);
 			

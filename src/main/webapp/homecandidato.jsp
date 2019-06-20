@@ -14,7 +14,8 @@
 
 <div class="navbar">
   <a class="active" href="homecandidato.jsp">Home</a>
-  <a href="CandidatoServlet?mode=candidatolist">Candidati</a>
+  <a href="CandidatoServlet?mode=insert">Inserisci Profilo</a>
+  <a href="CandidatoServlet?mode=update">Modifica Profilo</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 

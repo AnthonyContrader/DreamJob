@@ -54,6 +54,7 @@
 
 
 <form id="floatright" action="UserServlet?mode=insert" method="post">
+
   <div class="row">
     <div class="col-25">
       <label for="user">Username</label>
@@ -62,6 +63,7 @@
       <input type="text" id="user" name="username" placeholder="inserisci username">
     </div>
   </div>
+  
   <div class="row">
     <div class="col-25">
      <label for="pass">Password</label>
@@ -70,6 +72,23 @@
       <input type="password" id="pass" name="password" placeholder="inserisci password"> 
     </div>
   </div>
+  
   <div class="row">
     <div class="col-25">
-      <label for="type">Usertype</label>i
+      <label for="type">Usertype</label>
+       </div>
+    <div class="col-75">
+      <input type="text" id="usertype" name="usertype" placeholder="inserisci usertype"> 
+    </div>
+  </div>
+  
+  <div class="row">
+  	<button type="submit" value="pulsante" name="pulsante">Inserisci User</button>
+	</div>
+</form>
+</div>
+</body>
+</html>
+
+	
+	

@@ -39,9 +39,9 @@ public class CompanyServlets extends HttpServlet {
 
 		switch (mode.toUpperCase()) {
 
-		case "USERLIST":
+		case "COMPANYLIST":
 			updateList(request);
-			getServletContext().getRequestDispatcher("/user/usermanager.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/company/companymanager.jsp").forward(request, response);
 			break;
 
 		case "READ":
@@ -50,11 +50,11 @@ public class CompanyServlets extends HttpServlet {
 			request.setAttribute("dto", dto);
 			
 			if (request.getParameter("update") == null) {
-				 getServletContext().getRequestDispatcher("/user/readuser.jsp").forward(request, response);
+				 getServletContext().getRequestDispatcher("/company/readcompany.jsp").forward(request, response);
 				
 			}
 			
-			else getServletContext().getRequestDispatcher("/user/updateuser.jsp").forward(request, response);
+			else getServletContext().getRequestDispatcher("/company/updatecompany.jsp").forward(request, response);
 			
 			break;
 

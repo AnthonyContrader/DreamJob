@@ -15,6 +15,11 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>CompanyServlet</servlet-name>
+    <url-pattern>/CompanyServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>
@@ -27,6 +32,13 @@
     <display-name>UserServlet</display-name>
     <servlet-name>UserServlet</servlet-name>
     <servlet-class>it.contrader.servlets.UserServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <description></description>
+    <display-name>CompanyServlet</display-name>
+    <servlet-name>CompanyServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.CompanyServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>UserServlet</servlet-name>

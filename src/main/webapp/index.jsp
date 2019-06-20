@@ -16,6 +16,7 @@
 				<label for="pass">Password: </label>
 			
 				 <input type="password" id="pass" name="password" placeholder="Insert password">
+				 
 		
 			<button type="submit" value="Login" name="pulsante">Login</button>
 		</form>

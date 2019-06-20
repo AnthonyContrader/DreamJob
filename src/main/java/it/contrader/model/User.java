@@ -8,11 +8,8 @@ public class User {
 	 * Qui sotto definisco gli attributi di User. 
 	 */
 	private int id;
-
 	private String username;
-	
 	private String password;
-	
 	private String usertype;
 
 	/**
@@ -45,6 +42,7 @@ public class User {
 		this.id = id;
 	}
 
+	
 	public String getUsertype() {
 		return this.usertype;
 	}
@@ -62,6 +60,7 @@ public class User {
 		this.password = password;
 	}
 
+	
 	public void setUsername(String username) {
 		this.username = username;
 	}
@@ -85,24 +84,25 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
+		
 		User other = (User) obj;
 		if (id != other.id)
 			return false;
 		if (password == null) {
 			if (other.password != null)
 				return false;
-		} else if (!password.equals(other.password))
-			return false;
+		}
+		
 		if (username == null) {
 			if (other.username != null)
 				return false;
 		} else if (!username.equals(other.username))
 			return false;
+		
 		if (usertype == null) {
 			if (other.usertype != null)
 				return false;
-		} else if (!usertype.equals(other.usertype))
-			return false;
+		} 
 		return true;
 	}
 }
