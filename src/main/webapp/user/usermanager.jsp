@@ -87,6 +87,7 @@
 	</div>
 </form>
 </div>
+<%@ include file="../css/footer.jsp" %>
 </body>
 </html>
 

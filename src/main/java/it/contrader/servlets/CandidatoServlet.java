@@ -58,7 +58,7 @@ public class CandidatoServlet extends HttpServlet {
 			break;
 
 		case "INSERT":
-			System.out.println("ilaria");
+//			System.out.println("ilaria");
 			String username = request.getParameter("username").toString();
 			String password = request.getParameter("password").toString();
 			String name = request.getParameter("name").toString();

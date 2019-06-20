@@ -17,6 +17,7 @@
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
+<div class="row">
 	<%
 		List<CandidatoDTO> list = (List<CandidatoDTO>) request.getAttribute("list");
 	%>
@@ -48,8 +49,6 @@
 			<td><%=u.getAge()%></td>
 			<td><%=u.getEducation()%></td>
 			<td><%=u.getExperience()%></td>
-			<td><a href=CandidatoServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
-			</td>
 			<td><a href=CandidatoServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
 			</td>
 
@@ -58,73 +57,77 @@
 			}
 		%>
 	</table>
+</div>
 
-
-
-<form id="floatright" action="CandidatoServlet?mode=insert" method="post">
-  <div class="row">
-    <div class="col-25">
-      <label for="candidato">Username</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="candidato" name="username" placeholder="inserisci username">
-    </div>
-  </div>
-  
-  <div class="row">
-    <div class="col-25">
-     <label for="pass">Password</label>
-    </div>
-    <div class="col-75">
-      <input type="password" id="pass" name="password" placeholder="inserisci password"> 
-    </div>
-  </div>
-  
-  <div class="row">
-    <div class="col-25">
-      <label for="type">Name</label>
-      </div>
-    <div class="col-75">
-      <input type="text" id="name" name="name" placeholder="inserisci nome"> 
-    </div>
-  </div>
-  
-    <div class="row">
-    <div class="col-25">
-      <label for="type">Surname</label>
-      </div>
-    <div class="col-75">
-      <input type="text" id="surname" name="surname" placeholder="inserisci cognome"> 
-    </div>
-  </div>
-  
-    <div class="row">
-    <div class="col-25">
-      <label for="type">Age</label>
-      </div>
-    <div class="col-75">
-      <input type="text" id="age" name="age" placeholder="inserisci età"> 
-    </div>
-  </div>
-  
-      <div class="row">
-    <div class="col-25">
-      <label for="type">Education</label>
-      </div>
-    <div class="col-75">
-      <input type="text" id="education" name="education" placeholder="inserisci studi"> 
-    </div>
-  </div>
-  
-    <div class="row">
-    <div class="col-25">
-      <label for="type">Experience</label>
-      </div>
-    <div class="col-75">
-      <input type="text" id="experience" name="experience" placeholder="inserisci esperienze"> 
-    </div>
-  </div>
-</form>
+<div class="row">
+	<form id="floatright" action="CandidatoServlet?mode=update" method="post">
+	  <div class="row">
+	    <div class="col-25">
+	      <label for="candidato">Username</label>
+	    </div>
+	    <div class="col-75">
+	      <input type="text" id="candidato" name="username" placeholder="inserisci username">
+	    </div>
+	  </div>
+	  
+	  <div class="row">
+	    <div class="col-25">
+	     <label for="pass">Password</label>
+	    </div>
+	    <div class="col-75">
+	      <input type="password" id="pass" name="password" placeholder="inserisci password"> 
+	    </div>
+	  </div>
+	  
+	  <div class="row">
+	    <div class="col-25">
+	      <label for="type">Name</label>
+	      </div>
+	    <div class="col-75">
+	      <input type="text" id="name" name="name" placeholder="inserisci nome"> 
+	    </div>
+	  </div>
+	  
+	    <div class="row">
+	    <div class="col-25">
+	      <label for="type">Surname</label>
+	      </div>
+	    <div class="col-75">
+	      <input type="text" id="surname" name="surname" placeholder="inserisci cognome"> 
+	    </div>
+	  </div>
+	  
+	    <div class="row">
+	    <div class="col-25">
+	      <label for="type">Age</label>
+	      </div>
+	    <div class="col-75">
+	      <input type="text" id="age" name="age" placeholder="inserisci età"> 
+	    </div>
+	  </div>
+	  
+	      <div class="row">
+	    <div class="col-25">
+	      <label for="type">Education</label>
+	      </div>
+	    <div class="col-75">
+	      <input type="text" id="education" name="education" placeholder="inserisci studi"> 
+	    </div>
+	  </div>
+	  
+	    <div class="row">
+	    <div class="col-25">
+	      <label for="type">Experience</label>
+	      </div>
+	    <div class="col-75">
+	      <input type="text" id="experience" name="experience" placeholder="inserisci esperienze"> 
+	    </div>
+	  </div>
+	  <div class="row">
+  	<button type="submit" value="pulsante" name="pulsante">Modifica Profilo</button>
+	</div>
+	</form>
+</div>	
 </div>
 <%@ include file="../css/footer.jsp" %>
 </body>

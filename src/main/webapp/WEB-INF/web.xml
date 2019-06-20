@@ -20,6 +20,22 @@
     <servlet-name>CompanyServlet</servlet-name>
     <url-pattern>/CompanyServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name>CandidatoServlet</servlet-name>
+    <url-pattern>/CandidatoServlet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/UserServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name>OpenjobServlet</servlet-name>
+    <url-pattern>/OpenjobServlet</url-pattern>
+  </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>
@@ -27,6 +43,7 @@
   <session-config>
     <session-timeout>4000</session-timeout>
   </session-config>
+  
   <servlet>
     <description></description>
     <display-name>UserServlet</display-name>
@@ -34,14 +51,27 @@
     <servlet-class>it.contrader.servlets.UserServlet</servlet-class>
   </servlet>
   
+  
   <servlet>
     <description></description>
     <display-name>CompanyServlet</display-name>
     <servlet-name>CompanyServlet</servlet-name>
     <servlet-class>it.contrader.servlets.CompanyServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>UserServlet</servlet-name>
-    <url-pattern>/UserServlet</url-pattern>
-  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>OpenjobServlet</display-name>
+    <servlet-name>OpenjobServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.OpenjobServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <description></description>
+    <display-name>CandidatoServlet</display-name>
+    <servlet-name>CandidatoServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.CandidatoServlet</servlet-class>
+  </servlet>
+  
+
 </web-app>
