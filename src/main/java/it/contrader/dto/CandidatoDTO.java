@@ -46,6 +46,8 @@ public class CandidatoDTO {
 		this.experience = experience;
 	}
 
+
+
 	public int getId() {
 		return this.id;
 	}

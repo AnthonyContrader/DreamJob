@@ -22,7 +22,7 @@ public class CandidatoConverter  implements Converter<Candidato, CandidatoDTO> {
 	 */
 	@Override
 	public CandidatoDTO toDTO(Candidato candidato) {
-		CandidatoDTO candidatoDTO = new CandidatoDTO ( candidato.getUsername(), candidato.getPassword(), candidato.getName(), candidato.getSurname(), candidato.getAge(), candidato.getEducation(), candidato.getExperience());
+		CandidatoDTO candidatoDTO = new CandidatoDTO ( candidato.getId(), candidato.getUsername(), candidato.getPassword(), candidato.getAge(), candidato.getSurname(), candidato.getName(), candidato.getEducation(), candidato.getExperience());
 		return candidatoDTO;
 	}
 

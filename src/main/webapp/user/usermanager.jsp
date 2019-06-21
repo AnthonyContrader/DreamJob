@@ -38,8 +38,15 @@
 			<td><a href=UserServlet?mode=read&id=<%=u.getId()%>>
 					<%=u.getUsername()%>
 			</a></td>
-			<td><%=u.getPassword()%></td>
-			<td><%=u.getUsertype()%></td>
+			
+			<td><a href=UserServlet?mode=read&id=<%=u.getId()%>>
+					<%=u.getPassword()%>
+			</a></td>
+
+			<td><a href=UserServlet?mode=read&id=<%=u.getId()%>>
+					<%=u.getUsertype()%>
+			</a></td>
+			
 			<td><a href=UserServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
 			</td>
 			<td><a href=UserServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
@@ -87,6 +94,7 @@
 	</div>
 </form>
 </div>
+<%@ include file="../css/footer.jsp" %>
 </body>
 </html>
 
