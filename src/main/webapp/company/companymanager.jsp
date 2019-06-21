@@ -53,10 +53,10 @@
 		
 	</table>
 
-
-
-
-  
+<br>
+<br>
+<br>
+  <br>
 </div>
 <%@ include file="../css/footer.jsp" %>
 </body>
