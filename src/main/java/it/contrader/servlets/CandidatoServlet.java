@@ -46,7 +46,7 @@ public class CandidatoServlet extends HttpServlet {
 		case "READ":
 			id = Integer.parseInt(request.getParameter("id"));
 			dto = service.read(id);
-			request.setAttribute("dto", dto);
+						request.setAttribute("dto", dto);
 			
 			if (request.getParameter("update") == null) {
 				 getServletContext().getRequestDispatcher("/candidato/candidatomanager.jsp").forward(request, response);

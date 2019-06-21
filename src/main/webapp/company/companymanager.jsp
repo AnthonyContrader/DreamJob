@@ -41,8 +41,8 @@
 			<td><%=u.getInfo()%></td>
 			<td><%=u.getUsername()%></td>
 			<td><%=u.getPassword()%></td>
-			<td><%=u.getOpenjob()%></td>
-			<td><%=u.getCandidato()%></td>
+			<td><%=u.getOpenjob().toString()%></td>
+			<td><%=u.getCandidato().toString()%></td>
 			<td><%=u.getId()%></td>
 			
 			<td><a href=CompanyServlet?mode=read&update=true&id=<%=u.getId()%>>Modifica</a>

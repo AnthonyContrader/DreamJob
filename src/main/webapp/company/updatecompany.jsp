@@ -10,7 +10,7 @@
 <body>
 <%@ include file="../css/header.jsp" %>
 <div class="navbar">
-  <a href="homeadmin.jsp">Home</a>
+  <a href="homeacompany.jsp">Home</a>
   <a class="active" href="ComapnyServlet?mode=companylist">Company</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
@@ -21,6 +21,13 @@
 
 
 <form id="floatleft" action="CompanyServlet?mode=update&id=<%=u.getId()%>" method="post">
+  <div class="row">
+    <div class="col-75" style="display:none;visibility:hidden;">
+      <input type="text" id="company" name="id" value=<%=u.getId()%>>
+    </div>
+  </div>
+  
+  
   <div class="row">
     <div class="col-25">
       <label for="company">Name</label>

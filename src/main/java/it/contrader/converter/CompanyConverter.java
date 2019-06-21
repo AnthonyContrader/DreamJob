@@ -22,8 +22,15 @@ public class CompanyConverter  implements Converter<Company, CompanyDTO> {
 	 */
 	@Override
 	public CompanyDTO toDTO(Company company) {
-		CompanyDTO companyDTO = new CompanyDTO ( company.getName(), company.getInfo(), company.getUsername(), company.getPassword(), company.getOpenjob(), company.getCandidato());
-		return companyDTO;
+		if (company == null) {
+			System.out.println("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+			return null;
+
+				} else {
+					CompanyDTO companyDTO = new CompanyDTO (company.getId(),  company.getName(), company.getInfo(), company.getUsername(), company.getPassword(), company.getOpenjob(), company.getCandidato());
+					return companyDTO;
+
+				}
 	}
 
 	/**

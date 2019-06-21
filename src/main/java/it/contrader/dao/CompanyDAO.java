@@ -37,8 +37,8 @@ public class CompanyDAO implements DAO<Company> {
 				String info = resultSet.getString("info");
 				String username = resultSet.getString("username");
 				String password = resultSet.getString("password");
-				String openjob = resultSet.getString("openjob");
-				String candidato = resultSet.getString("candidato");
+				Integer openjob = resultSet.getInt("idopenjob");
+				Integer candidato = resultSet.getInt("idcandidato");
 				Company company = new Company(name, info, username,password, openjob, candidato);
 				company.setId(id);
 				companysList.add(company);
@@ -57,8 +57,8 @@ public class CompanyDAO implements DAO<Company> {
 			preparedStatement.setString(2, companyToInsert.getInfo());
 			preparedStatement.setString(3, companyToInsert.getUsername());
 			preparedStatement.setString(4, companyToInsert.getPassword());
-			preparedStatement.setString(5, companyToInsert.getOpenjob());
-			preparedStatement.setString(6, companyToInsert.getCandidato());
+			preparedStatement.setInt(5, companyToInsert.getOpenjob());
+			preparedStatement.setInt(6, companyToInsert.getCandidato());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -76,16 +76,18 @@ public class CompanyDAO implements DAO<Company> {
 			preparedStatement.setInt(1, companyId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			String name, info, username, password, openjob, candidato;
+			String name, info, username, password;
+			Integer candidato;
+			Integer openjob;
 	
 
 			name = resultSet.getString("name");
 			info = resultSet.getString("info");
 			username = resultSet.getString("username");
 			password = resultSet.getString("password");
-			openjob = resultSet.getString("openjob");
-			candidato= resultSet.getString("candidato");
-			Company company = new Company(name, info, username, password,openjob, candidato);
+			openjob = new Integer(resultSet.getInt("idopenjob"));
+			candidato= new Integer(resultSet.getInt("idcandidato"));
+			Company company = new Company(name, info, username, password, openjob, candidato);
 			company.setId(resultSet.getInt("id"));
 
 			return company;
@@ -135,8 +137,8 @@ public class CompanyDAO implements DAO<Company> {
 				preparedStatement.setString(2, companyToUpdate.getInfo());
 				preparedStatement.setString(3, companyToUpdate.getUsername());
 				preparedStatement.setString(4, companyToUpdate.getPassword());
-				preparedStatement.setString(5, companyToUpdate.getOpenjob());
-				preparedStatement.setString(6, companyToUpdate.getCandidato());
+				preparedStatement.setInt(5, companyToUpdate.getOpenjob());
+				preparedStatement.setInt(6, companyToUpdate.getCandidato());
 				preparedStatement.setInt(7, companyToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)

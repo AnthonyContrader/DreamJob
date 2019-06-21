@@ -16,15 +16,15 @@ public class CompanyDTO {
 	private String info;
 	private String username;
 	private String password;
-	private String openjob;
-	private String candidato;
+	private Integer openjob;
+	private Integer candidato;
 
 	
 	public CompanyDTO() {
 		
 	}
 
-	public CompanyDTO (String name, String info, String username, String password, String openjob, String candidato) {
+	public CompanyDTO (String name, String info, String username, String password, Integer openjob, Integer candidato) {
 		this.name = name;
 		this.info = info;
 		this.username = username;
@@ -33,7 +33,7 @@ public class CompanyDTO {
 		this.candidato = candidato;
 	}
 
-	public CompanyDTO (int id, String name, String info, String username, String password, String openjob, String candidato) {
+	public CompanyDTO (int id, String name, String info, String username, String password, Integer openjob, Integer candidato) {
 		this.id = id;
 		this.name = name;
 		this.info = info;
@@ -83,18 +83,18 @@ public class CompanyDTO {
 	}
 	
 	
-	public String getOpenjob() {
+	public Integer getOpenjob() {
 		return this.openjob;
 	}
 
-	public void setOpenjob(String openjob) {
+	public void setOpenjob(Integer openjob) {
 		this.openjob = openjob;
 	}	
-	public String getCandidato() {
+	public Integer getCandidato() {
 		return this.candidato;
 	}
 
-	public void setCandidato(String candidato) {
+	public void setCandidato(Integer candidato) {
 		this.candidato = candidato;
 	}
 

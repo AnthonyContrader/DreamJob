@@ -12,8 +12,8 @@ public class Company {
 	private String info;
 	private String username;
 	private String password;
-	private String openjob;
-	private String candidato;
+	private Integer openjob;
+	private Integer candidato;
 
 	/**
 	 * Definisco i due costruttori, uno vuoto e uno con tre parametri per costrire oggetti di tipo User
@@ -22,7 +22,7 @@ public class Company {
 		
 	}
 
-	public Company (String name, String info, String username, String password, String openjob, String candidato) {
+	public Company (String name, String info, String username, String password, Integer openjob, Integer candidato) {
 		this.name = name;
 		this.info = info;
 		this.username = username;
@@ -31,7 +31,7 @@ public class Company {
 		this.candidato = candidato;
 	}
 
-	public Company (int id, String name, String info, String username, String password, String openjob, String candidato) {
+	public Company (int id, String name, String info, String username, String password, Integer openjob, Integer candidato) {
 		this.id = id;
 		this.name = name;
 		this.info = info;
@@ -81,19 +81,19 @@ public class Company {
 		this.password = password;
 	}
 
-	public String getOpenjob() {
+	public Integer getOpenjob() {
 		return openjob;
 	}
 
-	public void setOpenjob(String openjob) {
+	public void setOpenjob(Integer openjob) {
 		this.openjob = openjob;
 	}
 
-	public String getCandidato() {
+	public Integer getCandidato() {
 		return candidato;
 	}
 
-	public void setCandidato(String candidato) {
+	public void setCandidato(Integer candidato) {
 		this.candidato = candidato;
 	}
 

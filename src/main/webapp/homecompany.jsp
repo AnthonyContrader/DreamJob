@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.CompanyDTO"%>
+	import="it.contrader.dto.UserDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,16 +10,16 @@
 </head>
 <body>
 <%@include file="css/header.jsp"%>
-
+<%UserDTO user = (UserDTO) request.getAttribute("user");%>
 
 <div class="navbar">
   <a class="active" href="homecompany.jsp">Home</a>
-  <a href="CompanyServlet?mode=companylist">Companys</a>
+  <a href="CompanyServlet?mode=read&id=<%= user.getId()%>">Inserisci Informazioni</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 
 <div class="main">
-<h1>Welcome ${company.getUsername()}</h1>
+<h1>Welcome ${user.getUsername()}</h1>
 <br>
 <br>
 <br>

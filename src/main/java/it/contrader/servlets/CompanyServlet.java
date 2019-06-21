@@ -17,10 +17,10 @@ import it.contrader.service.Service;
 /*
  * Per dettagli vedi Guida sez Servlet
  */
-public class CompanyServlets extends HttpServlet {
+public class CompanyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public CompanyServlets() {
+	public CompanyServlet() {
 	}
 	
 	public void updateList(HttpServletRequest request) {
@@ -46,6 +46,8 @@ public class CompanyServlets extends HttpServlet {
 
 		case "READ":
 			id = Integer.parseInt(request.getParameter("id"));
+			System.out.println("ecco lid" + id);
+			
 			dto = service.read(id);
 			request.setAttribute("dto", dto);
 			
@@ -63,8 +65,8 @@ public class CompanyServlets extends HttpServlet {
 			String info = request.getParameter("info").toString();
 			String username = request.getParameter("username").toString();
 			String password = request.getParameter("password").toString();
-			String openjob = request.getParameter("openjob").toString();
-			String candidato = request.getParameter("candidato").toString();
+			Integer openjob = Integer.parseInt(request.getParameter("idopenjob").toString());
+			Integer candidato =Integer.parseInt( request.getParameter("idcandidato").toString());
 			dto = new CompanyDTO (name,info,username,password,openjob,candidato);
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);
@@ -77,12 +79,13 @@ public class CompanyServlets extends HttpServlet {
 			info = request.getParameter("info");
 			username = request.getParameter("username");
 			password = request.getParameter("password");
-			openjob = request.getParameter("openjob");
-			candidato = request.getParameter("candidato");
+			openjob = Integer.parseInt(request.getParameter("openjob"));
+			candidato = Integer.parseInt(request.getParameter("candidato"));
 			id = Integer.parseInt(request.getParameter("id"));
 			dto = new CompanyDTO (id,name,info,username,password,openjob,candidato);
 			ans = service.update(dto);
-			updateList(request);
+			request.setAttribute("dto", dto);
+			
 			getServletContext().getRequestDispatcher("/company/companymanager.jsp").forward(request, response);
 			break;
 
