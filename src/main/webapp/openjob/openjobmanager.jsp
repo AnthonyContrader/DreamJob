@@ -13,7 +13,7 @@
 
 <div class="navbar">
   <a  href="homeadmin.jsp">Home</a>
-  <a class="active" href="openjobServlet?mode=userlist">Open jobs</a>
+  <a class="active" href="openjobServlet?mode=joblist">Open jobs</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
@@ -35,11 +35,17 @@
 			for (OpenjobDTO u : list) {
 		%>
 		<tr>
-			<td><a href=UserServlet?mode=read&id=<%=u.getId()%>>
+			<td><a href=OpenjobServlet?mode=read&id=<%=u.getId()%>>
 					<%=u.getTitolo()%>
 			</a></td>
-			<td><%=u.getDescrizione()%></td>
-			<td><%=u.getRequisiti()%></td>
+			
+			<td><a href=OpenjobServlet?mode=read&id=<%=u.getId()%>>
+			      <%=u.getDescrizione()%>
+			      </a></td>
+			      
+			<td><a href=OpenjobServlet?mode=read&id=<%=u.getId()%>>
+				<%=u.getRequisiti()%>
+			</a></td>
 			<td><a href=OpenjobServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
 			</td>
 			<td><a href=OpenjobServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
