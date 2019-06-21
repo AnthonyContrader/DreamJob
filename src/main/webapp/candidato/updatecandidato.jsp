@@ -21,6 +21,11 @@
 
 
 <form id="floatleft" action="CandidatoServlet?mode=update&id=<%=u.getId()%>" method="post">
+ <div class="row">
+    <div class="col-75" style="display:none;visibility:hidden;">
+      <input type="text" id="candidato" name="id" value=<%=u.getId()%>>
+    </div>
+  </div>
   <div class="row">
     <div class="col-25">
       <label for="username">Username</label>

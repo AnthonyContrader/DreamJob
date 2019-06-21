@@ -50,7 +50,7 @@ public class CompanyServlets extends HttpServlet {
 			request.setAttribute("dto", dto);
 			
 			if (request.getParameter("update") == null) {
-				 getServletContext().getRequestDispatcher("/company/readcompany.jsp").forward(request, response);
+				 getServletContext().getRequestDispatcher("/company/companymanager.jsp").forward(request, response);
 				
 			}
 			

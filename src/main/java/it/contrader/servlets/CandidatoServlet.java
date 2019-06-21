@@ -42,14 +42,14 @@ public class CandidatoServlet extends HttpServlet {
 			updateList(request);
 			getServletContext().getRequestDispatcher("/candidato/candidatomanager.jsp").forward(request, response);
 			break;
-
+				
 		case "READ":
 			id = Integer.parseInt(request.getParameter("id"));
 			dto = service.read(id);
 			request.setAttribute("dto", dto);
 			
 			if (request.getParameter("update") == null) {
-				 getServletContext().getRequestDispatcher("/candidato/readcandidato.jsp").forward(request, response);
+				 getServletContext().getRequestDispatcher("/candidato/candidatomanager.jsp").forward(request, response);
 				
 			}
 			
@@ -75,6 +75,7 @@ public class CandidatoServlet extends HttpServlet {
 			break;
 			
 		case "UPDATE":
+			
 			username = request.getParameter("username");
 			password = request.getParameter("password");
 			name = request.getParameter("name");
@@ -83,9 +84,10 @@ public class CandidatoServlet extends HttpServlet {
 			education = request.getParameter("education");
 			experience = request.getParameter("experience");
 			id = Integer.parseInt(request.getParameter("id"));
-			dto = new CandidatoDTO (username, password, name, surname, age, education, experience);
+			dto = new CandidatoDTO (id,username, password, age, surname, name, education, experience);
 			ans = service.update(dto);
-			updateList(request);
+			request.setAttribute("dto", dto);
+
 			getServletContext().getRequestDispatcher("/candidato/candidatomanager.jsp").forward(request, response);
 			break;
 
