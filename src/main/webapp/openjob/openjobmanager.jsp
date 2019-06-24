@@ -15,9 +15,6 @@
   <a  href="homecompany.jsp">Home</a>
   <a class="active" href="CompanyServlet?mode=read">Profilo Azienda</a>
   <a class="active">Open jobs</a>
-
-  <a  href="homeopenjob.jsp">Home</a>
-  <a class="active" href="OpenjobServlet?mode=joblist">Open jobs</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
@@ -35,18 +32,7 @@
 		
 		<%OpenjobDTO u = (OpenjobDTO) request.getAttribute("dto");%>
 		<tr>
-
 			
-			<td><%=u.getTitolo()%></td>
-			<td><%=u.getDescrizione()%></td>
-			<td><%=u.getRequisiti()%></td>
-			<td><%=u.getId()%></td>
-			
-			<td><a href=OpenjobServlet?mode=read&update=true&id=<%=u.getId()%>>Modifica</a>
-			<td><a href=OpenjobServlet?mode=read&id=<%=u.getId()%>>
-					<%=u.getTitolo()%>
-			</a></td>
-
 			<td><%=u.getTitolo()%></td>
 			<td><%=u.getDescrizione()%></td>
 			<td><%=u.getRequisiti()%></td>
