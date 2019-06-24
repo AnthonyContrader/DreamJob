@@ -13,7 +13,8 @@
 
 <div class="navbar">
   <a  href="homecompany.jsp">Home</a>
-  <a class="active" href="CompanyServlet?mode=read">Profilo Azienda</a>
+  <a href="CompanyServlet?mode=read">Profilo Azienda</a>
+    <a  href="openjobmanager.jsp?mode=read">Open jobs</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">

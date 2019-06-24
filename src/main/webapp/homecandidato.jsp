@@ -13,8 +13,9 @@
 <%UserDTO user = (UserDTO) request.getAttribute("user");%>
 
 <div class="navbar">
-  <a class="active" href="homecandidato.jsp">Home</a>
-  <a href="CandidatoServlet?mode=read&id=<%= user.getId()%>">Inserisci Profilo</a>
+  <a href="homecandidato.jsp">Home</a>
+   
+  <a href="CandidatoServlet?mode=read&id=<%= user.getId()%>">Modifica Profilo</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 

@@ -12,15 +12,13 @@
 <%@ include file="../css/header.jsp" %>
 
 <div class="navbar">
-  <a  href="homeadmin.jsp">Home</a>
-  <a class="active" href="openjobServlet?mode=userlist">Open jobs</a>
+  <a  href="homecompany.jsp">Home</a>
+  <a class="active" href="CompanyServlet?mode=read">Profilo Azienda</a>
+  <a class="active">Open jobs</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
-	<%
-		List<OpenjobDTO> list = (List<OpenjobDTO>) request.getAttribute("list");
-	%>
-
+	
 <br>
 
 	<table>
@@ -28,61 +26,33 @@
 			<th>Titolo</th>
 			<th>Descrizione</th>
 			<th>Requisiti</th>
-			<th></th>
+			<th>id</th>
 			<th></th>
 		</tr>
-		<%
-			for (OpenjobDTO u : list) {
-		%>
+		
+		<%OpenjobDTO u = (OpenjobDTO) request.getAttribute("dto");%>
 		<tr>
-			<td><a href=UserServlet?mode=read&id=<%=u.getId()%>>
-					<%=u.getTitolo()%>
-			</a></td>
+			
+			<td><%=u.getTitolo()%></td>
 			<td><%=u.getDescrizione()%></td>
 			<td><%=u.getRequisiti()%></td>
-			<td><a href=OpenjobServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
+			<td><%=u.getId()%></td>
+			
+			<td><a href=OpenjobServlet?mode=read&update=true&id=<%=u.getId()%>>Modifica</a>
 			</td>
-			<td><a href=OpenjobServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
-			</td>
+			
 
 		</tr>
-		<%
-			}
-		%>
+		
 	</table>
 
 
 
-<form id="floatright" action="OpenjobServlet?mode=insert" method="post">
-  <div class="row">
-    <div class="col-25">
-      <label for="titolo">Titolo</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="titolo" name="titolo" placeholder="Titolo posizione">
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-25">
-     <label for="descrizione">Descrizione</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="descrizione" name="descrizione" placeholder="inserisci descrizione posizione lavorativa"> 
-    </div>
-  </div>
   
-  <div class="row">
-    <div class="col-25">
-     <label for="requisiti">Requisiti</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="requisiti" name="requisiti" placeholder="inserisci requisiti posizione lavorativa"> 
-    </div>
-  </div>
-</form>
-
 </div>
 <%@ include file="../css/footer.jsp" %>
 </body>
 </html>
+		
+	

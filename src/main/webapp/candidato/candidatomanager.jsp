@@ -13,7 +13,7 @@
 
 <div class="navbar">
   <a  href="homecandidato.jsp">Home</a>
-  <a class="active" href="CandidatoServlet?mode=read">Profilo</a>
+  <a class="active" href="CandidatoServlet?mode=read">Profilo Candidato</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
