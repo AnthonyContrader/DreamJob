@@ -15,6 +15,8 @@
   <a  href="homecompany.jsp">Home</a>
   <a href="CompanyServlet?mode=read">Profilo Azienda</a>
     <a  href="openjobmanager.jsp?mode=read">Open jobs</a>
+    <a class="active" href="CompanyServlet?mode=read">Profilo Azienda</a>
+  <a class="active" href="OpenjobServlet?mode=joblist">Posizioni</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
@@ -54,10 +56,10 @@
 		
 	</table>
 
-
-
-
-  
+<br>
+<br>
+<br>
+  <br>
 </div>
 <%@ include file="../css/footer.jsp" %>
 </body>
