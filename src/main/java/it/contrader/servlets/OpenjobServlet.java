@@ -38,7 +38,7 @@ public class OpenjobServlet extends HttpServlet {
 
 		switch (mode.toUpperCase()) {
 
-		case "JOBLIST":
+		case "USERLIST":
 			updateList(request);
 			getServletContext().getRequestDispatcher("/openjob/openjobmanager.jsp").forward(request, response);
 			break;
@@ -47,7 +47,7 @@ public class OpenjobServlet extends HttpServlet {
 			id = Integer.parseInt(request.getParameter("id"));
 			dto = service.read(id);
 			request.setAttribute("dto", dto);
-			
+			System.out.println("entra nell'openjob read");
 			if (request.getParameter("update") == null) {
 				 getServletContext().getRequestDispatcher("/openjob/readopenjob.jsp").forward(request, response);
 				

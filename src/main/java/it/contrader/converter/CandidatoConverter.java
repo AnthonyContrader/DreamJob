@@ -20,11 +20,13 @@ public class CandidatoConverter  implements Converter<Candidato, CandidatoDTO> {
 	 * Crea un oggetto di tipo UserDTO e lo riempie con i campi del parametro user di tipo User.
 	 * Notare l'uso del metodo get() per ottenere il valore dell'attributo-
 	 */
-	@Override
 	public CandidatoDTO toDTO(Candidato candidato) {
-		CandidatoDTO candidatoDTO = new CandidatoDTO ( candidato.getId(), candidato.getUsername(), candidato.getPassword(), candidato.getAge(), candidato.getSurname(), candidato.getName(), candidato.getEducation(), candidato.getExperience());
-		return candidatoDTO;
+		
+			CandidatoDTO candidatoDTO = new CandidatoDTO ( candidato.getId(), candidato.getUsername(), candidato.getPassword(), candidato.getAge(), candidato.getSurname(), candidato.getName(), candidato.getEducation(), candidato.getExperience());
+			return candidatoDTO;
+
 	}
+
 
 	/**
 	 * Crea un oggetto di tipo User e lo riempie con i campi del parametro user di tipo UserDTO.

@@ -27,7 +27,7 @@
 		<th>Requisiti</th>
 	</tr>
 	<tr>
-		<td><%=u.getTitolo()%></td>
+		<td> <%=u.getTitolo()%></td>
 		<td> <%=u.getDescrizione()%></td>
 		<td> <%=u.getRequisiti()%></td>
 	</tr>	

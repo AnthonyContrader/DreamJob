@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.dto.OpenjobDTO;
+
 import it.contrader.model.Openjob;
 
 /**
@@ -21,10 +22,16 @@ public class OpenjobConverter  implements Converter<Openjob, OpenjobDTO> {
 	 */
 	@Override
 	public OpenjobDTO toDTO(Openjob openjob) {
-		OpenjobDTO openjobDTO = new OpenjobDTO(openjob.getId(), openjob.getTitolo(), openjob.getDescrizione(), openjob.getRequisiti());
-		return openjobDTO;
-	}
+		if (openjob == null) {
+			System.out.println("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+			return null;
 
+				} else {
+					OpenjobDTO openjobDTO = new OpenjobDTO (openjob.getId(),  openjob.getTitolo(), openjob.getDescrizione(), openjob.getRequisiti());
+					return openjobDTO;
+
+				}
+	}
 	/**
 	 * Crea un oggetto di tipo Openjob e lo riempie con i campi del parametro user di tipo OpenjobDTO.
 	 * Notare l'uso del metodo get() per ottenere il valore dell'attributo-
