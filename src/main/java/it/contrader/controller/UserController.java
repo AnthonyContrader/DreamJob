@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,6 +22,7 @@ public class UserController {
 
 	private final UserService userService;
 	private HttpSession session;
+	private int id;
 	
 	@Autowired
 	public UserController(UserService userService) {
@@ -35,7 +37,7 @@ public class UserController {
 	@RequestMapping(value = "/userManagement", method = RequestMethod.GET)
 	public String userManagement(HttpServletRequest request) {
 		visualUser(request);
-		return "homeUser";		
+		return "homeAdmin";		
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
@@ -44,7 +46,7 @@ public class UserController {
 		request.setAttribute("id", id);
 		this.userService.deleteUserById(id);
 		visualUser(request);
-		return "homeUser";
+		return "homeAdmin";
 		
 	}
 	
@@ -64,7 +66,7 @@ public class UserController {
 		List<UserDTO> allUser = this.userService.findUserDTOByUsername(content);
 		request.setAttribute("allUserDTO", allUser);
 
-		return "homeUser";
+		return "homeAdmin";
 
 	}
 	
@@ -72,14 +74,14 @@ public class UserController {
 	public String insertUser(HttpServletRequest request) {
 		String username = request.getParameter("username").toString();
 		String password = request.getParameter("password").toString();
-		String ruolo = request.getParameter("ruolo").toString();
+		String usertype = request.getParameter("usertype").toString();
 
-		UserDTO userObj = new UserDTO(0, username, password, ruolo,"");
+		UserDTO userObj = new UserDTO();
 		
 		userService.insertUser(userObj);
 
 		visualUser(request);
-		return "homeUser";
+		return "homeAdmin";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -89,15 +91,8 @@ public class UserController {
 		final String username = request.getParameter("username");
 		final String password = request.getParameter("password");
 		final UserDTO userDTO = userService.getByUsernameAndPassword(username, password);
-		final String ruolo = userDTO.getRuolo();
-		if (!StringUtils.isEmpty(ruolo)) {
-			session.setAttribute("utenteCollegato", userDTO);
-			if (ruolo.equals("ADMIN")) {
-				return "home";
-			} else if (ruolo.equals("CHATMASTER")) {
-				return "home";
-			}
-		}
+		
+		
 		return "index";
 	}
 }

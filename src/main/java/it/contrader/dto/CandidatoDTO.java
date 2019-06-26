@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
+public class CandidatoDTO {
 
 	private Integer id;
 
@@ -15,6 +15,16 @@ public class UserDTO {
 	
 	private String password;
 
-	private String usertype;
+	private String name;
+	
+	private String surname;
+	
+	private Integer age;
+	
+	private String tipolaurea;
+	
+	private String experience;
+	
+	private Integer idRisultato;
 	
 }

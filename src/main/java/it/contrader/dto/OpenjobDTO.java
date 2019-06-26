@@ -7,14 +7,18 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
+public class OpenjobDTO {
 
 	private Integer id;
 
-	private String username;
+	private String titolo;
 	
-	private String password;
+	private String descrizione;
 
-	private String usertype;
+	private String requisiti;
+	
+	private Integer idCompany;
+	
+	private Integer idRisultato;
 	
 }
