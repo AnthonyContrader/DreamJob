@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Data //crea in automatico i get e i set
+@AllArgsConstructor //crea il costruttore pieno
+@NoArgsConstructor  //crea il costruttore vuoto
 public class CandidatoDTO {
 
 	private Integer id;
@@ -25,6 +25,6 @@ public class CandidatoDTO {
 	
 	private String experience;
 	
-	private Integer idRisultato;
+	private Integer idRisultato; //indica il legame con l'entità Risultato
 	
 }

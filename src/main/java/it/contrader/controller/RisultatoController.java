@@ -79,14 +79,5 @@ public class RisultatoController {
 		visualRisultato(request);
 		return "homeRisultato";
 	}
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginControl(HttpServletRequest request) {
-
-		session = request.getSession();
-		final String descrizione = request.getParameter("descrizione");
-		final RisultatoDTO risultatoDTO = risultatoService.getByDescrizione(descrizione);
-		
-		
-		return "index";
-	}
+	
 }

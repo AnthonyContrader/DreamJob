@@ -17,10 +17,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
+@Data //Crea i get e i set
+@AllArgsConstructor //crea il costruttore con tutti gli argomenti
+@NoArgsConstructor //crea il costruttore vuoto
+@Entity //crea una tabella dove va il nome della classe, in questo caso Company
 public class Company {
 
 	@Id
@@ -39,7 +39,7 @@ public class Company {
 	@NotNull
 	private String info;
 	
-	@OneToMany(mappedBy="company")
+	@OneToMany(mappedBy="company") //indica la chiave esterna 1 a molti per più info consultare appunti
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	private List<Openjob> openjob;
 

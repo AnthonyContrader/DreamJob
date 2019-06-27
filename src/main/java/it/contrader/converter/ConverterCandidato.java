@@ -9,7 +9,7 @@ import it.contrader.model.Candidato;
 
 public class ConverterCandidato {
 
-	public static CandidatoDTO toDTO(Candidato candidato) {
+	public static CandidatoDTO toDTO(Candidato candidato) { //toDTO serve per convertire entità al DTO
 		CandidatoDTO candidatoDTO = null;
 		if (candidato != null) {
 			candidatoDTO = new CandidatoDTO();
@@ -26,7 +26,7 @@ public class ConverterCandidato {
 		return candidatoDTO;
 	}
 
-	public static Candidato toEntity(CandidatoDTO candidatoDTO) {
+	public static Candidato toEntity(CandidatoDTO candidatoDTO) { //toEntity converte DTO  aentità
 		Candidato candidato = null;
 		if (candidatoDTO != null) {
 			candidato = new Candidato();

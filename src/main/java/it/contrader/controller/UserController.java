@@ -10,9 +10,12 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.contrader.dto.CandidatoDTO;
+import it.contrader.dto.CompanyDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.services.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -83,16 +86,31 @@ public class UserController {
 		visualUser(request);
 		return "homeAdmin";
 	}
-	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginControl(HttpServletRequest request) {
 
-		session = request.getSession();
-		final String username = request.getParameter("username");
-		final String password = request.getParameter("password");
-		final UserDTO userDTO = userService.getByUsernameAndPassword(username, password);
-		
-		
-		return "index";
+		@RequestMapping(value = "/login", method = RequestMethod.POST)
+		public String loginControl(HttpServletRequest request) {
+
+			session = request.getSession();
+			final String username = request.getParameter("username");
+			final String password = request.getParameter("password");
+			final UserDTO userDTO = userService.getUserByUsernameAndPassword(username, password);
+			final String usertype = userDTO.getUsertype();
+			if (!StringUtils.isEmpty(usertype)) {
+				session.setAttribute("utenteCollegato", userDTO);
+				if (usertype.equals("admin")) {
+					return "homeAdmin";
+				} else if (usertype.equals("candidato")) {
+					return "homeCandidato";
+				} else if (usertype.equals("company")) {
+					return "homeCompany";
+				}
+			}
+			return "index";
+		}
+
+		@RequestMapping(value = "/logout", method = RequestMethod.GET)
+		public String logOut(HttpServletRequest request) {
+			request.getSession().invalidate();
+			return "index";
+		}
 	}
-}

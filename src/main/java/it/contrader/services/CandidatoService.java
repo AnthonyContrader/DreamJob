@@ -35,7 +35,11 @@ public class CandidatoService {
 
 		return ConverterCandidato.toDTO(candidato);
 	}
-
+	
+	public boolean readCandidato(CandidatoDTO candidatoDTO) {
+		return candidatoRepository.save(ConverterCandidato.toEntity(candidatoDTO)) != null;
+	}
+	
 	public boolean insertCandidato(CandidatoDTO candidatoDTO) {
 		return candidatoRepository.save(ConverterCandidato.toEntity(candidatoDTO)) != null;
 	}

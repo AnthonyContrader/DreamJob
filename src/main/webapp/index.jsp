@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>LOGIN PAGE</title>
+<title>Benvenuti in DreamJob</title>
 
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +22,7 @@
 
 <body class="text-center">
 	<form class="form-signin" action="/User/login" method="post">
-		<h1 class="h3 mb-3 font-weight-normal">Metabot LOGIN PAGE</h1>
+		<h1 class="h3 mb-3 font-weight-normal"> DREAMJOB LOGIN PAGE </h1>
 
 		<label for="inputUser" class="sr-only">Username</label> <input
 			type="text" name="username" id="inputUser" class="form-control"

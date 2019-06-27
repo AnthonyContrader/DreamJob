@@ -86,15 +86,6 @@ public class OpenjobController {
 		visualOpenjob(request);
 		return "homeOpenjob";
 	}
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginControl(HttpServletRequest request) {
-
-		session = request.getSession();
-		final String titolo = request.getParameter("titolo");
-		final OpenjobDTO openjobDTO = openjobService.getByTitolo(titolo);
-		
-		
-		return "index";
-	}
+	
 
 }

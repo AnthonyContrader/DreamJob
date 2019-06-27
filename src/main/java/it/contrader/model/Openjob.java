@@ -33,8 +33,6 @@ public class Openjob {
 	@NotNull
 	private String titolo;
 	
-
-
 	@NotNull
 	private String descrizione;
 

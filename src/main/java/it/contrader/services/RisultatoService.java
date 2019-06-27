@@ -47,24 +47,17 @@ public class RisultatoService {
 	
 	public void deleteRisultatoById(Integer id) {
 		risultatoRepository.deleteById(id);
-	}
-
-	public List<RisultatoDTO> findRisultatoDTOById(Integer content) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	}	
 	
+	public List<RisultatoDTO> findRisultatoDTOById(Integer id) {
+		
+		final List<Risultato> list = risultatoRepository.findAllById(id);
+		final List<RisultatoDTO> risultatoDTOs = new ArrayList<>();
+		list.forEach(i -> risultatoDTOs.add(ConverterRisultato.toDTO(i)));
+		return risultatoDTOs;
+		
 	
-//	public List<RisultatoDTO> findRisultatoDTOById(Integer id) {
-//		
-//		final List<Risultato> list = risultatoRepository.findAllById(id);
-//		final List<RisultatoDTO> risultatoDTOs = new ArrayList<>();
-//		list.forEach(i -> risultatoDTOs.add(ConverterRisultato.toDTO(i)));
-//		return risultatoDTOs;
-//		
-//	
-//	}
+	}
 
 	
 	

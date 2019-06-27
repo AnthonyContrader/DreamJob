@@ -35,6 +35,11 @@ public class UserService {
 
 		return ConverterUser.toDTO(user);
 	}
+	
+	public boolean readUser(UserDTO userDTO) {
+		return userRepository.save(ConverterUser.toEntity(userDTO)) != null;
+	}
+
 
 	public boolean insertUser(UserDTO userDTO) {
 		return userRepository.save(ConverterUser.toEntity(userDTO)) != null;
@@ -56,5 +61,10 @@ public class UserService {
 		return userDTOs;
 		
 	
+	}
+
+	public UserDTO getUserByUsernameAndPassword(String username, String password) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
