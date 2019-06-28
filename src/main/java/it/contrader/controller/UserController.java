@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import it.contrader.dto.CandidatoDTO;
 import it.contrader.dto.CompanyDTO;
 import it.contrader.dto.UserDTO;
+import it.contrader.services.CandidatoService;
+import it.contrader.services.CompanyService;
 import it.contrader.services.UserService;
 
 import java.util.ArrayList;
@@ -25,12 +27,16 @@ import java.util.List;
 public class UserController {
 
 	private final UserService userService;
+	private final CompanyService coService;
+	private final CandidatoService caService;
 	private HttpSession session;
 	private int id;
 	
 	@Autowired
-	public UserController(UserService userService) {
+	public UserController(UserService userService,CompanyService coService,CandidatoService caService) {
 		this.userService = userService;
+		this.caService = caService;
+		this.coService = coService;
 	}
 
 	private void visualUser(HttpServletRequest request){
@@ -79,31 +85,43 @@ public class UserController {
 		String username = request.getParameter("username").toString();
 		String password = request.getParameter("password").toString();
 		String usertype = request.getParameter("usertype").toString();
-
+		
 		UserDTO userObj = new UserDTO(username, password,usertype);
 		
 		userService.insertUser(userObj);
 		
-
+		switch(usertype) {
+		case "candidato":
+			CandidatoDTO cA = new CandidatoDTO(userObj.getUsername(),userObj.getPassword());
+			caService.insertCandidato(cA);
+			break;
+		case "company":
+			CompanyDTO cO = new CompanyDTO(userObj.getUsername(),userObj.getPassword());
+			coService.insertCompany(cO);
+			break;
+		default:
+			break;
+		}
 		visualUser(request);
 		return "homeAdmin";
 	}
 
 		@RequestMapping(value = "/login", method = RequestMethod.POST)
 		public String loginControl(HttpServletRequest request) {
-
 			session = request.getSession();
 			final String username = request.getParameter("username");
 			final String password = request.getParameter("password");
 			final UserDTO userDTO = userService.getByUsernameAndPassword(username, password);
 			
 			final String usertype = userDTO.getUsertype();
+			System.out.println("user type " + usertype);
 			
 			if (!StringUtils.isEmpty(usertype)) {
 				session.setAttribute("utenteCollegato", userDTO);
 				if (usertype.equals("admin")) {
 					return "homeAdmin";
 				} else if (usertype.equals("candidato")) {
+					System.out.print("qua");
 					return "homeCandidato";
 				} else if (usertype.equals("company")) {
 					return "homeCompany";

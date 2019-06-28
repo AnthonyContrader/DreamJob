@@ -21,6 +21,7 @@ pageEncoding="ISO-8859-1" import="java.io.*,java.net.*"%>
 
 <%
 		UserDTO userDTO = (UserDTO) session.getAttribute("utenteCollegato");
+		System.out.println("qua: " + userDTO);
 	%>
 	<div class="clearfix" id="corpo">
 		<div class="header" id="intestazione">

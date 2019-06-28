@@ -9,6 +9,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CompanyDTO {
 
+	public CompanyDTO(String username2, String password2) {
+		this.setUsername(username2);
+		this.setPassword(password2);
+		// TODO Auto-generated constructor stub
+	}
+
 	private Integer id;
 
 	private String username;
