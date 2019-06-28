@@ -32,9 +32,10 @@ public class UserService {
 	public UserDTO getByUsernameAndPassword(String username, String password) {
 
 		final User user = userRepository.findUserByUsernameAndPassword(username, password);
-
+		System.out.println(user.getUsername().toString());
 		return ConverterUser.toDTO(user);
 	}
+	
 	
 	public boolean readUser(UserDTO userDTO) {
 		return userRepository.save(ConverterUser.toEntity(userDTO)) != null;

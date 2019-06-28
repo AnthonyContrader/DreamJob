@@ -1,64 +1,90 @@
-<%@ page import="it.contrader.dto.*"%>
-<%@ page import="it.contrader.services.*"%>
+<%@ page import="java.io.*" %>
 <%@ page import="java.util.*"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page import="it.contrader.dto.*"%>
+<%@ page language="java" contentType="text/html;charset=ISO-8859-1"
+pageEncoding="ISO-8859-1" import="java.io.*,java.net.*"%>
 
-
-
-<!DOCTYPE html>
 <html>
-<head>
+<head> 
 <meta charset="ISO-8859-1">
-<title>Home Candidato</title>
-<style>
-body {
-	background-image:
-		url("http://1.bp.blogspot.com/-FLsi6FOuXJ8/UHHBwqDTLNI/AAAAAAAAEG0/KTBA9VtfDl0/s1600/viaggio-a-Paris.gif");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	text-align: center;
-	color: blue;
-}
-</style>
+<link href= "Stile.css" rel="stylesheet" media = "screen">
+<link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- Custom styles for this template -->
+<link href="/prova.css" rel="stylesheet" type="text/css">
+<title>Candidato view</title>
 </head>
-<body>
-<style>
-.body{
-text-aling:center;
-}
-.titolo {
-	color: white;
-	text-align: center;
-	font-size: 1.9em;
-	font-family: times new roman;
-	}
-	
-.body{
-	text-align: center;
-	}
-</style>
 
-<div class="body">
-<%UserDTO user = (UserDTO) request.getAttribute("user");%>
-<div class="titolo"> <h1>${user.getUsername()}</h1>	</div>
-	 <br>
-	 <br>
-	 <br>
-	Benvenuto su DreamJob, questo portale ti aiuteraÂ´ a trovare il lavoro dei tuoi sogni.
-	 <br>
-	 <br>
-	 <br>
-	 Clicca su "Modifica Profilo" per accedere ai tuoi dati.
-		<br>
-	 <br>
-	 <br>
+<body class="text-center">
+<h1>Benvenuto Candidato</h1>
+<h2>Benvenuto su DreamJob, questo portale ti aiutera´ a trovare il lavoro dei tuoi sogni.</h2>
 
-	<a href="/Candidato/candidatoManagement?idUser=<%= user.getId()%>">Modifica Profilo</a>
-	<br>
-	 <br>
- 	  <a href="/home/logout" class="btn btn-primary">Logout</a>
-	
-</div>
+<%
+		UserDTO userDTO = (UserDTO) session.getAttribute("utenteCollegato");
+	%>
+	<div class="clearfix" id="corpo">
+		<div class="header" id="intestazione">
+			<h1>DreamJob</h1>
+		</div>
+
+		<table>
+		<tr>
+			<th>Username</th>
+			<th>Password</th>
+			<th>Name</th>
+			<th>Surname</th>
+			<th>Age</th>
+			<th>Tipo Laurea</th>
+			<th>Experience</th>
+			<th>id</th>
+			<th></th>
+		</tr>
+		<%CandidatoDTO u = (CandidatoDTO) request.getAttribute("dto");%>
+		<tr>
+			<td><%=u.getUsername()%></td>
+			
+			<td><%=u.getPassword()%></td>
+			
+			<td><%=u.getName()%></td>
+			
+			<td><%=u.getSurname()%></td>
+			
+			
+			<td><%=u.getAge()%></td>
+			
+			<td><%=u.getTipolaurea()%></td>
+			
+			<td><%=u.getExperience()%></td>
+			
+			<td><%=u.getId()%></td>
+			
+			<td><a href=CandidatoService?mode=read&update=true&id=<%=u.getId()%> class=" btn btn-primary t-action">Modifica</a></td>
+			
+		</tr>
+		
+	</table>
+
+		<div class="column menu intero" id="menu-destra">
+			<ul style="list-style: none;">
+				<li style="text-align: center">
+				 <label> MENU</label></li>
+				 
+				 <li class="btMenu">
+					<a href="/Candidato/read?id=<%=userDTO.getId() %>" class=" btn btn-primary t-action">Leggi Profilo</a>
+				</li>
+
+				<li class="btMenu">
+					<a href="/Candidato/insert?id=<%=userDTO.getId() %>" class=" btn btn-primary t-action">Inserisci Profilo</a>
+				</li>
+			
+				<li class="btMenu">
+					<a href="/Home/logout" class=" btn btn-primary t-action">Logout</a>
+				</li>
+			</ul>
+		</div>
+
+		
+	</div>
+
 </body>
 </html>

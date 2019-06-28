@@ -21,6 +21,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/User")
+
 public class UserController {
 
 	private final UserService userService;
@@ -79,9 +80,10 @@ public class UserController {
 		String password = request.getParameter("password").toString();
 		String usertype = request.getParameter("usertype").toString();
 
-		UserDTO userObj = new UserDTO();
+		UserDTO userObj = new UserDTO(username, password,usertype);
 		
 		userService.insertUser(userObj);
+		
 
 		visualUser(request);
 		return "homeAdmin";
@@ -93,8 +95,10 @@ public class UserController {
 			session = request.getSession();
 			final String username = request.getParameter("username");
 			final String password = request.getParameter("password");
-			final UserDTO userDTO = userService.getUserByUsernameAndPassword(username, password);
+			final UserDTO userDTO = userService.getByUsernameAndPassword(username, password);
+			
 			final String usertype = userDTO.getUsertype();
+			
 			if (!StringUtils.isEmpty(usertype)) {
 				session.setAttribute("utenteCollegato", userDTO);
 				if (usertype.equals("admin")) {

@@ -1,63 +1,108 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page import="it.contrader.dto.*"%>
-<%@ page import="java.util.*"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-
-
-
-<!DOCTYPE html>
-<html>
+<%@ page import="java.util.*"%>
+<%@ page import="it.contrader.dto.*"%>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Home Admin</title>
-<style>
-body {
-	background-image:
-		url("http://1.bp.blogspot.com/-FLsi6FOuXJ8/UHHBwqDTLNI/AAAAAAAAEG0/KTBA9VtfDl0/s1600/viaggio-a-Paris.gif");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	text-align: center;
-	color: blue;
-}
-</style>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<!-- Custom styles for this template -->
+<link href="/prova.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-<style>
-.body{
-text-aling:center;
-}
-.titolo {
-	color: white;
-	text-align: center;
-	font-size: 1.9em;
-	font-family: times new roman;
-	}
-	
-.body{
-	text-align: center;
-	}
-</style>
 
-<div class="body">
-<div class="titolo"> <h1>${user.getUsername()}</h1>	</div>
-	 <br>
-	 <br>
-	 <br>
-	Benvenuto su DreamJob, dove potrai visualizzare, inserire, modificare ed eliminare gli account iscritti su questa piattaforma.
-	 <br>
-	 <br>
-	 <br>
-	 Clicca Users per accedere agli utenti.
-		<br>
-	 <br>
-	 <br>
+<body class="text-center">
+	<%
+		UserDTO userDTO = (UserDTO) session.getAttribute("utenteCollegato");
+	%>
+	<div class="clearfix" id="corpo">
+		<div class="header" id="intestazione">
+			<h1>DreamJob</h1>
+		</div>
 
-	<a href="UserService?mode=userlist">Users</a>
-	<br>
-	 <br>
- 	 <a href="LogoutService" id="logout">Logout</a>
-	
-</div>
+		<div class="column menu intero" id="menu-destra">
+			<ul style="list-style: none;">
+				<li><label>Benvenuto <%
+					out.println(userDTO.getUsername());
+				%></label></li>
+
+				<li></li>
+				<li></li>
+				<li><label>MENU</label></li>
+				<li>
+					<form action="/User/crea">
+						<button class="btn btn-lg btn-primary btn-block" type="submit">Inserisci Utente</button>
+					</form>
+
+					<form action="/Home/logout">
+						<button class="btn btn-lg btn-primary btn-block" type="submit">Logout
+						</button>
+					</form>
+
+				</li>
+			</ul>
+		</div>
+
+		<div class="column content" id="visualizzazione">
+
+			<%
+				List<UserDTO> users = (List<UserDTO>) session.getAttribute("allUserDTO");
+				if (!(users == null)) {
+					for (int i = 0; i < users.size(); i++) {
+								%>
+								<div class="col-md-8 themed-grid-col data-header">
+									<div class="pb-3">
+					
+										<span><b class="tipo-dato">ID</b> <span
+											class="contenuto-dato"> <%
+					 					out.println(users.get(i).getId());%>
+					 			</span></span>
+									</div>
+									<div class="row">
+										<div class="col-md-6 themed-grid-col data-cels">
+											<span><b>USERNAME:</b> <span class="contenuto-dato">
+													<%
+														out.println(users.get(i).getUsername());
+													%>
+											</span></span>
+										</div>
+										<div class="col-md-6 themed-grid-col data-cels">
+											<span><b>PASSWORD:</b> <span class="contenuto-dato">
+													<%
+														out.println(users.get(i).getPassword());
+													%>
+											</span></span>
+										</div>
+										<div class="col-md-6 themed-grid-col data-cels">
+											<span><b>TIPO:</b> <span class="contenuto-dato"> <%
+					 						out.println(users.get(i).getUsertype());%>
+					 				</span></span>
+										</div>
+									</div>
+									<p class="link-row">
+										<a
+											href="/User/delete?id=<%out.println(users.get(i).getId());%>"
+											class="btn btn-primary my-2 t-action"> Elimina</a>
+											 <a
+											href="/User/userUpdate?id=<%out.println(users.get(i).getId());%>"
+											class="btn btn-secondary my-2 t-action"> Modifica</a> 
+									</p>
+								</div>
+					
+								<%
+				}
+				}
+			%>
+
+		</div>
+	</div>
 </body>
 </html>
