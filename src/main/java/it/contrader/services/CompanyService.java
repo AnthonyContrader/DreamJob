@@ -36,6 +36,9 @@ public class CompanyService {
 		return ConverterCompany.toDTO(company);
 	}
 
+	public boolean readCompany(CompanyDTO companyDTO) {
+		return companyRepository.save(ConverterCompany.toEntity(companyDTO)) != null;
+	}
 	public boolean insertCompany(CompanyDTO companyDTO) {
 		return companyRepository.save(ConverterCompany.toEntity(companyDTO)) != null;
 	}
@@ -56,5 +59,10 @@ public class CompanyService {
 		return companyDTOs;
 		
 	
+	}
+
+	public List<CompanyDTO> getMyCompany(int idCompany) {
+		// TODO Auto-generated method stub
+		return ConverterCompany.toListDTO(companyRepository.findAllByIdCompany(idCompany));
 	}
 }

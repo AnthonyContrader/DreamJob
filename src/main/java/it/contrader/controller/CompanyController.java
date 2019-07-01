@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.contrader.dto.CompanyDTO;
+import it.contrader.dto.OpenjobDTO;
 import it.contrader.services.CompanyService;
 
 import java.util.List;
@@ -38,6 +39,14 @@ public class CompanyController {
 	public String companyManagement(HttpServletRequest request) {
 		visualCompany(request);
 		return "homeCompany";		
+	}
+	@RequestMapping(value = "/myCompany", method = RequestMethod.GET)
+	public String myCompany(HttpServletRequest request){
+		int idCompany = Integer.parseInt(request.getParameter("id"));
+		 List<CompanyDTO> wList = this.companyService.getMyCompany(idCompany);
+		 request.setAttribute("list", wList);
+		return "readCompany";
+		
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
@@ -78,7 +87,7 @@ public class CompanyController {
 		String info = request.getParameter("info").toString();
 		
 
-		CompanyDTO companyObj = new CompanyDTO();
+		CompanyDTO companyObj = new CompanyDTO(username, password, name, info);
 		
 		companyService.insertCompany(companyObj);
 

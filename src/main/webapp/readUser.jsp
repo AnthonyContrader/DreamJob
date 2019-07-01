@@ -16,41 +16,35 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 <!-- Custom styles for this template -->
-<link href="/prova.css" rel="stylesheet" type="text/css">
+<link href="/Stile.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-<h3>Da questa pagina puoi visualizzare, modificare ed eliminare le tue posizioni lavorative.</h3>
+<h3>Da questa pagina puoi visualizzare tutti gli utenti iscritti alla piattaforma.</h3>
 <br>
 <br>
 
-	
+<%
+		List<UserDTO> list = (List<UserDTO>) request.getAttribute("read");
+	 %>
 
-	<table>
-		<tr>
-			<th>Titolo</th>
-			<th>Descrizione</th>
-			<th>Requisiti</th>
-			<th>id</th>
-			<th></th>
-			<th></th>
-		</tr>
-		
-		<%List<OpenjobDTO> list = (List<OpenjobDTO>) request.getAttribute("list");%>
-		<tr>
-			<%for (OpenjobDTO u:list) { %>
-			<td><%=u.getTitolo()%></td>
-			<td><%=u.getDescrizione()%></td>
-			<td><%=u.getRequisiti()%></td>
-			<td><%=u.getId()%></td>
-			
-			<td><a href="/Openjob/redirectUpdate?id=<%=u.getId()%>">Modifica</a></td>
-			<td><a href="/Openjob/delete?id=<%=u.getId()%>">Elimina</a></td>
-			
-		<%} %>
-		</tr>
-		
-	</table>
+<table>
+					<tr><th>Id</th><th>Username</th><th>Password</th><th>Usertype</th></tr>
+						<%
+							for(UserDTO u: list){
+						 %>
+		 			<tr>
+		 				<td><%=u.getId()%></td>
+		 				<td><%=u.getUsername()%></td>
+		 				<td><%=u.getPassword()%></td>
+		 				<td><%=u.getUsertype()%></td>
+		 				<td><a href="/User/delete?id=<%=u.getId() %>">Elimina</a></td>
+		 				<td><a href="/User/redirectUpdate?id=<%=u.getId()%>">Modifica</a></td>
+		 			</tr>
+						<% 
+							}
+						%>
+				</table>
 </body>
 </html>

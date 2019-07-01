@@ -50,14 +50,53 @@ public class UserController {
 		return "homeAdmin";		
 	}
 	
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public String read(HttpServletRequest request) {
+		visualUser(request);
+		List<UserDTO> list = this.userService.getListaUserDTO();
+		request.setAttribute("read", list);
+		
+		return "readUser";
+		
+	}
+	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
-		request.setAttribute("id", id);
-		this.userService.deleteUserById(id);
-		visualUser(request);
-		return "homeAdmin";
 		
+		this.userService.deleteUserById(id);
+		List<UserDTO> list = this.userService.getListaUserDTO();
+		request.setAttribute("read", list);
+		visualUser(request);
+		return "readUser";
+		
+	}
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(HttpServletRequest request)
+	{
+		int id = Integer.parseInt(request.getParameter("id"));
+		String usernameUpdate = request.getParameter("username");
+		String passwordUpdate = request.getParameter("password");
+		String usertypeUpdate = request.getParameter("usertype");
+		
+		final UserDTO user = new UserDTO(usernameUpdate,passwordUpdate,usertypeUpdate);
+		user.setId(id);
+		
+		userService.updateUser(user);
+		List<UserDTO> list = this.userService.getListaUserDTO();
+		request.setAttribute("user", list);
+		return "readUser";	
+		
+	}
+	
+	@RequestMapping(value = "/redirectUpdate", method = RequestMethod.GET)
+	public String redirectUpdate(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		UserDTO user = userService.getUserDTOById(id);
+		
+		request.setAttribute("user", user);
+		return "updateUser";
 	}
 	
 	@RequestMapping(value = "/crea", method = RequestMethod.GET)

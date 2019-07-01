@@ -37,6 +37,10 @@ pageEncoding="ISO-8859-1" import="java.io.*,java.net.*"%>
 				</li>
 				
 				<li class="btMenu">
+					<a href="/Company/myCompany?id=<%=userDTO.getId() %>" class=" btn btn-primary t-action">Visualizza le informazioni aziendali</a>
+				</li>
+				
+				<li class="btMenu">
 					<a href="/Openjob/crea?id=<%=userDTO.getId() %>" class=" btn btn-primary t-action">Inserisci Open Job</a>
 				</li>
 				

@@ -17,6 +17,13 @@ public class CandidatoDTO {
 
 	public CandidatoDTO(String username2, String password2, String name2, String surname2, Integer age2,
 			String tipolaurea2, String experience2) {
+		this.setUsername(username2);
+		this.setPassword(password2);
+		this.setName(name2);
+		this.setSurname(surname2);
+		this.setAge(age2);
+		this.setTipolaurea(tipolaurea2);
+		this.setExperience(experience2);
 		// TODO Auto-generated constructor stub
 	}
 

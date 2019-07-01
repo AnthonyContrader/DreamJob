@@ -15,6 +15,14 @@ public class CompanyDTO {
 		// TODO Auto-generated constructor stub
 	}
 
+	public CompanyDTO(String username2, String password2, String name2, String info2) {
+		this.setUsername(username2);
+		this.setPassword(password2);
+		this.setName(name2);
+		this.setInfo(info2);
+		// TODO Auto-generated constructor stub
+	}
+
 	private Integer id;
 
 	private String username;

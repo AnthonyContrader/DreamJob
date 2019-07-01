@@ -59,14 +59,42 @@ public class OpenjobController {
 		return "homeOpenjob";
 		
 	}
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(HttpServletRequest request)
+	{
+		int id = Integer.parseInt(request.getParameter("id"));
+		String titoloUpdate = request.getParameter("titolo");
+		String descrizioneUpdate = request.getParameter("descrizione");
+		String requisitiUpdate = request.getParameter("requisiti");
+		
+		final OpenjobDTO openjob = new OpenjobDTO(titoloUpdate,descrizioneUpdate,requisitiUpdate);
+		openjob.setId(id);
+		
+		openjobService.updateOpenjob(openjob);
+		List<OpenjobDTO> list = this.openjobService.getListaOpenjobDTO();
+		request.setAttribute("openjob", list);
+		return "homeOpenjob";	
+		
+	}
+	
+	@RequestMapping(value = "/redirectUpdate", method = RequestMethod.GET)
+	public String redirectUpdate(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		OpenjobDTO openjob = openjobService.getOpenjobDTOById(id);
+		
+		request.setAttribute("openjob", openjob);
+		return "read";
+	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
-		request.setAttribute("id", id);
 		this.openjobService.deleteOpenjobById(id);
+		List<OpenjobDTO> list = this.openjobService.getListaOpenjobDTO();
+		request.setAttribute("read", list);
 		visualOpenjob(request);
-		return "homeCompany";
+		return "homeOpenjob";
 		
 	}
 	
@@ -95,9 +123,8 @@ public class OpenjobController {
 		String titolo = request.getParameter("titolo").toString();
 		String descrizione = request.getParameter("descrizione").toString();
 		String requisiti = request.getParameter("requisiti").toString();
-		
-
-		OpenjobDTO openjobObj = new OpenjobDTO();
+ // state salvando un oggetto vuoto, dovete fare un costruttore pieno 
+		OpenjobDTO openjobObj = new OpenjobDTO(titolo, descrizione, requisiti);
 		
 		openjobService.insertOpenjob(openjobObj);
 

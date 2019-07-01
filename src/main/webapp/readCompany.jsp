@@ -16,12 +16,12 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 <!-- Custom styles for this template -->
-<link href="/prova.css" rel="stylesheet" type="text/css">
+<link href="/Stile.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-<h3>Da questa pagina puoi visualizzare, modificare ed eliminare le tue posizioni lavorative.</h3>
+<h3>Da questa pagina puoi visualizzare le informazioni relative alla tua azienda.</h3>
 <br>
 <br>
 
@@ -29,24 +29,19 @@
 
 	<table>
 		<tr>
-			<th>Titolo</th>
-			<th>Descrizione</th>
-			<th>Requisiti</th>
-			<th>id</th>
-			<th></th>
-			<th></th>
+			<th>Name</th>
+			<th>Info</th>
+
+			
+			
 		</tr>
 		
-		<%List<OpenjobDTO> list = (List<OpenjobDTO>) request.getAttribute("list");%>
+		<%List<CompanyDTO> list = (List<CompanyDTO>) request.getAttribute("list");%>
 		<tr>
-			<%for (OpenjobDTO u:list) { %>
-			<td><%=u.getTitolo()%></td>
-			<td><%=u.getDescrizione()%></td>
-			<td><%=u.getRequisiti()%></td>
-			<td><%=u.getId()%></td>
+			<%for (CompanyDTO u:list) { %>
+			<td><%=u.getName()%></td>
+			<td><%=u.getInfo()%></td>
 			
-			<td><a href="/Openjob/redirectUpdate?id=<%=u.getId()%>">Modifica</a></td>
-			<td><a href="/Openjob/delete?id=<%=u.getId()%>">Elimina</a></td>
 			
 		<%} %>
 		</tr>
