@@ -15,6 +15,11 @@ public class CandidatoDTO {
 		// TODO Auto-generated constructor stub
 	}
 
+	public CandidatoDTO(String username2, String password2, String name2, String surname2, Integer age2,
+			String tipolaurea2, String experience2) {
+		// TODO Auto-generated constructor stub
+	}
+
 	private Integer id;
 
 	private String username;

@@ -3,7 +3,7 @@ package it.contrader.controller;
 import javax.servlet.http.HttpServletRequest;
 /*Sono i controller a farsi carico della gestone vera e propria delle request,
  * le quali vengono recapitate in base agli url di destinazione.
- * Vi sarà un'unica serlet che prende il nome di dispatcher servlet che attraverso l'annotation RequestMapping riconosce
+ * Vi sarÃ  un'unica serlet che prende il nome di dispatcher servlet che attraverso l'annotation RequestMapping riconosce
  * quali url sono associate ad un certo controller*/
 import javax.servlet.http.HttpSession;
 
@@ -80,7 +80,7 @@ public class CandidatoController {
 	
 	@RequestMapping(value = "/creaCandidato", method = RequestMethod.POST) /*POST: si utilizza nel create per ottenere qualcosa
 	                                                                       passando dei parametri che non si vedono
-	                                                                       in chiaro nell'url*/
+                                                                           in chiaro nell'url*/
 	public String insertCandidato(HttpServletRequest request) {
 		String username = request.getParameter("username").toString();
 		String password = request.getParameter("password").toString();
@@ -90,7 +90,7 @@ public class CandidatoController {
 		String tipolaurea = request.getParameter("tipolaurea").toString();
 		String experience = request.getParameter("experience").toString();
 
-		CandidatoDTO candidatoObj = new CandidatoDTO();
+		CandidatoDTO candidatoObj = new CandidatoDTO(username,password,name,surname,age,tipolaurea,experience);
 		
 		candidatoService.insertCandidato(candidatoObj);
 

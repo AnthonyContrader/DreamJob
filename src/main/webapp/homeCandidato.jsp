@@ -19,65 +19,23 @@ pageEncoding="ISO-8859-1" import="java.io.*,java.net.*"%>
 <h1>Benvenuto Candidato</h1>
 <h2>Benvenuto su DreamJob, questo portale ti aiutera´ a trovare il lavoro dei tuoi sogni.</h2>
 
-<%
+	<%
 		UserDTO userDTO = (UserDTO) session.getAttribute("utenteCollegato");
-		System.out.println("qua: " + userDTO);
 	%>
 	<div class="clearfix" id="corpo">
 		<div class="header" id="intestazione">
 			<h1>DreamJob</h1>
 		</div>
 
-		<table>
-		<tr>
-			<th>Username</th>
-			<th>Password</th>
-			<th>Name</th>
-			<th>Surname</th>
-			<th>Age</th>
-			<th>Tipo Laurea</th>
-			<th>Experience</th>
-			<th>id</th>
-			<th></th>
-		</tr>
-		<%CandidatoDTO u = (CandidatoDTO) request.getAttribute("dto");%>
-		<tr>
-			<td><%=u.getUsername()%></td>
-			
-			<td><%=u.getPassword()%></td>
-			
-			<td><%=u.getName()%></td>
-			
-			<td><%=u.getSurname()%></td>
-			
-			
-			<td><%=u.getAge()%></td>
-			
-			<td><%=u.getTipolaurea()%></td>
-			
-			<td><%=u.getExperience()%></td>
-			
-			<td><%=u.getId()%></td>
-			
-			<td><a href=CandidatoService?mode=read&update=true&id=<%=u.getId()%> class=" btn btn-primary t-action">Modifica</a></td>
-			
-		</tr>
-		
-	</table>
-
 		<div class="column menu intero" id="menu-destra">
 			<ul style="list-style: none;">
 				<li style="text-align: center">
 				 <label> MENU</label></li>
 				 
-				 <li class="btMenu">
-					<a href="/Candidato/read?id=<%=userDTO.getId() %>" class=" btn btn-primary t-action">Leggi Profilo</a>
-				</li>
-
+				
 				<li class="btMenu">
-					<a href="/Candidato/insert?id=<%=userDTO.getId() %>" class=" btn btn-primary t-action">Inserisci Profilo</a>
+					<a href="/Candidato/crea?id=<%=userDTO.getId() %>" class=" btn btn-primary t-action">Inserisci Profilo</a>
 				</li>
-			
 				<li class="btMenu">
 					<a href="/Home/logout" class=" btn btn-primary t-action">Logout</a>
 				</li>
@@ -86,6 +44,5 @@ pageEncoding="ISO-8859-1" import="java.io.*,java.net.*"%>
 
 		
 	</div>
-
 </body>
 </html>

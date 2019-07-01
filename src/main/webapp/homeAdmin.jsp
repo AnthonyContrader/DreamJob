@@ -25,7 +25,7 @@
 	%>
 	<div class="clearfix" id="corpo">
 		<div class="header" id="intestazione">
-			<h1>DreamJob</h1>
+		           	<h1>DreamJob</h1>
 		</div>
 
 		<div class="column menu intero" id="menu-destra">
@@ -40,6 +40,10 @@
 				<li>
 					<form action="/User/crea">
 						<button class="btn btn-lg btn-primary btn-block" type="submit">Inserisci Utente</button>
+					</form>
+					
+					<form action="/User/read">
+						<button class="btn btn-lg btn-primary btn-block" type="submit">Visualizza Utenti</button>
 					</form>
 
 					<form action="/Home/logout">
