@@ -30,13 +30,13 @@ public class Openjob {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@NotNull
+	
 	private String titolo;
 	
-	@NotNull
+	
 	private String descrizione;
 
-	@NotNull
+	
 	private String requisiti;
 	
 	@ManyToOne

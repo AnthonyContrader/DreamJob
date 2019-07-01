@@ -36,10 +36,20 @@ public class OpenjobController {
 		request.setAttribute("allOpenjobDTO", allOpenjob);
 	}
 	
-	@RequestMapping(value = "/openjobManagement", method = RequestMethod.GET)
-	public String openjobManagement(HttpServletRequest request) {
+	@RequestMapping(value = "/companyManagement", method = RequestMethod.GET)
+	public String companyManagement(HttpServletRequest request) {
 		visualOpenjob(request);
-		return "homeOpenjob";		
+		return "homeCompany";		
+	}
+	
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public String read(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		request.setAttribute("id", id);
+		this.openjobService.readOpenjobById(id);
+		visualOpenjob(request);
+		return "homeOpenjob";
+		
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
@@ -48,7 +58,7 @@ public class OpenjobController {
 		request.setAttribute("id", id);
 		this.openjobService.deleteOpenjobById(id);
 		visualOpenjob(request);
-		return "homeOpenjob";
+		return "homeCompany";
 		
 	}
 	
@@ -84,7 +94,7 @@ public class OpenjobController {
 		openjobService.insertOpenjob(openjobObj);
 
 		visualOpenjob(request);
-		return "homeOpenjob";
+		return "homeCompany";
 	}
 	
 

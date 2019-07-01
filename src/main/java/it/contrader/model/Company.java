@@ -33,10 +33,10 @@ public class Company {
 	@NotNull
 	private String password;
 
-	@NotNull
+	
 	private String name;
 	
-	@NotNull
+	
 	private String info;
 	
 	@OneToMany(mappedBy="company") //indica la chiave esterna 1 a molti per più info consultare appunti

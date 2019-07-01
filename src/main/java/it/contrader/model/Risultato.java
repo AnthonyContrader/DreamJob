@@ -24,7 +24,7 @@ public class Risultato {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@NotNull
+	
 	private String descrizione;
 
 	@ManyToOne

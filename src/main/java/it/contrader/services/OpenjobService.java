@@ -57,4 +57,10 @@ public class OpenjobService {
 		
 	
 	}
+
+	public void readOpenjobById(int id) {
+		// TODO Auto-generated method stub
+		openjobRepository.readById(id);
+		
+	}
 }

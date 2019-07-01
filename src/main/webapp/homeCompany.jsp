@@ -33,11 +33,17 @@ pageEncoding="ISO-8859-1" import="java.io.*,java.net.*"%>
 				 <label> MENU</label></li>
 
 				<li class="btMenu">
-					<a href="/Company/insert?id=<%=userDTO.getId() %>" class=" btn btn-primary t-action">Inserisci Info</a>
+					<a href="/Company/crea?id=<%=userDTO.getId() %>" class=" btn btn-primary t-action">Inserisci Info</a>
 				</li>
+				
 				<li class="btMenu">
-					<a href="/Company/insert?id=<%=userDTO.getId() %>" class=" btn btn-primary t-action">Inserisci Open Job</a>
+					<a href="/Openjob/crea?id=<%=userDTO.getId() %>" class=" btn btn-primary t-action">Inserisci Open Job</a>
 				</li>
+				
+				<li class="btMenu">
+					<a href="/Openjob/cercaOpenjob?id=<%=userDTO.getId() %>" class=" btn btn-primary t-action">Visualizza Open Job</a>
+				</li>
+				
 				<li class="btMenu">
 					<a href="/Home/logout" class=" btn btn-primary t-action">Logout</a>
 				</li>

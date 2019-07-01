@@ -28,25 +28,25 @@ public class Candidato {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@NotNull
+	
 	private String username;
 
-	@NotNull
+	
 	private String password;
 
-	@NotNull
+	
 	private String name;
 	
-	@NotNull
+	
 	private String surname;
 	
-	@NotNull
+	
 	private Integer age;
 	
-	@NotNull
+	
 	private String tipolaurea;
 	
-	@NotNull
+	
 	private String experience;
 	
 	@OneToMany(mappedBy="candidato")
