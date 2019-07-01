@@ -42,12 +42,20 @@ public class OpenjobController {
 		return "homeCompany";		
 	}
 	
+	@RequestMapping(value = "/myJobs", method = RequestMethod.GET)
+	public String myJobs(HttpServletRequest request){
+		int idCompany = Integer.parseInt(request.getParameter("id"));
+		 List<OpenjobDTO> wList = this.openjobService.getMyJobs(idCompany);
+		 request.setAttribute("list", wList);
+		return "homeOpenjob";
+		
+	}
+	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public String read(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
-		request.setAttribute("id", id);
-		this.openjobService.readOpenjobById(id);
-		visualOpenjob(request);
+		OpenjobDTO x = this.openjobService.readOpenjobById(id);
+		request.setAttribute("dto", x);
 		return "homeOpenjob";
 		
 	}

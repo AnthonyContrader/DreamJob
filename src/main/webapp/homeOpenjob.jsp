@@ -37,9 +37,9 @@
 			<th></th>
 		</tr>
 		
-		<%OpenjobDTO u = (OpenjobDTO) request.getAttribute("dto");%>
+		<%List<OpenjobDTO> list = (List<OpenjobDTO>) request.getAttribute("list");%>
 		<tr>
-			
+			<%for (OpenjobDTO u:list) { %>
 			<td><%=u.getTitolo()%></td>
 			<td><%=u.getDescrizione()%></td>
 			<td><%=u.getRequisiti()%></td>
@@ -48,7 +48,7 @@
 			<td><a href=OpenjobService?mode=read&update=true&id=<%=u.getId()%>>Modifica</a></td>
 			<td><a href=OpenjobService?mode=delete=true&id=<%=u.getId()%>>Elimina</a></td>
 			
-
+		<%} %>
 		</tr>
 		
 	</table>

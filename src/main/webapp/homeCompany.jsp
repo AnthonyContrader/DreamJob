@@ -41,7 +41,7 @@ pageEncoding="ISO-8859-1" import="java.io.*,java.net.*"%>
 				</li>
 				
 				<li class="btMenu">
-					<a href="/Openjob/cercaOpenjob?id=<%=userDTO.getId() %>" class=" btn btn-primary t-action">Visualizza Open Job</a>
+					<a href="/Openjob/myJobs?id=<%=userDTO.getId() %>" class=" btn btn-primary t-action">Visualizza Open Job</a>
 				</li>
 				
 				<li class="btMenu">

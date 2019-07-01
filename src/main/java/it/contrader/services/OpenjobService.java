@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import it.contrader.converter.ConverterOpenjob;
 import it.contrader.dao.OpenjobRepository;
 import it.contrader.dto.OpenjobDTO;
@@ -58,9 +59,15 @@ public class OpenjobService {
 	
 	}
 
-	public void readOpenjobById(int id) {
+	public OpenjobDTO readOpenjobById(int id) {
 		// TODO Auto-generated method stub
-		openjobRepository.readById(id);
+		return ConverterOpenjob.toDTO(openjobRepository.readById(id));
+		
+	}
+
+	public List<OpenjobDTO> getMyJobs(int idCompany) {
+		return ConverterOpenjob.toListDTO(openjobRepository.findAllByIdCompany(idCompany));
+		// TODO Auto-generated method stub
 		
 	}
 }
