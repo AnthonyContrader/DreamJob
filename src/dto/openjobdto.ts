@@ -1,6 +1,5 @@
-import {Usertype} from './usertype';
 
-export class UserDTO {
+export class OpenjobDTO {
     id: number;
     titolo: string;
     descrizione: string;
