@@ -7,8 +7,6 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
-import { CandidatoDashboardComponent } from './candidato/candidato-dashboard/candidato-dashboard.component';
-import { CandidatoRuotingModule } from './candidato/candidato-ruoting.module';
 
 /** 
  * Modulo principale dell'applicazione. Qui vengono importati i moduli secondari. L'UNICA component
@@ -20,7 +18,6 @@ import { CandidatoRuotingModule } from './candidato/candidato-ruoting.module';
 @NgModule({
   declarations: [
     AppComponent,
-    CandidatoDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +26,6 @@ import { CandidatoRuotingModule } from './candidato/candidato-ruoting.module';
     HttpClientModule,
     LayoutModule,
     AdminModule,
-    CandidatoRuotingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

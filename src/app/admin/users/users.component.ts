@@ -8,7 +8,6 @@ import { UserDTO } from 'src/dto/userdto';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-
   users: UserDTO[];
   usertoinsert: UserDTO = new UserDTO();
 
