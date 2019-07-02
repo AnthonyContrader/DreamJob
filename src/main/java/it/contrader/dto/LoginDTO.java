@@ -19,4 +19,11 @@ public class LoginDTO {
 	private String username;
 	
 	private String password;
+
+	public Integer getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }

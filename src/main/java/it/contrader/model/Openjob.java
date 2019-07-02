@@ -24,23 +24,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
-	
-	public enum Usertype {
-		ADMIN,
-		COMPANY,
-		CANDIDATO
-	}
+public class Openjob {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(unique = true)
-	private String username;
-	
-	private String password;
-
-	private Usertype usertype;
-	
+	private String titolo;
+	private String descrizione;
+	private String requisiti;
+	private Integer idCompany;
 }
