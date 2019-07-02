@@ -1,4 +1,5 @@
 export enum Usertype {
     ADMIN,
-    USER
+    COMPANY,
+    CANDIDATO
 }
