@@ -1,5 +1,5 @@
 form{
-    margin-top:50px;
+    margin-top:270px;
     width: 55%;
     padding: 10px;
     border-radius:0;
@@ -8,20 +8,10 @@ form{
 
 img{
     position: inherit;
-    width:10%;
+    width:50%;
     margin: 12%;
 }
 
-.intestazione {
-    max-height: 200px;
-}
-
-.bottoni {
-    position: left;
-    left: 70px;
-    color: rgba(44, 44, 177, 0.822);
-    margin-bottom: 2px solid  white;
-}
 
 input, input:hover, input::selection, input:checked, input:focus{
     border: 0;

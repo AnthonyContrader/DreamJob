@@ -1,102 +1,66 @@
 <div class="container">
-  <div class="row mt-5">
-    <div class="col-md-1">
-
-    </div>
-    <div class="col-md-10">
-      <table>
-        <tr>
-          <th>
-            Username
-          </th>
-          <th>
-            Password
-          </th>
-          <th>
-            Name
-          </th>
-          <th>
-            Surname
-          </th>
-          <th>
-            Age
-          </th>
-          <th>
-            Tipo Laurea
-          </th>
-          <th>
-            Experience
-          </th>
-          <th colspan="2">
-            Edit
-            User
-          </th>
-        </tr>
-        <tr>
-          <td>
-            <input placeholder="username" [(ngModel)]="candidatotoinsert.username">
-          </td>
-          <td>
-            <input placeholder="password" [(ngModel)]="candidatotoinsert.password">
-          </td>
-          <td>
-            <input placeholder="name" [(ngModel)]="candidatotoinsert.name">
-          </td>
-          <td>
-            <input placeholder="surname" [(ngModel)]="candidatotoinsert.surname">
-          </td>
-          <td>
-            <input placeholder="age" [(ngModel)]="candidatotoinsert.age">
-          </td>
-          <td>
-            <input placeholder="tipolaurea" [(ngModel)]="candidatotoinsert.tipolaurea">
-          </td>
-          <td>
-            <input placeholder="experience" [(ngModel)]="candidatotoinsert.experience">
-          </td>
-          <td>
-            <button (click)="insert(usertoinsert)">Insert</button>
-          </td>
-          <td>
-            <button (click)="clear()">Clear</button>
-          </td>
-        </tr>
-
-
-
-        <tr *ngFor="let user of users">
-          <td>
-            <input [(ngModel)]="candidato.username">
-          </td>
-          <td>
-            <input [(ngModel)]="candidato.password">
-          </td>
-          <td>
-            <input [(ngModel)]="candidato.name">
-          </td>
-          <td>
-            <input [(ngModel)]="candidato.surname">
-          </td>
-          <td>
-            <input [(ngModel)]="candidato.age">
-          </td>
-          <td>
-            <input [(ngModel)]="candidato.tipolaurea">
-          </td>
-          <td>
-            <input [(ngModel)]="candidato.experience">
-          </td>
-          <td>
-            <button (click)=update(user)>Save</button>
-          </td>
-          <td>
-            <button (click)="delete(user)">Delete</button>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div class="col-md-1">
-
+    <div class="row mt-5">
+      <div class="col-md-10">
+        <table>
+          <tr>
+            <th>
+              Username
+            </th>
+            <th>
+              Password
+            </th>
+            <th>
+              Name
+            </th>
+            <th>
+                Surname
+              </th>
+              <th>
+                Age
+              </th>
+              <th>
+                Tipolaurea
+              </th>
+              <th>
+                  Experience
+                </th>
+            <th colspan="2">
+              User
+            </th>
+          </tr>
+          <tr *ngFor="let candidato of candidato">
+            <td>
+              <input [(ngModel)]="candidato.username">
+            </td>
+            <td>
+              <input [(ngModel)]="candidato.password">
+            </td>
+            <td>
+                <input [(ngModel)]="candidato.name">
+              </td>
+              <td>
+                <input [(ngModel)]="candidato.surname">
+              </td>
+              <td>
+                  <input [(ngModel)]="candidato.age">
+                </td>
+                <td>
+                  <input [(ngModel)]="candidato.tipolaurea">
+                </td>
+                <td>
+                    <input [(ngModel)]="candidato.experience">
+                  </td>
+            <td>
+              <button (click)=update(candidato)>Save</button>
+            </td>
+            <td>
+              <button (click)="delete(candidato)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-1">
+  
+      </div>
     </div>
   </div>
-</div>
