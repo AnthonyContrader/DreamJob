@@ -25,7 +25,7 @@
                   Experience
                 </th>
             <th colspan="2">
-              User
+              
             </th>
           </tr>
           <tr *ngFor="let candidato of candidato">
@@ -51,7 +51,7 @@
                     <input [(ngModel)]="candidato.experience">
                   </td>
             <td>
-              <button (click)=update(candidato)>Save</button>
+              <button (click)=update(candidato)>Modifica</button>
             </td>
             <td>
               <button (click)="delete(candidato)">Delete</button>
