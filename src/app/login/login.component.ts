@@ -31,8 +31,12 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/admin-dashboard']);
             break;
           }
-          case 'USER': {
-            this.router.navigate(['/user-dashboard']);
+          case 'COMPANY': {
+            this.router.navigate(['/company-dashboard']);
+            break;
+          }
+          case 'CANDIDATO': {
+            this.router.navigate(['/candidato-dashboard']);
             break;
           }
           default:

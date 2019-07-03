@@ -1,28 +1,39 @@
 form{
-    margin-top:270px;
+    margin-top:50px;
     width: 55%;
     padding: 10px;
     border-radius:0;
-    border-color: crimson;
+    border-color: rgb(20, 107, 220);
 }
 
 img{
     position: inherit;
-    width:50%;
+    width:10%;
     margin: 12%;
+}
+
+.intestazione {
+    max-height: 200px;
+}
+
+.bottoni {
+    position: left;
+    left: 70px;
+    color: rgba(44, 44, 177, 0.822);
+    margin-bottom: 2px solid  white;
 }
 
 input, input:hover, input::selection, input:checked, input:focus{
     border: 0;
-    background-color: darkorange;
+    background-color: rgba(44, 44, 177, 0.822);
     border-radius: 0;
     color: white;
-    border-bottom: 1px solid crimson;
-    margin: 0px; 
+    border-bottom: 1px solid rgba(233, 16, 16, 0.781);
+    margin: 0px;
 }
 
 .container-fluid{
-    background-color: darkorange;
+    background-color: rgba(44, 44, 177, 0.822);
     height: 100vh;
 }
 input::placeholder{
@@ -30,14 +41,14 @@ input::placeholder{
 }
 .form-control{
 border: none;
-background-color: darkorange;
+background-color: rgba(44, 44, 177, 0.822);
 color: white;
 border-bottom: 1px solid white;
 }
 
 .login{
 border: none;
-background-color: darkorange;
+background-color: rgba(44, 44, 177, 0.822);
 color: white;
 border: 1px solid white;
 border-radius: 2px;
