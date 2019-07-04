@@ -1,3 +1,5 @@
+import {Usertype} from './usertype';
+
 export class CandidatoDTO {
     id: number;
     username: string;
@@ -7,4 +9,5 @@ export class CandidatoDTO {
     age: number;
     tipolaurea: string;
     experience: string;
+    usertype: Usertype;
 }

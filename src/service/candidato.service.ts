@@ -4,6 +4,7 @@ import { AbstractService } from './abstractservice';
 import { CandidatoDTO } from 'src/dto/candidatodto';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,4 +36,5 @@ export class CandidatoService extends AbstractService<CandidatoDTO>{
   update(dto: any): Observable<any> {
       return this.http.put<any>('http://localhost:' + this.port + '/' + this.type + '/update', dto);
   }
+  
 }

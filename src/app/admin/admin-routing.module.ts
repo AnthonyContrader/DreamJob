@@ -3,10 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from '../layout/admin-layout/admin-layout.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UsersComponent } from './users/users.component';
-import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 import { CandidatoComponent } from './candidato/candidato.component';
 import { OpenjobComponent } from './openjob/openjob.component';
 import { CompanyComponent } from './company/company.component';
+
 
 /**
  * Modulo di routing dell'admin. Qui ci sono i percorsi che un admin può seguire:
@@ -20,6 +20,7 @@ import { CompanyComponent } from './company/company.component';
  * 
  * @see layout
  */
+
 const routes: Routes = [
   { path: 'admin-dashboard', component: AdminLayoutComponent, children:[
     { path: '', component: AdminDashboardComponent},
@@ -27,7 +28,8 @@ const routes: Routes = [
     { path: 'candidato', component: CandidatoComponent},
     { path: 'company', component: CompanyComponent},
     { path: 'openjob', component: OpenjobComponent}
-  ]}
+  ]},
+  
 ];
 
 @NgModule({

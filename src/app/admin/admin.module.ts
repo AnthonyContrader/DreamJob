@@ -8,7 +8,7 @@ import { WorkInProgressComponent } from './work-in-progress/work-in-progress.com
 import { CandidatoComponent } from './candidato/candidato.component';
 import { CompanyComponent } from './company/company.component';
 import { OpenjobComponent } from './openjob/openjob.component';
-
+import { LayoutModule } from '././../layout/layout.module'
 /**
  * Modulo dell'admin, qui vengono dichiarate le component che utilizza 
  * l'admin. Questo modulo importa AdminRoutingModule.
@@ -22,7 +22,8 @@ import { OpenjobComponent } from './openjob/openjob.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FormsModule
+    FormsModule,
+    LayoutModule
   ]
 })
 export class AdminModule { }

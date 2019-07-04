@@ -7,6 +7,11 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
+import { CandidatoRoutingModule } from './candidato/candidato-routing.module';
+import { CompanyRoutingModule } from './company/company-routing.module';
+import { CandidatoModule } from './candidato/candidato.module';
+import { CompanyModule } from './company/company.module';
+
 
 /** 
  * Modulo principale dell'applicazione. Qui vengono importati i moduli secondari. L'UNICA component
@@ -26,6 +31,10 @@ import { AdminModule } from './admin/admin.module';
     HttpClientModule,
     LayoutModule,
     AdminModule,
+    CandidatoRoutingModule,
+    CompanyRoutingModule,
+    CandidatoModule,
+    CompanyModule
   ],
   providers: [],
   bootstrap: [AppComponent]
