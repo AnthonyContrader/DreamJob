@@ -3,9 +3,11 @@ package it.contrader.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.dto.CandidatoDTO;
@@ -41,8 +43,9 @@ public class CandidatoController extends AbstractController<CandidatoDTO>{
 		return candidatoService.findByUsernameAndPassword(loginDTO.getUsername(), loginDTO.getPassword());
 	}
 	
-	@PostMapping(value = "/readCandidato")
-	public CandidatoDTO readCandidato(String username ) {
+	@GetMapping(value = "/readCandidato")
+	public CandidatoDTO readCandidato(@RequestParam String username ) {
+		//System.out.println("Sono nel controller e ho prelevat l'oggeto con username: " + candidatoService.findByUsername(username).getUsername());
 		return candidatoService.findByUsername(username);
 		
 	}
