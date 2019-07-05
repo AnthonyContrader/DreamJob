@@ -40,4 +40,10 @@ public class CandidatoController extends AbstractController<CandidatoDTO>{
 	public CandidatoDTO login( @RequestBody LoginDTO loginDTO ) {
 		return candidatoService.findByUsernameAndPassword(loginDTO.getUsername(), loginDTO.getPassword());
 	}
+	
+	@PostMapping(value = "/readCandidato")
+	public CandidatoDTO readCandidato(String username ) {
+		return candidatoService.findByUsername(username);
+		
+	}
 }

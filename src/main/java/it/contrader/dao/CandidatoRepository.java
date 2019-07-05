@@ -23,5 +23,6 @@ import it.contrader.model.Candidato;
 public interface CandidatoRepository extends CrudRepository<Candidato, Long>{
 
 	Candidato findByUsernameAndPassword(String username, String password);
+	Candidato findByUsername(String username);
 	
 }

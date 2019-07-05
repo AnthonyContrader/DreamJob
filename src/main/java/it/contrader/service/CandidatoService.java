@@ -26,4 +26,7 @@ public class CandidatoService extends AbstractService<Candidato,CandidatoDTO> {
 		return converter.toDTO(((CandidatoRepository)repository).findByUsernameAndPassword(username, password));
 	}
 
+	public CandidatoDTO findByUsername(String username) {
+		return converter.toDTO(((CandidatoRepository)repository).findByUsername(username));
+	}
 }
