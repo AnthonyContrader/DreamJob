@@ -8,7 +8,7 @@ import { CandidatoService } from 'src/service/candidato.service';
   styleUrls: ['./profilocandidato.component.css']
 })
 export class ProfilocandidatoComponent implements OnInit {
-  candidato: CandidatoDTO[];
+  candidato: CandidatoDTO;
   candidatotoinsert: CandidatoDTO = new CandidatoDTO();
   username: string;
 
@@ -23,9 +23,10 @@ export class ProfilocandidatoComponent implements OnInit {
     this.service.readCandidato(username).subscribe(candidato => this.candidato = candidato);
   }
 
-  getCandidato() {
+  /*getCandidato() {
     this.service.getAll().subscribe(candidato => this.candidato = candidato);
   }
+
   delete(candidato: CandidatoDTO) {
     this.service.delete(candidato.id).subscribe(() => this.getCandidato());
   }
@@ -40,5 +41,5 @@ export class ProfilocandidatoComponent implements OnInit {
 
   clear(){
     this.candidatotoinsert = new CandidatoDTO();
-  }
+  }*/
 }
