@@ -21,6 +21,10 @@ export class CandidatoService extends AbstractService<CandidatoDTO>{
     return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.type + '/getall');
   }
 
+  readCandidato(username: string): Observable<any[]>{
+    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.type + '/readCandidato?username=' +username);
+  }
+
   read(id: number): Observable<any> {
     return this.http.get<any>('http://localhost:' + this.port + '/' + this.type + '/read?id=' + id);
   }

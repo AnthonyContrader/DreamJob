@@ -32,10 +32,12 @@ export class LoginComponent implements OnInit {
             break;
           }
           case 'COMPANY': {
+            localStorage.setItem('username',user.username);
             this.router.navigate(['/company-dashboard']);
             break;
           }
           case 'CANDIDATO': {
+            localStorage.setItem('username',user.username);
             this.router.navigate(['/candidato-dashboard']);
             break;
           }
