@@ -25,4 +25,7 @@ public class OpenjobService extends AbstractService<Openjob,OpenjobDTO> {
 		return converter.toDTO(((OpenjobRepository)repository).findById(id));
 	}
 
+	public OpenjobDTO findByIdCompany(Integer idCompany) {
+		return converter.toDTO(((OpenjobRepository)repository).findByIdCompany(idCompany));
+	}
 }

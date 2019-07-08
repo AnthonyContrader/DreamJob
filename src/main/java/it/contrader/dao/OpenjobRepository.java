@@ -4,7 +4,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
 import it.contrader.model.Openjob;
 
 
@@ -22,5 +21,5 @@ import it.contrader.model.Openjob;
 public interface OpenjobRepository extends CrudRepository<Openjob, Long>{
 
 	Openjob findById(Integer id);
-	
+	Openjob findByIdCompany(Integer idCompany);
 }
