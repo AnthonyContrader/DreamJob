@@ -25,5 +25,9 @@ public class CompanyService extends AbstractService<Company,CompanyDTO> {
 	public CompanyDTO findByUsernameAndPassword(String username, String password) {
 		return converter.toDTO(((CompanyRepository)repository).findByUsernameAndPassword(username, password));
 	}
+	
+	public CompanyDTO findByUsername(String username) {
+		return converter.toDTO(((CompanyRepository)repository).findByUsername(username));
+	}
 
 }
