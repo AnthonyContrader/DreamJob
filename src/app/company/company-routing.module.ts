@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { CompanyLayoutComponent } from '../layout/company-layout/company-layout.component';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
+import { ProfiloCompanyComponent } from './profilo-company/profilo-company.component';
 
 
 
@@ -10,6 +10,8 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
 const routes: Routes = [
   { path: 'company-dashboard', component: CompanyLayoutComponent, children:[
     { path: '', component: CompanyDashboardComponent},
+    { path: 'profilo-company', component: ProfiloCompanyComponent}
+    
   ]},
 ];
 

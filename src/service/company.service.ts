@@ -20,6 +20,10 @@ export class CompanyService extends AbstractService<CompanyDTO>{
     return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.type + '/getall');
   }
 
+  readCompany(username: string): Observable<any>{
+    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.type + '/readCompany?username=' + username);
+  }
+
   read(id: number): Observable<any> {
     return this.http.get<any>('http://localhost:' + this.port + '/' + this.type + '/read?id=' + id);
   }

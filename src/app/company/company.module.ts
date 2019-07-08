@@ -4,9 +4,10 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
 import { LayoutModule} from '../layout/layout.module';
 import { CompanyRoutingModule } from './company-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ProfiloCompanyComponent } from './profilo-company/profilo-company.component';
 
 @NgModule({
-  declarations: [CompanyDashboardComponent],
+  declarations: [CompanyDashboardComponent, ProfiloCompanyComponent],
   imports: [
     CommonModule,
     CompanyRoutingModule,

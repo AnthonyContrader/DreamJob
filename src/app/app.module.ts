@@ -34,7 +34,8 @@ import { CompanyModule } from './company/company.module';
     CandidatoRoutingModule,
     CompanyRoutingModule,
     CandidatoModule,
-    CompanyModule
+    CompanyModule,
+    CompanyRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

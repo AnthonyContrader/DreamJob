@@ -28,7 +28,7 @@
               
             </th>
           </tr>
-          <tr *ngFor="let candidato of candidato">
+          <tr *ngIf="candidato.username != ''">
             <td>
               <input [(ngModel)]="candidato.username">
             </td>
@@ -54,7 +54,7 @@
               <button (click)=update(candidato)>Inserisci/Modifica</button>
             </td>
             <td>
-              <button (click)="delete(candidato)">Delete</button>
+              <button (click)="delete(candidato)" onclick="window.location.href='localhost:4200'">Delete</button>
             </td>
           </tr>
         </table>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CandidatoDTO } from 'src/dto/candidatodto';
 import { CandidatoService } from 'src/service/candidato.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profilocandidato',
@@ -11,6 +12,7 @@ export class ProfilocandidatoComponent implements OnInit {
   candidato: CandidatoDTO;
   candidatotoinsert: CandidatoDTO = new CandidatoDTO();
   username: string;
+  router: Router;
 
   constructor(private service: CandidatoService) { }
 
@@ -23,23 +25,15 @@ export class ProfilocandidatoComponent implements OnInit {
     this.service.readCandidato(username).subscribe(candidato => this.candidato = candidato);
   }
 
-  /*getCandidato() {
-    this.service.getAll().subscribe(candidato => this.candidato = candidato);
-  }
-
   delete(candidato: CandidatoDTO) {
-    this.service.delete(candidato.id).subscribe(() => this.getCandidato());
+    this.service.delete(candidato.id).subscribe(() => this.readCandidato);
   }
 
   update(candidato: CandidatoDTO) {
-    this.service.update(candidato).subscribe(() => this.getCandidato());
-  }
-
-  insert(candidato: CandidatoDTO) {
-    this.service.insert(candidato).subscribe(() => this.getCandidato());
+    this.service.update(candidato).subscribe(() => this.readCandidato);
   }
 
   clear(){
     this.candidatotoinsert = new CandidatoDTO();
-  }*/
+  }
 }
