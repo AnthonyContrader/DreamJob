@@ -5,9 +5,10 @@ import { LayoutModule} from '../layout/layout.module';
 import { CompanyRoutingModule } from './company-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ProfiloCompanyComponent } from './profilo-company/profilo-company.component';
+import { OpenjobCompanyComponent } from './openjob-company/openjob-company.component';
 
 @NgModule({
-  declarations: [CompanyDashboardComponent, ProfiloCompanyComponent],
+  declarations: [CompanyDashboardComponent, ProfiloCompanyComponent, OpenjobCompanyComponent],
   imports: [
     CommonModule,
     CompanyRoutingModule,

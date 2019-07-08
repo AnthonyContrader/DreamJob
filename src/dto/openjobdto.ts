@@ -4,5 +4,5 @@ export class OpenjobDTO {
     titolo: string;
     descrizione: string;
     requisiti: string;
-    idCompany: string;
+    idCompany: number;
 }

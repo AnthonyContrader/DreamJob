@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class CompanyMenuComponent implements OnInit {
 
   isProfilocompanyCollapsed = false;
-  isOpenjobCollapsed = false;
+  isOpenjobcompanyCollapsed = false;
   
 
   constructor(private router: Router) {
@@ -29,9 +29,9 @@ export class CompanyMenuComponent implements OnInit {
     } else { this.isProfilocompanyCollapsed = false; }
   }
 
-  openjobcollapse() {
-    if (this.isOpenjobCollapsed === false) {
-      this.isOpenjobCollapsed = true;
-    } else { this.isOpenjobCollapsed = false; }
+  openjobcompanycollapse() {
+    if (this.isOpenjobcompanyCollapsed === false) {
+      this.isOpenjobcompanyCollapsed = true;
+    } else { this.isOpenjobcompanyCollapsed = false; }
   }
 }
