@@ -31,8 +31,6 @@ public class CompanyService extends AbstractService<Company,CompanyDTO> {
 		return converter.toDTO(((CompanyRepository)repository).findByUsername(username));
 	}
 	
-	public CompanyDTO findByOpenjob(Openjob o) {
-		return converter.toDTO(((CompanyRepository)repository).findByOpenjob(o));
-	}
+	
 
 }

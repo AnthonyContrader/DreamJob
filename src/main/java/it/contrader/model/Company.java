@@ -2,14 +2,9 @@ package it.contrader.model;
 
 import javax.persistence.Entity;
 
-import java.util.List;
-
 import javax.persistence.*;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,10 +36,6 @@ public class Company {
 	private String name;
 	private String info;
 	
-	@OneToMany(mappedBy = "company")
-	@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<Openjob> openjob;
-
 	
 	 
 }

@@ -6,6 +6,7 @@ import it.contrader.dto.CompanyDTO;
 import it.contrader.model.Company;
 
 
+
 /**
  * Questa classe implementa i metodi di conversione dell'entità User.
  *  
@@ -21,7 +22,8 @@ public class CompanyConverter extends AbstractConverter<Company,CompanyDTO> {
 	public Company toEntity(CompanyDTO companyDTO) {
 		Company company = null;
 		if (companyDTO != null) {
-			company = new Company(companyDTO.getId(),companyDTO.getUsername(),companyDTO.getPassword(),companyDTO.getName(),companyDTO.getInfo(), companyDTO.getOpenjob());			
+			company = new Company(companyDTO.getId(),companyDTO.getUsername(),companyDTO.getPassword(),companyDTO.getName(),companyDTO.getInfo());			
+		
 		}
 		return company;
 	}
@@ -30,7 +32,7 @@ public class CompanyConverter extends AbstractConverter<Company,CompanyDTO> {
 	public CompanyDTO toDTO(Company company) {
 		CompanyDTO companyDTO = null;
 		if (company != null) {
-			companyDTO = new CompanyDTO(company.getId(),company.getUsername(),company.getPassword(),company.getName(),company.getInfo(),company.getOpenjob());
+			companyDTO = new CompanyDTO(company.getId(),company.getUsername(),company.getPassword(),company.getName(),company.getInfo());
 			
 		}
 		return companyDTO;
