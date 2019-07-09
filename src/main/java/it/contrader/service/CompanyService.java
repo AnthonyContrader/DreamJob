@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import it.contrader.dao.CompanyRepository;
 import it.contrader.dto.CompanyDTO;
 import it.contrader.model.Company;
+import it.contrader.model.Openjob;
 
 
 /**
@@ -28,6 +29,10 @@ public class CompanyService extends AbstractService<Company,CompanyDTO> {
 	
 	public CompanyDTO findByUsername(String username) {
 		return converter.toDTO(((CompanyRepository)repository).findByUsername(username));
+	}
+	
+	public CompanyDTO findByOpenjob(Openjob o) {
+		return converter.toDTO(((CompanyRepository)repository).findByOpenjob(o));
 	}
 
 }

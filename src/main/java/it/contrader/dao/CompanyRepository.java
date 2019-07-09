@@ -5,8 +5,8 @@ import javax.transaction.Transactional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import it.contrader.model.Candidato;
 import it.contrader.model.Company;
+import it.contrader.model.Openjob;
 
 
 
@@ -25,4 +25,5 @@ public interface CompanyRepository extends CrudRepository<Company, Long>{
 
 	Company findByUsernameAndPassword(String username, String password);
 	Company findByUsername(String username);
+	Company findByOpenjob(Openjob o);
 }
