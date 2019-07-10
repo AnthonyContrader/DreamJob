@@ -21,5 +21,5 @@ import it.contrader.model.Openjob;
 public interface OpenjobRepository extends CrudRepository<Openjob, Long>{
 
 	Openjob findById(Integer id);
-	
+	Openjob findByIdCompany (Integer idCompany);
 }
