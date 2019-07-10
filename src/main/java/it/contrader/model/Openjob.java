@@ -35,4 +35,6 @@ public class Openjob {
 	private String descrizione;
 	private String requisiti;
 	
+	private long idCompany;
+	
 }

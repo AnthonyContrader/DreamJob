@@ -23,4 +23,6 @@ public class OpenjobDTO {
 	private String titolo;
 	private String descrizione;
 	private String requisiti;
+	
+	private long idCompany;
 }

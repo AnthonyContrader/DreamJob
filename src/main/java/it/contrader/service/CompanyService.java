@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 import it.contrader.dao.CompanyRepository;
 import it.contrader.dto.CompanyDTO;
 import it.contrader.model.Company;
-import it.contrader.model.Openjob;
-
 
 /**
  * Estende AbstractService con parametri User e UserDTO. 
@@ -21,7 +19,6 @@ import it.contrader.model.Openjob;
 public class CompanyService extends AbstractService<Company,CompanyDTO> {
 	
 	//ALL crud methods in AbstractService
-	
 	//LOGIN method
 	public CompanyDTO findByUsernameAndPassword(String username, String password) {
 		return converter.toDTO(((CompanyRepository)repository).findByUsernameAndPassword(username, password));
@@ -30,7 +27,5 @@ public class CompanyService extends AbstractService<Company,CompanyDTO> {
 	public CompanyDTO findByUsername(String username) {
 		return converter.toDTO(((CompanyRepository)repository).findByUsername(username));
 	}
-	
-	
 
 }

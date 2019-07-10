@@ -21,7 +21,7 @@ public class OpenjobConverter extends AbstractConverter<Openjob,OpenjobDTO> {
 	public Openjob toEntity(OpenjobDTO openjobDTO) {
 		Openjob openjob = null;
 		if (openjobDTO != null) {
-			openjob = new Openjob(openjobDTO.getId(),openjobDTO.getTitolo(),openjobDTO.getDescrizione(),openjobDTO.getRequisiti());			
+			openjob = new Openjob(openjobDTO.getId(),openjobDTO.getTitolo(),openjobDTO.getDescrizione(),openjobDTO.getRequisiti(), openjobDTO.getIdCompany());	
 				
 			
 		}
@@ -32,7 +32,7 @@ public class OpenjobConverter extends AbstractConverter<Openjob,OpenjobDTO> {
 	public OpenjobDTO toDTO(Openjob openjob) {
 		OpenjobDTO openjobDTO = null;
 		if (openjob != null) {
-			openjobDTO = new OpenjobDTO(openjob.getId(),openjob.getTitolo(),openjob.getDescrizione(),openjob.getRequisiti());
+			openjobDTO = new OpenjobDTO(openjob.getId(),openjob.getTitolo(),openjob.getDescrizione(),openjob.getRequisiti(), openjob.getIdCompany());
 			
 		}
 		return openjobDTO;
