@@ -1,5 +1,7 @@
 form{
-    margin-top:270px;
+    margin-top:100px;
+    margin-left: 150px;
+    margin-bottom: 180px;
     width: 55%;
     padding: 10px;
     border-radius:0;
@@ -8,7 +10,7 @@ form{
 
 img{
     position: inherit;
-    width:50%;
+    width:80%;
     margin: 12%;
 }
 
@@ -23,7 +25,6 @@ input, input:hover, input::selection, input:checked, input:focus{
 }
 
 .container-fluid{
-    background-color: rgba(44, 44, 177, 0.822);
     height: 100vh;
 }
 input::placeholder{
@@ -42,13 +43,35 @@ background-color: rgba(44, 44, 177, 0.822);
 color: white;
 border: 1px solid white;
 border-radius: 2px;
-padding-top: 10px;
-padding-right: auto;
-padding-bottom: 10px;
-padding-left: auto;
 }
 
 p{
 font-size: 14px;
 color: white;
+}
+
+.titolo {
+    font-size: 120px;
+    color: white;
+    font-family: Abel-Regular;
+}
+
+@font-face {
+    font-family: Abel-Regular;
+    src: url('../../assets/Abel-Regular.ttf');
+}
+
+.pulsante{
+    outline-style: solid;
+    outline-color: white;
+    margin-left: 100px;
+}
+
+.row1 {
+    background-color: rgb(11, 12, 87)
+}
+
+.row2{
+    background-color: rgba(44, 44, 177, 0.822);
+
 }
