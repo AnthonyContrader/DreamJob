@@ -35,10 +35,10 @@
             </select>
           </td>
           <td>
-            <button (click)="insert(usertoinsert)">Insert</button>
+            <button class ="bottoni"(click)="insert(usertoinsert)">Insert</button>
           </td>
           <td>
-            <button (click)="clear()">Clear</button>
+            <button class ="bottoni"(click)="clear()">Clear</button>
           </td>
         </tr>
         <tr *ngFor="let user of users">
@@ -56,10 +56,10 @@
             </select>
           </td>
           <td>
-            <button (click)=update(user)>Save</button>
+            <button  class ="bottoni"(click)=update(user)>Save</button>
           </td>
           <td>
-            <button (click)="delete(user)">Delete</button>
+            <button  class ="bottoni"(click)="delete(user)">Delete</button>
           </td>
         </tr>
       </table>

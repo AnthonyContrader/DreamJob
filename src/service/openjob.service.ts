@@ -19,7 +19,9 @@ export class OpenjobService extends AbstractService<OpenjobDTO> {
   getAll(): Observable<any[]>{
     return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.type + '/getall');
   }
-
+  getallbycompany(Company: any): Observable<any>{
+    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.type + '/getallbycompany?Company=' + Company);
+  }
   readOpenjob(idCompany: number): Observable<any>{
     return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.type + '/readOpenjob?idCompany=' + idCompany);
   }

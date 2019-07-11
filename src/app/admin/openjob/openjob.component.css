@@ -23,11 +23,15 @@ td{
 
 
 tr:nth-child(even) {
-	background-color: #ffdb99;
+	background-color: #d5d2f5;
+}
+
+tr {
+	background-color: #d5d2f5;
 }
 
 th {
-	background-color: darkorange;
+	background-color: rgba(21, 19, 129, 0.938);
 	color: #ffffff;
 }
 
@@ -47,3 +51,6 @@ input:hover,  input:active, input:focus{
 button:hover{
     background-color: crimson;
 }
+    .bottoni{
+		background-color: white;
+	}

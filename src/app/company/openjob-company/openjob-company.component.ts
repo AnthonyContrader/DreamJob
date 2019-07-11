@@ -8,27 +8,34 @@ import { OpenjobService } from 'src/service/openjob.service';
   styleUrls: ['./openjob-company.component.css']
 })
 export class OpenjobCompanyComponent implements OnInit {
-  openjob: OpenjobDTO;
+  list: OpenjobDTO[];
   openjobtoinsert: OpenjobDTO = new OpenjobDTO();
   idCompany: number;
 
   constructor(private service: OpenjobService) { }
 
   ngOnInit() {
+    this.getList();
     this.idCompany= JSON.parse(localStorage.getItem("idCompany"));
     this.readOpenjob(this.idCompany);
   }
+  getList() {
+    this.service.getAll().subscribe(list => this.list = list);
+  }
+  getallbycompany(company: any){
+    this.service.getallbycompany(company).subscribe(list => this.idCompany = list);
 
+  }
   readOpenjob(idCompany: number) {
-    this.service.readOpenjob(idCompany).subscribe(openjob => this.openjob = openjob);
+    this.service.readOpenjob(idCompany).subscribe(list => this.list =list);
   }
 
   delete(openjob: OpenjobDTO) {
-    this.service.delete(openjob.id).subscribe(() => this.readOpenjob);
+    this.service.delete(openjob.id).subscribe(() => this.list);
   }
 
   update(openjob: OpenjobDTO) {
-    this.service.update(openjob).subscribe(() => this.readOpenjob);
+    this.service.update(openjob).subscribe(() => this.list);
   }
 
   clear(){
