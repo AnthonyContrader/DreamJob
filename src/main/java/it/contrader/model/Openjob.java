@@ -35,6 +35,8 @@ public class Openjob {
 	private String descrizione;
 	private String requisiti;
 	
-	private long idCompany;
+	@ManyToOne
+	@JoinColumn(name="company_id")
+	private Company company;
 	
 }

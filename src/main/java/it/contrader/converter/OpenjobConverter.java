@@ -1,7 +1,7 @@
 package it.contrader.converter;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 
 import it.contrader.dto.OpenjobDTO;
 import it.contrader.model.Openjob;
@@ -17,23 +17,32 @@ import it.contrader.model.Openjob;
 @Component
 public class OpenjobConverter extends AbstractConverter<Openjob,OpenjobDTO> {
 
+	@Autowired
+	CompanyConverter converter;
+	
 	@Override
 	public Openjob toEntity(OpenjobDTO openjobDTO) {
-		Openjob openjob = null;
+		Openjob openjob = new Openjob();
 		if (openjobDTO != null) {
-			openjob = new Openjob(openjobDTO.getId(),openjobDTO.getTitolo(),openjobDTO.getDescrizione(),openjobDTO.getRequisiti(), openjobDTO.getIdCompany());	
-				
-			
+			openjob = new Openjob();
+				openjob.setId(openjobDTO.getId());
+				openjob.setTitolo(openjobDTO.getTitolo());
+				openjob.setDescrizione(openjobDTO.getDescrizione());
+				openjob.setRequisiti(openjobDTO.getRequisiti());
+				openjob.setCompany(converter.toEntity(openjobDTO.getCompanyDTO()));	
 		}
 		return openjob;
 	}
 
 	@Override
 	public OpenjobDTO toDTO(Openjob openjob) {
-		OpenjobDTO openjobDTO = null;
+		OpenjobDTO openjobDTO = new OpenjobDTO();
 		if (openjob != null) {
-			openjobDTO = new OpenjobDTO(openjob.getId(),openjob.getTitolo(),openjob.getDescrizione(),openjob.getRequisiti(), openjob.getIdCompany());
-			
+			openjobDTO.setId(openjob.getId());
+			openjobDTO.setTitolo(openjob.getTitolo());
+			openjobDTO.setDescrizione(openjob.getDescrizione());
+			openjobDTO.setRequisiti(openjob.getRequisiti());
+			openjobDTO.setCompanyDTO(converter.toDTO(openjob.getCompany()));	
 		}
 		return openjobDTO;
 	}
