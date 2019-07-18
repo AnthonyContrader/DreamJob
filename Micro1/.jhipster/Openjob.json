@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "titolo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descrizione",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "requisiti",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20190717081224",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "openjob",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no",
+    "microserviceName": "Micro1"
+}
