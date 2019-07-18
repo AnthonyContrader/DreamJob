@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row row1">
+    <div class="col-md-3">
+        <img src="../../assets/logo.svg" alt="logo">
+    </div>
+    <div class="col-md-9">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p class="titolo">D R E A M   J O B</p>
+    </div>
+  </div>
+  <div class="row row2">
+      <div class="col-md-6">
+        <p>Please insert username, email and password to register</p>
+        <br>
+        <td>
+          <input placeholder="login" [(ngModel)]="usertoinsert.login">
+        </td>
+        <td>
+          <input placeholder="email" [(ngModel)]="usertoinsert.email">
+        </td>
+        <td>
+          <input placeholder="password" [(ngModel)]="usertoinsert.password">
+        </td>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <br>
+          <br>
+          <br>
+          <button type="submit" class="pulsante btn-primary btn-lg" (click)="register()">Registrazione</button>
+        </div>
+      </div>
+  </div>
+</div>
