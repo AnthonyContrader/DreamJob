@@ -13,10 +13,10 @@
             Email
           </th>
           <th>
-            Password
+            Usertype
           </th>
           <th>
-            Usertype
+            Status
           </th>
           <th colspan="2">
             Edit
@@ -31,13 +31,16 @@
             <input placeholder="email" [(ngModel)]="usertoinsert.email">
           </td>
           <td>
-            <input placeholder="password" [(ngModel)]="usertoinsert.password">
-          </td>
-          <td>
             <select multiple="multiple" placeholder="authorities" [(ngModel)]="usertoinsert.authorities">
               <option value="ROLE_ADMIN">ADMIN</option>
               <option value="ROLE_COMPANY">COMPANY</option>
               <option value="ROLE_CANDIDATO">CANDIDATO</option>
+            </select>
+          </td>
+          <td>
+            <select placeholder="status" [(ngModel)]="usertoinsert.activated">
+              <option value="true">ATTIVO</option>
+              <option value="false">DISATTIVO</option>
             </select>
           </td>
           <td>
@@ -55,10 +58,10 @@
             <input [(ngModel)]="user.email">
           </td>
           <td>
-            <input [(ngModel)]="user.password">
+            <input [(ngModel)]="user.authorities">
           </td>
           <td>
-            <input [(ngModel)]="user.authorities">
+            <input [(ngModel)]="user.activated">
           </td>
           <td>
             <button  class ="bottoni"(click)=update(user)>Save</button>

@@ -46,5 +46,11 @@ export class UserService extends AbstractService<UserDTO>{
       }
     });
   }
+  register(userdto: UserDTO): Observable<UserDTO> {
+    return this.http.post<UserDTO>('http://localhost:8080/api/register', userdto )
+  };
 
+  activated(userdto: UserDTO): Observable<UserDTO> {
+    return this.http.post<UserDTO>('http://localhost:8080/api/activate', userdto )
+  };
 }

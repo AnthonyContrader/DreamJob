@@ -17,6 +17,7 @@
       <div class="col-md-6">
         <p>Please insert username, email and password to register</p>
         <br>
+        
         <td>
           <input placeholder="login" [(ngModel)]="usertoinsert.login">
         </td>
@@ -26,6 +27,13 @@
         <td>
           <input placeholder="password" [(ngModel)]="usertoinsert.password">
         </td>
+        <td>
+          <select multiple="multiple" placeholder="authorities" [(ngModel)]="usertoinsert.authorities">
+            <option value="ROLE_ADMIN">ADMIN</option>
+            <option value="ROLE_COMPANY">COMPANY</option>
+            <option value="ROLE_CANDIDATO">CANDIDATO</option>
+          </select>
+        </td>
       </div>
       <div class="col-md-6">
         <div class="row">
@@ -33,6 +41,19 @@
           <br>
           <br>
           <button type="submit" class="pulsante btn-primary btn-lg" (click)="register()">Registrazione</button>
+          <tr *ngFor="let user of users">
+            <td>
+              <input [(ngModel)]="user.login">
+            </td>
+            <td>
+              <input [(ngModel)]="user.email">
+            </td>
+            <td>
+              <input [(ngModel)]="user.password">
+            </td>
+            <td>
+              <input [(ngModel)]="user.authorities">
+            </td>
         </div>
       </div>
   </div>

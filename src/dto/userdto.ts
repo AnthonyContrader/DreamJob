@@ -20,5 +20,6 @@ export class UserDTO {
 
    authorities: string;
 
+   activated: boolean;
 }
 

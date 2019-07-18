@@ -46,13 +46,8 @@ export abstract class AbstractService<DTO> implements Service<DTO> {
         });
       }
     
-      register(dto: DTO): Observable<DTO> {
-        return this.http.post<DTO>('http://localhost:' + this.port + '/' + 'api' + '/'  + this.type + dto , {
-          headers: {
-            Authorization : this.auth()
-          }
-        });
-      }
+    
+      
 
       read(id: number): Observable<DTO> {
         return this.http.get<DTO>('http://localhost:' + this.port + '/' + 'api' + '/'  + this.type + id , {

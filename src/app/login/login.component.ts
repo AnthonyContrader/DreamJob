@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   register (): void{
-      this.router.navigateByUrl('/register');
+      this.router.navigate(['/register']);
   }
 
   login(f: NgForm): void {

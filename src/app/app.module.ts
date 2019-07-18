@@ -11,6 +11,7 @@ import { CandidatoRoutingModule } from './candidato/candidato-routing.module';
 import { CompanyRoutingModule } from './company/company-routing.module';
 import { CandidatoModule } from './candidato/candidato.module';
 import { CompanyModule } from './company/company.module';
+import { RegisterModule } from './register/register.module';
 
 
 /** 
@@ -28,6 +29,7 @@ import { CompanyModule } from './company/company.module';
     BrowserModule,
     AppRoutingModule,
     LoginModule,
+    RegisterModule,
     HttpClientModule,
     LayoutModule,
     AdminModule,

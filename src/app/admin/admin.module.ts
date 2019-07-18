@@ -21,7 +21,7 @@ import { RegisterComponent } from '../register/register.component';
  * @see AdminRoutingModule
  */
 @NgModule({
-  declarations: [AdminDashboardComponent, RegisterComponent, UsersComponent, WorkInProgressComponent, CandidatoComponent, CompanyComponent, OpenjobComponent],
+  declarations: [AdminDashboardComponent,UsersComponent, WorkInProgressComponent, CandidatoComponent, CompanyComponent, OpenjobComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDTO } from 'src/dto/userdto';
 import { UserService } from 'src/service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -8,13 +9,15 @@ import { UserService } from 'src/service/user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  constructor(private service: UserService) { }
+  userDTO: UserDTO;
+usertoinsert: UserDTO =new UserDTO();
+  constructor(private service: UserService, private router: Router) { }
 
   ngOnInit() {
+    this.userDTO =new UserDTO();
   }
 
-  register(user: UserDTO) {
-    this.service.register(user).subscribe();
+  register(user: UserDTO): void {
+    this.service.register(this.usertoinsert).subscribe(()=> this.router.navigate(['login']))
   }
 }
