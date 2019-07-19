@@ -1,44 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AbstractService } from './abstractservice';
 import { CandidatoDTO } from 'src/dto/candidatodto';
 import { Observable } from 'rxjs';
+import { AbstractCandidatoService } from './abstractcandidatoservice.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class CandidatoService extends AbstractService<CandidatoDTO>{
-  type: string;
-  port: string = '8080';
+export class CandidatoService extends AbstractCandidatoService<CandidatoDTO>{
+ 
 
   constructor(http: HttpClient) {
     super(http);
     this.type = 'candidato';
+    this.name= 'Micro2';
+    this.port = '8080';
+  }
+  userLogged(username: string) {
+    // console.log('qua: ', this.auth());
+     console.log(this.auth());
+     return this.http.get('http://localhost:8080/api/users/' + username, {
+       headers: {
+         Authorization: this.auth()
+       }
+     });
+   }
+
+  readCandidato(id: number): Observable<any>{
+    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/candidatoes' + id);
   }
 
-  getAll(): Observable<any[]>{
-    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.type + '/getall');
-  }
-
-  readCandidato(username: string): Observable<any>{
-    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.type + '/readCandidato?username=' + username);
-  }
-
-  read(id: number): Observable<any> {
-    return this.http.get<any>('http://localhost:' + this.port + '/' + this.type + '/read?id=' + id);
-  }
-
-  delete(id: number): Observable<any> {
-      return this.http.delete('http://localhost:' + this.port + '/' + this.type + '/delete?id=' + id);
-  } 
-
-  insert(dto: any): Observable<any> {
-      return this.http.post('http://localhost:' + this.port + '/' + this.type + '/insert', dto);
-  }
-
-  update(dto: any): Observable<any> {
-      return this.http.put<any>('http://localhost:' + this.port + '/' + this.type + '/update', dto);
-  }
-  
 }

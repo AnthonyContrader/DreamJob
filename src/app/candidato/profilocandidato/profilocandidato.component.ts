@@ -11,18 +11,17 @@ import { Router } from '@angular/router';
 export class ProfilocandidatoComponent implements OnInit {
   candidato: CandidatoDTO;
   candidatotoinsert: CandidatoDTO = new CandidatoDTO();
-  username: string;
+  id: number;
   router: Router;
 
   constructor(private service: CandidatoService) { }
 
   ngOnInit() {
-    this.username= localStorage.getItem("username");
-    this.readCandidato(this.username);
+    this.readCandidato(this.id);
   }
 
-  readCandidato(username: string) {
-    this.service.readCandidato(username).subscribe(candidato => this.candidato = candidato);
+  readCandidato(id: number) {
+    this.service.readCandidato(id).subscribe(candidato => this.candidato = candidato);
   }
 
   delete(candidato: CandidatoDTO) {

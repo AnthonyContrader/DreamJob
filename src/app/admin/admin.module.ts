@@ -9,7 +9,7 @@ import { CandidatoComponent } from './candidato/candidato.component';
 import { CompanyComponent } from './company/company.component';
 import { OpenjobComponent } from './openjob/openjob.component';
 import { LayoutModule } from '././../layout/layout.module'
-import { RegisterComponent } from '../register/register.component';
+
 
 
 /**

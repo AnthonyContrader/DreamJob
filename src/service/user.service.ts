@@ -4,6 +4,7 @@ import { UserDTO } from 'src/dto/userdto';
 import { HttpClient } from '@angular/common/http';
 import { LoginDTO } from 'src/dto/logindto';
 import { Observable } from 'rxjs';
+import { CandidatoDTO } from 'src/dto/candidatodto';
 
 /**
  * I service sono decorati da @Injectable. 
@@ -32,6 +33,7 @@ export class UserService extends AbstractService<UserDTO>{
       return '';
     }
   }
+
 
   login(loginDTO: LoginDTO): Observable<UserDTO> {
     return this.http.post<any>('http://localhost:8080/api/authenticate', loginDTO);
