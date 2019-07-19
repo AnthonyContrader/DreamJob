@@ -10,17 +10,17 @@ import { CompanyService } from 'src/service/company.service';
 export class ProfiloCompanyComponent implements OnInit {
   company: CompanyDTO;
   companytoinsert: CompanyDTO = new CompanyDTO();
-  username: string;
+  id: number;
+  
 
   constructor(private service: CompanyService) { }
 
   ngOnInit() {
-    this.username= localStorage.getItem("username");
-    this.readCompany(this.username);
+    this.readCompany(this.id);
   }
 
-  readCompany(username: string) {
-    this.service.readCompany(username).subscribe(company => this.company = company);
+  readCompany(id: number) {
+    this.service.readCompany(id).subscribe(company => this.company = company);
   }
 
   delete(company: CompanyDTO) {

@@ -6,7 +6,7 @@ export class CompanyDTO {
     username: string;
     name: string;
     info: string;
-    usertype: Usertype;
+   
 
 
 
