@@ -1,43 +1,37 @@
-import { Injectable } from '@angular/core';
-import { AbstractService } from './abstractservice';
+import { AbstractCompanyService } from './abstractcompanyservices.service';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OpenjobDTO } from 'src/dto/openjobdto';
 
 @Injectable({
   providedIn: 'root'
 })
-export class OpenjobService extends AbstractService<OpenjobDTO> {
-  type: string;
-  port: string = '8080';
-
+export class OpenjobService extends AbstractCompanyService<OpenjobDTO>{
+ 
   constructor(http: HttpClient) {
     super(http);
     this.type = 'openjob';
+    this.name= 'Micro1';
+    this.port = '8080';
   }
 
-  getAll(): Observable<any[]>{
-    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.type + '/getall');
-  }
-  getallbycompany(Company: any): Observable<any>{
+  userLogged(username: string) {
+    // console.log('qua: ', this.auth());
+     console.log(this.auth());
+     return this.http.get('http://localhost:8080/api/users/' + username, {
+       headers: {
+         Authorization: this.auth()
+       }
+     });
+   }
+   
+   getallbycompany(Company: any): Observable<any>{
     return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.type + '/getallbycompany?Company=' + Company);
   }
-  readOpenjob(idCompany: number): Observable<any>{
-    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.type + '/readOpenjob?idCompany=' + idCompany);
-  }
-  read(id: number): Observable<any> {
-    return this.http.get<any>('http://localhost:' + this.port + '/' + this.type + '/read?id=' + id);
+
+  readOpenjob(id: number): Observable<any>{
+    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/openjobs' + id);
   }
 
-  delete(id: number): Observable<any> {
-      return this.http.delete('http://localhost:' + this.port + '/' + this.type + '/delete?id=' + id);
-  } 
-
-  insert(dto: any): Observable<any> {
-      return this.http.post('http://localhost:' + this.port + '/' + this.type + '/insert', dto);
-  }
-
-  update(dto: any): Observable<any> {
-      return this.http.put<any>('http://localhost:' + this.port + '/' + this.type + '/update', dto);
-  }
 }

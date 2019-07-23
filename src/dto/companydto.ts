@@ -1,4 +1,4 @@
-import {Usertype} from './usertype';
+
 
 export class CompanyDTO {
     id: number;
@@ -6,10 +6,5 @@ export class CompanyDTO {
     username: string;
     name: string;
     info: string;
-   
-
-
-
-
 
 } 
