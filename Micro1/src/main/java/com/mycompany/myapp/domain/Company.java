@@ -1,9 +1,12 @@
 package com.mycompany.myapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -30,6 +33,9 @@ public class Company implements Serializable {
 
     @Column(name = "jhi_password")
     private String password;
+
+    @OneToMany(mappedBy = "company")
+    private Set<Openjob> compjobs = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -90,6 +96,31 @@ public class Company implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<Openjob> getCompjobs() {
+        return compjobs;
+    }
+
+    public Company compjobs(Set<Openjob> openjobs) {
+        this.compjobs = openjobs;
+        return this;
+    }
+
+    public Company addCompjob(Openjob openjob) {
+        this.compjobs.add(openjob);
+        openjob.setCompany(this);
+        return this;
+    }
+
+    public Company removeCompjob(Openjob openjob) {
+        this.compjobs.remove(openjob);
+        openjob.setCompany(null);
+        return this;
+    }
+
+    public void setCompjobs(Set<Openjob> openjobs) {
+        this.compjobs = openjobs;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

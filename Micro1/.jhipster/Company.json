@@ -1,7 +1,14 @@
 {
     "fluentMethods": true,
     "clientRootFolder": "",
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "compjob",
+            "otherEntityName": "openjob",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "company"
+        }
+    ],
     "fields": [
         {
             "fieldName": "name",
