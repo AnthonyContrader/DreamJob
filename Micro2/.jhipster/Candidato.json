@@ -1,7 +1,16 @@
 {
     "fluentMethods": true,
     "clientRootFolder": "",
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "candquest",
+            "otherEntityName": "questionary",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "candidato"
+        }
+    ],
     "fields": [
         {
             "fieldName": "username",
