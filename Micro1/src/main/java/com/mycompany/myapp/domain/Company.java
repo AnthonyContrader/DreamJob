@@ -22,20 +22,20 @@ public class Company implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "info")
-    private String info;
-
     @Column(name = "username")
     private String username;
 
     @Column(name = "jhi_password")
     private String password;
 
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "info")
+    private String info;
+
     @OneToMany(mappedBy = "company")
-    private Set<Openjob> compjobs = new HashSet<>();
+    private Set<Openjob> openjobs = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -44,32 +44,6 @@ public class Company implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Company name(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getInfo() {
-        return info;
-    }
-
-    public Company info(String info) {
-        this.info = info;
-        return this;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
     }
 
     public String getUsername() {
@@ -98,29 +72,55 @@ public class Company implements Serializable {
         this.password = password;
     }
 
-    public Set<Openjob> getCompjobs() {
-        return compjobs;
+    public String getName() {
+        return name;
     }
 
-    public Company compjobs(Set<Openjob> openjobs) {
-        this.compjobs = openjobs;
+    public Company name(String name) {
+        this.name = name;
         return this;
     }
 
-    public Company addCompjob(Openjob openjob) {
-        this.compjobs.add(openjob);
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public Company info(String info) {
+        this.info = info;
+        return this;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public Set<Openjob> getOpenjobs() {
+        return openjobs;
+    }
+
+    public Company openjobs(Set<Openjob> openjobs) {
+        this.openjobs = openjobs;
+        return this;
+    }
+
+    public Company addOpenjob(Openjob openjob) {
+        this.openjobs.add(openjob);
         openjob.setCompany(this);
         return this;
     }
 
-    public Company removeCompjob(Openjob openjob) {
-        this.compjobs.remove(openjob);
+    public Company removeOpenjob(Openjob openjob) {
+        this.openjobs.remove(openjob);
         openjob.setCompany(null);
         return this;
     }
 
-    public void setCompjobs(Set<Openjob> openjobs) {
-        this.compjobs = openjobs;
+    public void setOpenjobs(Set<Openjob> openjobs) {
+        this.openjobs = openjobs;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -148,10 +148,10 @@ public class Company implements Serializable {
     public String toString() {
         return "Company{" +
             "id=" + getId() +
-            ", name='" + getName() + "'" +
-            ", info='" + getInfo() + "'" +
             ", username='" + getUsername() + "'" +
             ", password='" + getPassword() + "'" +
+            ", name='" + getName() + "'" +
+            ", info='" + getInfo() + "'" +
             "}";
     }
 }

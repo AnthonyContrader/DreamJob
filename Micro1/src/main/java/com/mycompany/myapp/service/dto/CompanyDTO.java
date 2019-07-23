@@ -10,13 +10,13 @@ public class CompanyDTO implements Serializable {
 
     private Long id;
 
-    private String name;
-
-    private String info;
-
     private String username;
 
     private String password;
+
+    private String name;
+
+    private String info;
 
     public Long getId() {
         return id;
@@ -24,22 +24,6 @@ public class CompanyDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
     }
 
     public String getUsername() {
@@ -56,6 +40,22 @@ public class CompanyDTO implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 
     @Override
@@ -83,10 +83,10 @@ public class CompanyDTO implements Serializable {
     public String toString() {
         return "CompanyDTO{" +
             "id=" + getId() +
-            ", name='" + getName() + "'" +
-            ", info='" + getInfo() + "'" +
             ", username='" + getUsername() + "'" +
             ", password='" + getPassword() + "'" +
+            ", name='" + getName() + "'" +
+            ", info='" + getInfo() + "'" +
             "}";
     }
 }

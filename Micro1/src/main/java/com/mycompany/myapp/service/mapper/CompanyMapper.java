@@ -12,7 +12,7 @@ import org.mapstruct.*;
 public interface CompanyMapper extends EntityMapper<CompanyDTO, Company> {
 
 
-    @Mapping(target = "compjobs", ignore = true)
+    @Mapping(target = "openjobs", ignore = true)
     Company toEntity(CompanyDTO companyDTO);
 
     default Company fromId(Long id) {

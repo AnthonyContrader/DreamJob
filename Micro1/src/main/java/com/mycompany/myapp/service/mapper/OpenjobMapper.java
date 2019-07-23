@@ -8,10 +8,14 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Openjob and its DTO OpenjobDTO.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {CompanyMapper.class})
 public interface OpenjobMapper extends EntityMapper<OpenjobDTO, Openjob> {
 
+    @Mapping(source = "company.id", target = "companyId")
+    OpenjobDTO toDto(Openjob openjob);
 
+    @Mapping(source = "companyId", target = "company")
+    Openjob toEntity(OpenjobDTO openjobDTO);
 
     default Openjob fromId(Long id) {
         if (id == null) {

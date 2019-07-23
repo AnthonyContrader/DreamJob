@@ -16,6 +16,8 @@ public class OpenjobDTO implements Serializable {
 
     private String requisiti;
 
+    private Long companyId;
+
     public Long getId() {
         return id;
     }
@@ -48,6 +50,14 @@ public class OpenjobDTO implements Serializable {
         this.requisiti = requisiti;
     }
 
+    public Long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -76,6 +86,7 @@ public class OpenjobDTO implements Serializable {
             ", titolo='" + getTitolo() + "'" +
             ", descrizione='" + getDescrizione() + "'" +
             ", requisiti='" + getRequisiti() + "'" +
+            ", company=" + getCompanyId() +
             "}";
     }
 }

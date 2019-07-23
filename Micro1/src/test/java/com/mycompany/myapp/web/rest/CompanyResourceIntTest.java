@@ -42,17 +42,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = Micro1App.class)
 public class CompanyResourceIntTest {
 
-    private static final String DEFAULT_NAME = "AAAAAAAAAA";
-    private static final String UPDATED_NAME = "BBBBBBBBBB";
-
-    private static final String DEFAULT_INFO = "AAAAAAAAAA";
-    private static final String UPDATED_INFO = "BBBBBBBBBB";
-
     private static final String DEFAULT_USERNAME = "AAAAAAAAAA";
     private static final String UPDATED_USERNAME = "BBBBBBBBBB";
 
     private static final String DEFAULT_PASSWORD = "AAAAAAAAAA";
     private static final String UPDATED_PASSWORD = "BBBBBBBBBB";
+
+    private static final String DEFAULT_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_NAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_INFO = "AAAAAAAAAA";
+    private static final String UPDATED_INFO = "BBBBBBBBBB";
 
     @Autowired
     private CompanyRepository companyRepository;
@@ -100,10 +100,10 @@ public class CompanyResourceIntTest {
      */
     public static Company createEntity(EntityManager em) {
         Company company = new Company()
-            .name(DEFAULT_NAME)
-            .info(DEFAULT_INFO)
             .username(DEFAULT_USERNAME)
-            .password(DEFAULT_PASSWORD);
+            .password(DEFAULT_PASSWORD)
+            .name(DEFAULT_NAME)
+            .info(DEFAULT_INFO);
         return company;
     }
 
@@ -128,10 +128,10 @@ public class CompanyResourceIntTest {
         List<Company> companyList = companyRepository.findAll();
         assertThat(companyList).hasSize(databaseSizeBeforeCreate + 1);
         Company testCompany = companyList.get(companyList.size() - 1);
-        assertThat(testCompany.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testCompany.getInfo()).isEqualTo(DEFAULT_INFO);
         assertThat(testCompany.getUsername()).isEqualTo(DEFAULT_USERNAME);
         assertThat(testCompany.getPassword()).isEqualTo(DEFAULT_PASSWORD);
+        assertThat(testCompany.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testCompany.getInfo()).isEqualTo(DEFAULT_INFO);
     }
 
     @Test
@@ -165,10 +165,10 @@ public class CompanyResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(company.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-            .andExpect(jsonPath("$.[*].info").value(hasItem(DEFAULT_INFO.toString())))
             .andExpect(jsonPath("$.[*].username").value(hasItem(DEFAULT_USERNAME.toString())))
-            .andExpect(jsonPath("$.[*].password").value(hasItem(DEFAULT_PASSWORD.toString())));
+            .andExpect(jsonPath("$.[*].password").value(hasItem(DEFAULT_PASSWORD.toString())))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+            .andExpect(jsonPath("$.[*].info").value(hasItem(DEFAULT_INFO.toString())));
     }
     
 
@@ -183,10 +183,10 @@ public class CompanyResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(company.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.info").value(DEFAULT_INFO.toString()))
             .andExpect(jsonPath("$.username").value(DEFAULT_USERNAME.toString()))
-            .andExpect(jsonPath("$.password").value(DEFAULT_PASSWORD.toString()));
+            .andExpect(jsonPath("$.password").value(DEFAULT_PASSWORD.toString()))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.info").value(DEFAULT_INFO.toString()));
     }
     @Test
     @Transactional
@@ -209,10 +209,10 @@ public class CompanyResourceIntTest {
         // Disconnect from session so that the updates on updatedCompany are not directly saved in db
         em.detach(updatedCompany);
         updatedCompany
-            .name(UPDATED_NAME)
-            .info(UPDATED_INFO)
             .username(UPDATED_USERNAME)
-            .password(UPDATED_PASSWORD);
+            .password(UPDATED_PASSWORD)
+            .name(UPDATED_NAME)
+            .info(UPDATED_INFO);
         CompanyDTO companyDTO = companyMapper.toDto(updatedCompany);
 
         restCompanyMockMvc.perform(put("/api/companies")
@@ -224,10 +224,10 @@ public class CompanyResourceIntTest {
         List<Company> companyList = companyRepository.findAll();
         assertThat(companyList).hasSize(databaseSizeBeforeUpdate);
         Company testCompany = companyList.get(companyList.size() - 1);
-        assertThat(testCompany.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testCompany.getInfo()).isEqualTo(UPDATED_INFO);
         assertThat(testCompany.getUsername()).isEqualTo(UPDATED_USERNAME);
         assertThat(testCompany.getPassword()).isEqualTo(UPDATED_PASSWORD);
+        assertThat(testCompany.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testCompany.getInfo()).isEqualTo(UPDATED_INFO);
     }
 
     @Test

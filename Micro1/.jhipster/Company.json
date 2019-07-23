@@ -3,7 +3,7 @@
     "clientRootFolder": "",
     "relationships": [
         {
-            "relationshipName": "compjob",
+            "relationshipName": "openjob",
             "otherEntityName": "openjob",
             "relationshipType": "one-to-many",
             "otherEntityRelationshipName": "company"
@@ -11,23 +11,23 @@
     ],
     "fields": [
         {
-            "fieldName": "name",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "info",
-            "fieldType": "String"
-        },
-        {
             "fieldName": "username",
             "fieldType": "String"
         },
         {
             "fieldName": "password",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "info",
+            "fieldType": "String"
         }
     ],
-    "changelogDate": "20190716180126",
+    "changelogDate": "20190723101845",
     "dto": "mapstruct",
     "searchEngine": false,
     "service": "serviceImpl",

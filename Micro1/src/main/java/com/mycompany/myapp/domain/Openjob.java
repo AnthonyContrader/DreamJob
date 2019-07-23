@@ -1,5 +1,6 @@
 package com.mycompany.myapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
@@ -27,6 +28,10 @@ public class Openjob implements Serializable {
 
     @Column(name = "requisiti")
     private String requisiti;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private Company company;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -74,6 +79,19 @@ public class Openjob implements Serializable {
 
     public void setRequisiti(String requisiti) {
         this.requisiti = requisiti;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public Openjob company(Company company) {
+        this.company = company;
+        return this;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
