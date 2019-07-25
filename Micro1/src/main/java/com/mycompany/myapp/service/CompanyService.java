@@ -1,5 +1,6 @@
 package com.mycompany.myapp.service;
 
+
 import com.mycompany.myapp.service.dto.CompanyDTO;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public interface CompanyService {
      * @return the list of entities
      */
     List<CompanyDTO> findAll();
+    
 
 
     /**
