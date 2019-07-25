@@ -8,14 +8,10 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Candidato and its DTO CandidatoDTO.
  */
-@Mapper(componentModel = "spring", uses = {QuestionaryMapper.class})
+@Mapper(componentModel = "spring", uses = {})
 public interface CandidatoMapper extends EntityMapper<CandidatoDTO, Candidato> {
 
-    @Mapping(source = "candquest.id", target = "candquestId")
-    CandidatoDTO toDto(Candidato candidato);
 
-    @Mapping(source = "candquestId", target = "candquest")
-    Candidato toEntity(CandidatoDTO candidatoDTO);
 
     default Candidato fromId(Long id) {
         if (id == null) {

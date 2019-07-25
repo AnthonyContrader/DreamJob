@@ -40,10 +40,6 @@ public class Candidato implements Serializable {
     @Column(name = "experience")
     private String experience;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Questionary candquest;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -142,19 +138,6 @@ public class Candidato implements Serializable {
 
     public void setExperience(String experience) {
         this.experience = experience;
-    }
-
-    public Questionary getCandquest() {
-        return candquest;
-    }
-
-    public Candidato candquest(Questionary questionary) {
-        this.candquest = questionary;
-        return this;
-    }
-
-    public void setCandquest(Questionary questionary) {
-        this.candquest = questionary;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -24,8 +24,6 @@ public class CandidatoDTO implements Serializable {
 
     private String experience;
 
-    private Long candquestId;
-
     public Long getId() {
         return id;
     }
@@ -90,14 +88,6 @@ public class CandidatoDTO implements Serializable {
         this.experience = experience;
     }
 
-    public Long getCandquestId() {
-        return candquestId;
-    }
-
-    public void setCandquestId(Long questionaryId) {
-        this.candquestId = questionaryId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -130,7 +120,6 @@ public class CandidatoDTO implements Serializable {
             ", age=" + getAge() +
             ", tipolaurea='" + getTipolaurea() + "'" +
             ", experience='" + getExperience() + "'" +
-            ", candquest=" + getCandquestId() +
             "}";
     }
 }
