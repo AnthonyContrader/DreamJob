@@ -23,9 +23,9 @@ export abstract class AbstractCompanyService<DTO> implements Service<DTO> {
     }
 
     auth() {
-      const user = JSON.parse(localStorage.getItem('Autoken')) as UserDTO;
+      const user = JSON.parse(localStorage.getItem('autoken')) as UserDTO;
       if (user) {
-        console.log('Bearer ' + user.authorities);
+        console.log('Bearer user' + user.authorities);
         return 'Bearer ' + user.authorities;
       } else {
         return '';

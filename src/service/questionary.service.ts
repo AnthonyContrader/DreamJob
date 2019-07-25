@@ -28,7 +28,10 @@ export class QuestionaryService extends AbstractCandidatoService<QuestionaryDTO>
    }
 
   readQuestionary(id: number): Observable<any>{
-    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/questionaries' + id);
+    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/questionaries' + id, {
+      headers: {
+        Authorization: this.auth()
+      }
+    });
   }
-
 }

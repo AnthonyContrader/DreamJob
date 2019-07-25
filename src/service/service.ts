@@ -12,8 +12,6 @@ export interface Service<DTO> {
 
     read(id: number): Observable<DTO> ;
 
-   
-
     delete(id: number): Observable<any>;
 
     deleteUser(login: string): Observable<DTO> ;

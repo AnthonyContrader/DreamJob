@@ -28,7 +28,7 @@
               
             </th>
           </tr>
-          <tr *ngIf="candidato.id != ''">
+          <tr *ngIf="candidato.id != null">
             <td>
               <input [(ngModel)]="candidato.username">
             </td>

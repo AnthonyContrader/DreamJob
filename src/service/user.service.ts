@@ -4,7 +4,7 @@ import { UserDTO } from 'src/dto/userdto';
 import { HttpClient } from '@angular/common/http';
 import { LoginDTO } from 'src/dto/logindto';
 import { Observable } from 'rxjs';
-import { CandidatoDTO } from 'src/dto/candidatodto';
+
 
 /**
  * I service sono decorati da @Injectable. 
@@ -26,9 +26,10 @@ export class UserService extends AbstractService<UserDTO>{
   }
 
   auth() {
-    const user = JSON.parse(localStorage.getItem('currentUser')) as UserDTO;
+    const user = JSON.parse(localStorage.getItem('autoken')) as UserDTO;
     if (user) {
-      return 'Bearer ' + user.authorities;
+      console.log(user.authorities);
+      return 'Bearer  ' + user.authorities;
     } else {
       return '';
     }
@@ -55,4 +56,5 @@ export class UserService extends AbstractService<UserDTO>{
   activated(userdto: UserDTO): Observable<UserDTO> {
     return this.http.post<UserDTO>('http://localhost:8080/api/activate', userdto )
   };
+ 
 }

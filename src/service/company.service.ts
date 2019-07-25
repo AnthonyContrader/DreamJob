@@ -1,8 +1,8 @@
 import { CompanyDTO } from 'src/dto/companydto';
-import { AbstractCompanyService } from './abstractcompanyservices.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AbstractCompanyService } from './abstractcompanyservice.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class CompanyService extends AbstractCompanyService<CompanyDTO>{
  
   constructor(http: HttpClient) {
     super(http);
-    this.type = 'company';
+    this.type = 'companies';
     this.name= 'Micro1';
     this.port = '8080';
   }
@@ -27,7 +27,10 @@ export class CompanyService extends AbstractCompanyService<CompanyDTO>{
    }
 
   readCompany(id: number): Observable<any>{
-    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/companies' + id);
+    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/companies' + id, {
+      headers: {
+        Authorization : this.auth()
+      }
+    });
   }
-
 }

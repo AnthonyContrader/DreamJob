@@ -27,12 +27,12 @@ export class LoginComponent implements OnInit {
     this.loginDTO = new LoginDTO(f.value.username, f.value.password);
 
     this.service.login(this.loginDTO).subscribe((token : any) => {
-      localStorage.setItem("AUTOKEN", JSON.stringify({ "authorities": token.id_token }));
+      localStorage.setItem("autoken", JSON.stringify({ "authorities": token.id_token }));
       localStorage.setItem("currentUser", JSON.stringify({ "authorities": token.id_token }));
       this.service.userLogged(this.loginDTO.username).subscribe((user:UserDTO)=>{
 
         if (user != null) {
-          localStorage.setItem('AUTOKEN', JSON.stringify(user));
+          localStorage.setItem('currentUser', JSON.stringify(user));
           console.log(user.authorities);
           if(user.authorities == "ROLE_ADMIN" ) {
             this.router.navigate(['/admin-dashboard']);

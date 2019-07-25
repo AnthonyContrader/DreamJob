@@ -22,10 +22,7 @@ export class OpenjobCompanyComponent implements OnInit {
   getList() {
     this.service.getAll().subscribe(list => this.list = list);
   }
-  getallbycompany(company: any){
-    this.service.getallbycompany(company).subscribe(list => this.idCompany = list);
-
-  }
+ 
   readOpenjob(idCompany: number) {
     this.service.readOpenjob(idCompany).subscribe(list => this.list =list);
   }

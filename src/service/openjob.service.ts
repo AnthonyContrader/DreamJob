@@ -1,4 +1,4 @@
-import { AbstractCompanyService } from './abstractcompanyservices.service';
+import { AbstractCompanyService } from './abstractcompanyservice.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -11,7 +11,7 @@ export class OpenjobService extends AbstractCompanyService<OpenjobDTO>{
  
   constructor(http: HttpClient) {
     super(http);
-    this.type = 'openjob';
+    this.type = 'openjobs';
     this.name= 'Micro1';
     this.port = '8080';
   }
@@ -25,13 +25,13 @@ export class OpenjobService extends AbstractCompanyService<OpenjobDTO>{
        }
      });
    }
-   
-   getallbycompany(Company: any): Observable<any>{
-    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.type + '/getallbycompany?Company=' + Company);
-  }
+ 
 
   readOpenjob(id: number): Observable<any>{
-    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/openjobs' + id);
+    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/openjobs' + id, {
+      headers: {
+        Authorization: this.auth()
+      }
+    });
   }
-
 }

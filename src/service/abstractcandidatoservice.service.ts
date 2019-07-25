@@ -23,26 +23,15 @@ export abstract class AbstractCandidatoService<DTO> implements Service<DTO> {
     }
 
     auth() {
-      const user = JSON.parse(localStorage.getItem('Autoken')) as UserDTO;
+      const user = JSON.parse(localStorage.getItem('autoken')) as UserDTO;
       if (user) {
-        console.log('Bearer ' + user.authorities);
+        console.log('Bearer user' + user.authorities);
         return 'Bearer ' + user.authorities;
       } else {
         return '';
       }
   
     }
-
-    authCandidato() {
-        const candidato = JSON.parse(localStorage.getItem('Autoken')) as CandidatoDTO;
-        if (candidato) {
-          console.log('Bearer ' + candidato.id);
-          return 'Bearer ' + candidato.id;
-        } else {
-          return '';
-        }
-    
-      }
     
       getAllBy(id: number): Observable<DTO[]> {
         return this.http.get<DTO[]>('http://localhost:' + this.port + '/' + this.type + id, {

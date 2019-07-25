@@ -13,12 +13,12 @@ export class CandidatoService extends AbstractCandidatoService<CandidatoDTO>{
 
   constructor(http: HttpClient) {
     super(http);
-    this.type = 'candidato';
+    this.type = 'candidatoes';
     this.name= 'Micro2';
     this.port = '8080';
   }
   userLogged(username: string) {
-    // console.log('qua: ', this.auth());
+     console.log('qua: ', this.auth());
      console.log(this.auth());
      return this.http.get('http://localhost:8080/api/users/' + username, {
        headers: {
@@ -28,7 +28,10 @@ export class CandidatoService extends AbstractCandidatoService<CandidatoDTO>{
    }
 
   readCandidato(id: number): Observable<any>{
-    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/candidatoes' + id);
+    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/candidatoes' + id, {
+      headers: {
+        Authorization: this.auth()
+      }
+    });
   }
-
 }
