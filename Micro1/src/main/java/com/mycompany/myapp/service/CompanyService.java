@@ -26,6 +26,7 @@ public interface CompanyService {
      */
     List<CompanyDTO> findAll();
     
+    
 
 
     /**
@@ -35,6 +36,8 @@ public interface CompanyService {
      * @return the entity
      */
     Optional<CompanyDTO> findOne(Long id);
+    List<CompanyDTO> findById(Integer id);
+   
 
     /**
      * Delete the "id" company.
