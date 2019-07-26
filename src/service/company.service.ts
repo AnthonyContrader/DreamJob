@@ -26,8 +26,10 @@ export class CompanyService extends AbstractCompanyService<CompanyDTO>{
      });
    }
 
+
+
   readCompany(id: number): Observable<any>{
-    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/companies' + id, {
+    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/' + this.type  + '/'+ id, {
       headers: {
         Authorization : this.auth()
       }

@@ -12,8 +12,8 @@ export class CompanyDashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.company = JSON.parse(localStorage.getItem('currentCompany'));
-
-
+    this.company = JSON.parse(localStorage.getItem('currentUser'));
+    
+    
   }
 }

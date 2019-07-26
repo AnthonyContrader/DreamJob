@@ -28,7 +28,7 @@ export class CandidatoService extends AbstractCandidatoService<CandidatoDTO>{
    }
 
   readCandidato(id: number): Observable<any>{
-    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/candidatoes' + id, {
+    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/' + this.type + '/' + id, {
       headers: {
         Authorization: this.auth()
       }

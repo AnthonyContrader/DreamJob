@@ -11,7 +11,7 @@ export class CandidatoDashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.candidato = JSON.parse(localStorage.getItem('currentCandidato'));
+    this.candidato = JSON.parse(localStorage.getItem('currentUser'));
 
 
   }

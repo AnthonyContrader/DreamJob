@@ -11,15 +11,18 @@ export class ProfiloCompanyComponent implements OnInit {
   company: CompanyDTO;
   companytoinsert: CompanyDTO = new CompanyDTO();
   id: number;
+  username: String;
+ 
   
 
   constructor(private service: CompanyService) { }
 
   ngOnInit() {
-    this.readCompany(this.id);
+    this.company = JSON.parse(localStorage.getItem('currentUser'));
+    this.readCompany(this.company.id);
   }
 
-  readCompany(id: number) {
+  readCompany(id:number) {
     this.service.readCompany(id).subscribe(company => this.company = company);
   }
 

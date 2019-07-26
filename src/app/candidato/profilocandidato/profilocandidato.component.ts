@@ -17,7 +17,8 @@ export class ProfilocandidatoComponent implements OnInit {
   constructor(private service: CandidatoService) { }
 
   ngOnInit() {
-    this.readCandidato(this.id);
+    this.candidato = JSON.parse(localStorage.getItem('currentUser'));
+    this.readCandidato(this.candidato.id);
   }
 
   readCandidato(id: number) {

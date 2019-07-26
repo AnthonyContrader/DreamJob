@@ -32,15 +32,10 @@ export abstract class AbstractCompanyService<DTO> implements Service<DTO> {
       }
   
     }
-
+ 
   
-      getAllBy(id: number): Observable<DTO[]> {
-        return this.http.get<DTO[]>('http://localhost:' + this.port + '/' + this.type + id, {
-          headers: {
-            Authorization : this.auth()
-          }
-        });
-      }
+     
+
       getAll(): Observable<DTO[]> {
         return this.http.get<DTO[]>('http://localhost:' + this.port + '/' + this.name +'/' + 'api' + '/' + this.type , {
           headers: {
