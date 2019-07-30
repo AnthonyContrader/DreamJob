@@ -27,8 +27,8 @@ export class OpenjobService extends AbstractCompanyService<OpenjobDTO>{
    }
  
 
-  readOpenjob(id: number): Observable<any>{
-    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/openjobs' + id, {
+  readOpenjob(companyId: number): Observable<any>{
+    return this.http.get<any[]>('http://localhost:' + this.port + '/' + this.name + '/' + 'api' + '/' + this.type + '/' + companyId, {
       headers: {
         Authorization: this.auth()
       }

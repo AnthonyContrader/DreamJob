@@ -10,14 +10,14 @@ import { OpenjobService } from 'src/service/openjob.service';
 export class OpenjobCompanyComponent implements OnInit {
   list: OpenjobDTO[];
   openjobtoinsert: OpenjobDTO = new OpenjobDTO();
-  idCompany: number;
+  companyId: number;
 
   constructor(private service: OpenjobService) { }
 
   ngOnInit() {
     this.getList();
-    this.idCompany= JSON.parse(localStorage.getItem("idCompany"));
-    this.readOpenjob(this.idCompany);
+    //this.companyId= JSON.parse(localStorage.getItem("companyId"));
+    //this.readOpenjob(this.companyId);
   }
   getList() {
     this.service.getAll().subscribe(list => this.list = list);
@@ -27,8 +27,8 @@ export class OpenjobCompanyComponent implements OnInit {
     this.service.insert(openjob).subscribe(()=> this.list);
   }
 
-  readOpenjob(idCompany: number) {
-    this.service.readOpenjob(idCompany).subscribe(list => this.list =list);
+  readOpenjob(companyId: number) {
+    this.service.readOpenjob(companyId).subscribe(list => this.list =list);
   }
 
   delete(openjob: OpenjobDTO) {
