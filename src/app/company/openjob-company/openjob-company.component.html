@@ -15,6 +15,9 @@
             <th>
               Requisiti
             </th>
+            <th>
+              Company_ID
+            </th>
             <th colspan="2">
             </th>
           </tr>
@@ -27,6 +30,9 @@
             </td>
             <td>
               <input placeholder="requisiti" [(ngModel)]="openjobtoinsert.requisiti">
+            </td>
+            <td>
+              <input placeholder="companyId" [(ngModel)]="openjobtoinsert.companyId">
             </td>
             <td>
               <button class="bottoni"(click)="insert(openjobtoinsert)">Insert</button>
@@ -44,7 +50,10 @@
             </td>
             <td>
                 <input [(ngModel)]="openjob.requisiti">
-              </td>           
+              </td>  
+              <td>
+                <input [(ngModel)]="openjob.companyId">
+              </td>          
             <td>
               <button class="bottoni" (click)=update(openjob)>Modifica</button>
             </td>

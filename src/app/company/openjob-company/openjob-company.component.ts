@@ -23,6 +23,10 @@ export class OpenjobCompanyComponent implements OnInit {
     this.service.getAll().subscribe(list => this.list = list);
   }
  
+  insert(openjob: OpenjobDTO) {
+    this.service.insert(openjob).subscribe(()=> this.list);
+  }
+
   readOpenjob(idCompany: number) {
     this.service.readOpenjob(idCompany).subscribe(list => this.list =list);
   }
